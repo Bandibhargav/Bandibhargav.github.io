@@ -5,102 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bhargav's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <style>
+        /* Dark Theme with Neon Accents */
         body {
-            background-color: #121212;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            transition: all 0.3s ease-in-out;
-        }
-        header {
-            background-color: black;
-            padding: 20px;
-        }
-        nav ul {
-            list-style: none;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
-        nav ul li {
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links li {
             display: inline;
-            margin: 0 15px;
         }
-        nav ul li a {
-            color: red;
+        .nav-links a {
             text-decoration: none;
+            color: #ffcc00;
             font-weight: bold;
             transition: color 0.3s;
         }
-        nav ul li a:hover {
-            color: white;
+        .nav-links a:hover {
+            color: #ff004f;
         }
+        .container {
+            width: 90%;
+            margin: auto;
+            padding-top: 80px;
+        }
+        /* Sections Styling */
         section {
+            padding: 80px 50px;
+            text-align: center;
+        }
+        .content-section {
+            background: #1a1a1a;
+            color: #ffcc00;
             padding: 50px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease-in-out forwards;
+            margin: 20px auto;
+            border-radius: 10px;
+            width: 90%;
         }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .about-text {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1.6;
         }
+        /* Skills Section */
+        .skill-container {
+            text-align: left;
+            width: 80%;
+            margin: auto;
+        }
+        .skill {
+            margin: 20px 0;
+        }
+        .skill-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .skill-bar {
+            height: 20px;
+            width: 100%;
+            background: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        .skill-fill {
+            height: 100%;
+            text-align: right;
+            padding-right: 10px;
+            line-height: 20px;
+            font-size: 14px;
+            color: #fff;
+        }
+        .c { background: #ff0000; width: 80%; }
+        .java { background: #ff7300; width: 75%; }
+        .python { background: #fdd835; width: 85%; }
+        .html { background: #ff9800; width: 90%; }
+        .css { background: #2196f3; width: 85%; }
+        .js { background: #fbc02d; width: 80%; }
+        /* Footer */
         footer {
-            background-color: black;
-            padding: 10px;
+            text-align: center;
+            padding: 20px;
+            background: #111;
+            color: #fff;
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Bandi bhargav chowdary</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a student passionate about programming and web development. I specialize in C, Java, Python, HTML, CSS, and JavaScript.</p>
-    </section>
-    
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>C</li>
-            <li>Java</li>
-            <li>Python</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Bhargav Chowdary</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#internships">Internships</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
         </ul>
-    </section>
+    </nav>
+
+    <div class="container">
+        <!-- About Me Section -->
+        <section id="about" class="content-section" data-aos="fade-up">
+            <h2>About Me</h2>
+            <p class="about-text">I am Bhargav, a dedicated and passionate full-stack developer with expertise in multiple programming languages, including C, Java, Python, HTML, CSS, and JavaScript. I have a keen interest in web development and software engineering, and I enjoy building interactive, high-performing applications. My goal is to continuously learn and improve, keeping up with the latest technologies to create innovative solutions.</p>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="content-section" data-aos="fade-up">
+            <h2>Certifications</h2>
+            <p>List of certifications with details.</p>
+        </section>
+
+        <!-- Internships Section -->
+        <section id="internships" class="content-section" data-aos="fade-up">
+            <h2>Internships</h2>
+            <p>Details about past internships.</p>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="content-section" data-aos="fade-up">
+            <h2>Projects</h2>
+            <p>Description of major projects.</p>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="content-section" data-aos="fade-up">
+            <h2>Education</h2>
+            <p>Details about academic background.</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="content-section" data-aos="fade-up">
+            <h2>My Skills</h2>
+            <div class="skill-container">
+                <div class="skill"><span class="skill-name">C</span><div class="skill-bar"><div class="skill-fill c">80%</div></div></div>
+                <div class="skill"><span class="skill-name">Java</span><div class="skill-bar"><div class="skill-fill java">75%</div></div></div>
+                <div class="skill"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill python">85%</div></div></div>
+                <div class="skill"><span class="skill-name">HTML</span><div class="skill-bar"><div class="skill-fill html">90%</div></div></div>
+                <div class="skill"><span class="skill-name">CSS</span><div class="skill-bar"><div class="skill-fill css">85%</div></div></div>
+                <div class="skill"><span class="skill-name">JavaScript</span><div class="skill-bar"><div class="skill-fill js">80%</div></div></div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Bhargav. All Rights Reserved.</p>
+        </footer>
+    </div>
     
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Coming soon...</p>
-    </section>
-    
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:bhargavchowdary1221@gmail.com">bhargavchowdary1221@gmail.com</a></p>
-        <p>Phone: 9491669919</p>
-    </section>
-    
-    <footer>
-        <p>&copy; 2025 Bhargav. All rights reserved.</p>
-    </footer>
+    <script>
+        AOS.init();
+        gsap.from(".navbar", { duration: 1, y: -100, opacity: 0, ease: "power3.out" });
+    </script>
 </body>
 </html>
