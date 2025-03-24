@@ -265,6 +265,37 @@
             transition: width 1s ease;
         }
 
+        /* Certifications Section */
+        .certifications-container {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .certification {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .certification:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(30, 144, 255, 0.2);
+        }
+
+        .certification h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .certification p {
+            color: var(--text-secondary);
+        }
+
         /* Projects Grid */
         .projects-grid {
             display: grid;
@@ -460,9 +491,7 @@
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#internships">Internships</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
             <li><a href="#skills">Skills</a></li>
         </ul>
     </nav>
@@ -483,11 +512,11 @@
     <section id="about" class="content-section" data-aos="fade-up">
         <h2>About Me</h2>
         <div class="about-content">
-            <div class="about-text">
+            <div class="about-text" data-aos="fade-right">
                 <p>I am Bhargav, a dedicated and passionate full-stack developer with expertise in multiple programming languages. My journey in tech has been driven by curiosity and a desire to create impactful solutions.</p>
                 <p>Specializing in web development and software engineering, I bring ideas to life through clean code and intuitive design.</p>
             </div>
-            <div class="tech-stack">
+            <div class="tech-stack" data-aos="fade-left">
                 <h3>Tech Stack</h3>
                 <div class="tech-icons">
                     <!-- JavaScript -->
@@ -529,123 +558,130 @@
             </div>
         </div>
     </section>
+    <!-- Certifications Section -->
+    <section id="certifications" class="content-section" data-aos="fade-up">
+        <h2>Certifications</h2>
+        <div class="certifications-container">
+            <!-- Codeforces Certification -->
+            <div class="certification" data-aos="fade-right">
+                <h3>Codeforces Certified Solver</h3>
+                <p>Solved over 500 difficulty-rated problems on Codeforces, demonstrating strong problem-solving and algorithmic skills.</p>
+            </div>
+            <!-- Coursera Certification -->
+            <div class="certification" data-aos="fade-up">
+                <h3>Coursera Certified Python Programmer</h3>
+                <p>Completed the Python for Everybody specialization, mastering Python programming and its applications in data analysis and web development.</p>
+            </div>
+            <!-- CodeChef Certification -->
+            <div class="certification" data-aos="fade-left">
+                <h3>CodeChef Certified Problem Solver</h3>
+                <p>Achieved a high rank on CodeChef by solving complex algorithmic challenges, showcasing expertise in competitive programming.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Skills Section -->
     <section id="skills" class="content-section" data-aos="fade-up">
         <h2>Skills</h2>
-        <!-- Skills Section -->
-<section id="skills" class="content-section" data-aos="fade-up">
-    <h2>Skills</h2>
-    <div class="skills-container">
-        <!-- JavaScript -->
-        <div class="skill">
-            <div class="skill-header">
-                <span class="skill-name">JavaScript</span>
-                <span class="skill-percentage">90%</span>
+        <div class="skills-container">
+            <!-- JavaScript -->
+            <div class="skill" data-aos="fade-right">
+                <div class="skill-header">
+                    <span class="skill-name">JavaScript</span>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                </div>
             </div>
-            <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
+            <!-- Python -->
+            <div class="skill" data-aos="fade-left">
+                <div class="skill-header">
+                    <span class="skill-name">Python</span>
+                    <span class="skill-percentage">85%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                </div>
             </div>
-        </div>
-        <!-- Python -->
-        <div class="skill">
-            <div class="skill-header">
-                <span class="skill-name">Python</span>
-                <span class="skill-percentage">85%</span>
+            <!-- React -->
+            <div class="skill" data-aos="fade-right">
+                <div class="skill-header">
+                    <span class="skill-name">React</span>
+                    <span class="skill-percentage">80%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%"></div>
+                </div>
             </div>
-            <div class="skill-bar">
-                <div class="skill-progress" style="width: 85%"></div>
+            <!-- C -->
+            <div class="skill" data-aos="fade-left">
+                <div class="skill-header">
+                    <span class="skill-name">C</span>
+                    <span class="skill-percentage">75%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 75%"></div>
+                </div>
             </div>
-        </div>
-        <!-- React -->
-        <div class="skill">
-            <div class="skill-header">
-                <span class="skill-name">React</span>
-                <span class="skill-percentage">80%</span>
+            <!-- Java -->
+            <div class="skill" data-aos="fade-right">
+                <div class="skill-header">
+                    <span class="skill-name">Java</span>
+                    <span class="skill-percentage">80%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%"></div>
+                </div>
             </div>
-            <div class="skill-bar">
-                <div class="skill-progress" style="width: 80%"></div>
+            <!-- HTML -->
+            <div class="skill" data-aos="fade-left">
+                <div class="skill-header">
+                    <span class="skill-name">HTML</span>
+                    <span class="skill-percentage">95%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 95%"></div>
+                </div>
             </div>
-        </div>
-        <!-- C -->
-        <div class="skill">
-            <div class="skill-header">
-                <span class="skill-name">C</span>
-                <span class="skill-percentage">75%</span>
+            <!-- CSS -->
+            <div class="skill" data-aos="fade-right">
+                <div class="skill-header">
+                    <span class="skill-name">CSS</span>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                </div>
             </div>
-            <div class="skill-bar">
-                <div class="skill-progress" style="width: 75%"></div>
+            <!-- Node.js -->
+            <div class="skill" data-aos="fade-left">
+                <div class="skill-header">
+                    <span class="skill-name">Node.js</span>
+                    <span class="skill-percentage">70%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 70%"></div>
+                </div>
             </div>
-        </div>
-        <!-- Java -->
-        <div class="skill">
-            <div class="skill-header">
-                <span class="skill-name">Java</span>
-                <span class="skill-percentage">80%</span>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-progress" style="width: 80%"></div>
-            </div>
-        </div>
-        <!-- HTML -->
-        <div class="skill">
-            <div class="skill-header">
-                <span class="skill-name">HTML</span>
-                <span class="skill-percentage">95%</span>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-progress" style="width: 95%"></div>
-            </div>
-        </div>
-        <!-- CSS -->
-        <div class="skill">
-            <div class="skill-header">
-                <span class="skill-name">CSS</span>
-                <span class="skill-percentage">90%</span>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
-            </div>
-        </div>
-        <!-- Node.js -->
-        <div class="skill">
-            <div class="skill-header">
-                <span class="skill-name">Node.js</span>
-                <span class="skill-percentage">70%</span>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-progress" style="width: 70%"></div>
-            </div>
-        </div>
-        <!-- MongoDB -->
-        <div class="skill">
-            <div class="skill-header">
-                <span class="skill-name">MongoDB</span>
-                <span class="skill-percentage">65%</span>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-progress" style="width: 65%"></div>
+            <!-- MongoDB -->
+            <div class="skill" data-aos="fade-right">
+                <div class="skill-header">
+                    <span class="skill-name">MongoDB</span>
+                    <span class="skill-percentage">65%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 65%"></div>
+                </div>
             </div>
         </div>
-        <!-- Flutter -->
-        <div class="skill">
-            <div class="skill-header">
-                <span class="skill-name">Flutter</span>
-                <span class="skill-percentage">60%</span>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-progress" style="width: 60%"></div>
-            </div>
-        </div>
-    </div>
-</section>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="content-section" data-aos="fade-up">
         <h2>Featured Projects</h2>
         <div class="projects-grid">
-            <div class="project-card">
+            <div class="project-card" data-aos="fade-right">
                 <div class="project-content">
                     <h3>Project One</h3>
                     <p>A revolutionary web application built with modern technologies.</p>
@@ -656,7 +692,7 @@
                     </div>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" data-aos="fade-left">
                 <div class="project-content">
                     <h3>Project Two</h3>
                     <p>An innovative mobile-first solution for everyday problems.</p>
@@ -787,3 +823,4 @@
 </body>
 
 </html>
+    
