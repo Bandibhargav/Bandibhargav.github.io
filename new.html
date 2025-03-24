@@ -296,6 +296,37 @@
             color: var(--text-secondary);
         }
 
+        /* Education Section */
+        .education-container {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(30, 144, 255, 0.2);
+        }
+
+        .education-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .education-item p {
+            color: var(--text-secondary);
+        }
+
         /* Projects Grid */
         .projects-grid {
             display: grid;
@@ -370,6 +401,21 @@
             color: var(--primary);
         }
 
+        .footer-contact {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-contact a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
         /* Animations */
         @keyframes glitch {
             0% {
@@ -416,6 +462,18 @@
 
             .nav-links {
                 display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--surface);
+                padding: 1rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
             }
 
             .menu-btn {
@@ -491,8 +549,10 @@
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact Me</a></li>
         </ul>
     </nav>
 
@@ -558,6 +618,7 @@
             </div>
         </div>
     </section>
+
     <!-- Certifications Section -->
     <section id="certifications" class="content-section" data-aos="fade-up">
         <h2>Certifications</h2>
@@ -576,6 +637,28 @@
             <div class="certification" data-aos="fade-left">
                 <h3>CodeChef Certified Problem Solver</h3>
                 <p>Achieved a high rank on CodeChef by solving complex algorithmic challenges, showcasing expertise in competitive programming.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="content-section" data-aos="fade-up">
+        <h2>Education</h2>
+        <div class="education-container">
+            <!-- SSC -->
+            <div class="education-item" data-aos="fade-right">
+                <h3>SSC - Sasi Educational Institutions</h3>
+                <p>Percentage: 99%</p>
+            </div>
+            <!-- Intermediate -->
+            <div class="education-item" data-aos="fade-up">
+                <h3>Intermediate - Narayana Junior College</h3>
+                <p>Percentage: 85%</p>
+            </div>
+            <!-- BTech -->
+            <div class="education-item" data-aos="fade-left">
+                <h3>BTech - Sasi Institute of Technology and Engineering</h3>
+                <p>Currently Pursuing</p>
             </div>
         </div>
     </section>
@@ -706,13 +789,29 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="content-section" data-aos="fade-up">
+        <h2>Contact Me</h2>
+        <div class="contact-container">
+            <p>Feel free to reach out to me for collaborations, opportunities, or just a friendly chat!</p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:bhargav@example.com">bhargavchowdary1221@gmail.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+1234567890">9491669919</a></p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-social">
-                <a href="https://github.com" target="_blank" class="social-link">GitHub</a>
+                <a href="https://github.com/Bandibhargav" target="_blank" class="social-link">GitHub</a>
                 <a href="https://linkedin.com" target="_blank" class="social-link">LinkedIn</a>
-                <a href="mailto:contact@example.com" class="social-link">Email</a>
+                <a href="bhargavchowdary1221@gmail.com" class="social-link">Email</a>
+            </div>
+            <div class="footer-contact">
+                <p><strong>Phone:</strong> <a href="tel:+1234567890">9491669919</a></p>
+                <p><strong>Email:</strong> <a href="bhargavchowdary1221@gmail.com">bhargavchowdary1221@gmail.com</a></p>
             </div>
             <p>&copy; 2025 Bhargav. All Rights Reserved.</p>
         </div>
@@ -823,4 +922,3 @@
 </body>
 
 </html>
-    
