@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster Pro - Complete Learning Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f0f9ff, #e0e7ff, #f3e8ff);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #e5e7eb;
+            color: #374151;
+        }
+
+        .btn-outline:hover {
+            background: #f9fafb;
+            border-color: #3b82f6;
+        }
+
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #059669;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-muted {
+            color: #6b7280;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 0.5rem;
+            background: #e5e7eb;
+            border-radius: 0.25rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+
+        .quiz-option {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-option:hover {
+            border-color: #3b82f6;
+        }
+
+        .quiz-option.selected {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+
+        .quiz-option.correct {
+            border-color: #10b981;
+            background: #ecfdf5;
+        }
+
+        .quiz-option.incorrect {
+            border-color: #ef4444;
+            background: #fef2f2;
+        }
+
+        .timer {
+            font-family: 'Courier New', monospace;
+            font-size: 1.25rem;
+            font-weight: bold;
+            background: #f9fafb;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .stats-card {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-card.green {
+            background: linear-gradient(135deg, #10b981, #047857);
+        }
+
+        .stats-card.purple {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        .stats-card.orange {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        .hero-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .grid-4 {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Content will be dynamically generated here -->
+    </div>
+
+    <script>
+        // Quiz Data - Expanded to 50 questions per module
+        const quizData = {
+            'general-knowledge': {
+                id: 'general-knowledge',
+                title: 'General Knowledge & Current Affairs',
+                description: 'Test your awareness of world events, science, technology, and general information',
+                icon: '🌍',
+                color: 'from-blue-500 to-blue-600',
+                questions: [
+                    // First 10 original questions
+                    { id: "gk1", question: "Which country is known as the 'Land of the Rising Sun'?", options: ["China", "Japan", "South Korea", "Thailand"], correctAnswer: 1, category: "World Geography" },
+                    { id: "gk2", question: "Who invented the World Wide Web?", options: ["Steve Jobs", "Bill Gates", "Tim Berners-Lee", "Mark Zuckerberg"], correctAnswer: 2, category: "Technology" },
+                    { id: "gk3", question: "What is the largest planet in our solar system?", options: ["Saturn", "Jupiter", "Neptune", "Earth"], correctAnswer: 1, category: "Science" },
+                    { id: "gk4", question: "Which of these is a renewable source of energy?", options: ["Coal", "Natural Gas", "Solar Power", "Nuclear Power"], correctAnswer: 2, category: "Environment" },
+                    { id: "gk5", question: "Who wrote the novel 'To Kill a Mockingbird'?", options: ["Harper Lee", "J.K. Rowling", "George Orwell", "Mark Twain"], correctAnswer: 0, category: "Literature" },
+                    { id: "gk6", question: "What is the capital of Australia?", options: ["Sydney", "Melbourne", "Canberra", "Perth"], correctAnswer: 2, category: "Geography" },
+                    { id: "gk7", question: "Which social media platform was founded by Mark Zuckerberg?", options: ["Twitter", "Instagram", "LinkedIn", "Facebook"], correctAnswer: 3, category: "Technology" },
+                    { id: "gk8", question: "What does 'AI' stand for in technology?", options: ["Automatic Intelligence", "Artificial Intelligence", "Advanced Integration", "Adaptive Interface"], correctAnswer: 1, category: "Technology" },
+                    { id: "gk9", question: "Which country hosted the 2022 FIFA World Cup?", options: ["Russia", "Brazil", "Qatar", "Germany"], correctAnswer: 2, category: "Sports" },
+                    { id: "gk10", question: "What is the process by which plants make their own food?", options: ["Respiration", "Photosynthesis", "Digestion", "Fermentation"], correctAnswer: 1, category: "Science" },
+                    
+                    // Additional 40 questions
+                    { id: "gk11", question: "Which element has the chemical symbol 'Au'?", options: ["Silver", "Gold", "Aluminum", "Argon"], correctAnswer: 1, category: "Science" },
+                    { id: "gk12", question: "Who painted the Mona Lisa?", options: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"], correctAnswer: 2, category: "Art" },
+                    { id: "gk13", question: "What is the smallest country in the world?", options: ["Monaco", "Vatican City", "San Marino", "Liechtenstein"], correctAnswer: 1, category: "Geography" },
+                    { id: "gk14", question: "Which ocean is the largest?", options: ["Atlantic", "Indian", "Arctic", "Pacific"], correctAnswer: 3, category: "Geography" },
+                    { id: "gk15", question: "Who developed the theory of relativity?", options: ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Stephen Hawking"], correctAnswer: 1, category: "Science" },
+                    { id: "gk16", question: "What is the hardest natural substance on Earth?", options: ["Quartz", "Diamond", "Steel", "Titanium"], correctAnswer: 1, category: "Science" },
+                    { id: "gk17", question: "Which planet is known as the Red Planet?", options: ["Venus", "Mars", "Jupiter", "Saturn"], correctAnswer: 1, category: "Science" },
+                    { id: "gk18", question: "Who wrote '1984'?", options: ["Aldous Huxley", "Ray Bradbury", "George Orwell", "H.G. Wells"], correctAnswer: 2, category: "Literature" },
+                    { id: "gk19", question: "What is the currency of Japan?", options: ["Yuan", "Won", "Yen", "Rupee"], correctAnswer: 2, category: "Geography" },
+                    { id: "gk20", question: "Which gas makes up about 78% of Earth's atmosphere?", options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Argon"], correctAnswer: 2, category: "Science" },
+                    { id: "gk21", question: "Who is known as the 'Father of Computer Science'?", options: ["Bill Gates", "Steve Jobs", "Alan Turing", "Charles Babbage"], correctAnswer: 2, category: "Technology" },
+                    { id: "gk22", question: "Which river is the longest in the world?", options: ["Amazon", "Nile", "Yangtze", "Mississippi"], correctAnswer: 1, category: "Geography" },
+                    { id: "gk23", question: "What does 'HTTP' stand for?", options: ["HyperText Transfer Protocol", "High Tech Transfer Process", "Home Text Transfer Protocol", "HyperText Technical Process"], correctAnswer: 0, category: "Technology" },
+                    { id: "gk24", question: "Which vitamin is produced when skin is exposed to sunlight?", options: ["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D"], correctAnswer: 3, category: "Health" },
+                    { id: "gk25", question: "What is the largest mammal in the world?", options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"], correctAnswer: 1, category: "Biology" },
+                    { id: "gk26", question: "Which year did World War II end?", options: ["1944", "1945", "1946", "1947"], correctAnswer: 1, category: "History" },
+                    { id: "gk27", question: "What is the speed of light?", options: ["300,000 km/s", "150,000 km/s", "450,000 km/s", "600,000 km/s"], correctAnswer: 0, category: "Physics" },
+                    { id: "gk28", question: "Which continent has the most countries?", options: ["Asia", "Europe", "Africa", "South America"], correctAnswer: 2, category: "Geography" },
+                    { id: "gk29", question: "Who invented the telephone?", options: ["Thomas Edison", "Alexander Graham Bell", "Nikola Tesla", "Benjamin Franklin"], correctAnswer: 1, category: "Technology" },
+                    { id: "gk30", question: "What is the most abundant gas in the universe?", options: ["Oxygen", "Helium", "Hydrogen", "Carbon"], correctAnswer: 2, category: "Astronomy" },
+                    { id: "gk31", question: "Which organ in the human body produces insulin?", options: ["Liver", "Kidney", "Pancreas", "Heart"], correctAnswer: 2, category: "Biology" },
+                    { id: "gk32", question: "What is the largest desert in the world?", options: ["Sahara", "Gobi", "Kalahari", "Antarctica"], correctAnswer: 3, category: "Geography" },
+                    { id: "gk33", question: "Who composed 'The Four Seasons'?", options: ["Mozart", "Bach", "Vivaldi", "Beethoven"], correctAnswer: 2, category: "Music" },
+                    { id: "gk34", question: "What does 'DNA' stand for?", options: ["Deoxyribonucleic Acid", "Dynamic Nuclear Acid", "Double Nuclear Acid", "Deoxyribose Nucleic Acid"], correctAnswer: 0, category: "Biology" },
+                    { id: "gk35", question: "Which mountain range contains Mount Everest?", options: ["Alps", "Andes", "Himalayas", "Rockies"], correctAnswer: 2, category: "Geography" },
+                    { id: "gk36", question: "What is the most spoken language in the world?", options: ["English", "Spanish", "Mandarin Chinese", "Hindi"], correctAnswer: 2, category: "Languages" },
+                    { id: "gk37", question: "Which scientist discovered penicillin?", options: ["Marie Curie", "Alexander Fleming", "Louis Pasteur", "Joseph Lister"], correctAnswer: 1, category: "Medicine" },
+                    { id: "gk38", question: "What is the largest organ in the human body?", options: ["Brain", "Liver", "Lungs", "Skin"], correctAnswer: 3, category: "Biology" },
+                    { id: "gk39", question: "Which programming language was created by Guido van Rossum?", options: ["Java", "Python", "C++", "JavaScript"], correctAnswer: 1, category: "Technology" },
+                    { id: "gk40", question: "What is the deepest ocean trench?", options: ["Puerto Rico Trench", "Java Trench", "Mariana Trench", "Peru-Chile Trench"], correctAnswer: 2, category: "Geography" },
+                    { id: "gk41", question: "Who wrote 'Pride and Prejudice'?", options: ["Charlotte Brontë", "Emily Dickinson", "Jane Austen", "Virginia Woolf"], correctAnswer: 2, category: "Literature" },
+                    { id: "gk42", question: "What is the boiling point of water at sea level?", options: ["90°C", "95°C", "100°C", "105°C"], correctAnswer: 2, category: "Science" },
+                    { id: "gk43", question: "Which planet has the most moons?", options: ["Jupiter", "Saturn", "Neptune", "Uranus"], correctAnswer: 1, category: "Astronomy" },
+                    { id: "gk44", question: "What does 'www' stand for?", options: ["World Wide Web", "World Wide Wire", "World Web Wide", "Wide World Web"], correctAnswer: 0, category: "Technology" },
+                    { id: "gk45", question: "Which blood type is known as the universal donor?", options: ["A", "B", "AB", "O"], correctAnswer: 3, category: "Medicine" },
+                    { id: "gk46", question: "What is the capital of Canada?", options: ["Toronto", "Vancouver", "Montreal", "Ottawa"], correctAnswer: 3, category: "Geography" },
+                    { id: "gk47", question: "Who painted 'The Starry Night'?", options: ["Pablo Picasso", "Vincent van Gogh", "Claude Monet", "Salvador Dalí"], correctAnswer: 1, category: "Art" },
+                    { id: "gk48", question: "What is the smallest unit of matter?", options: ["Molecule", "Atom", "Electron", "Proton"], correctAnswer: 1, category: "Chemistry" },
+                    { id: "gk49", question: "Which social media platform uses hashtags?", options: ["Facebook", "LinkedIn", "Twitter", "All of the above"], correctAnswer: 3, category: "Technology" },
+                    { id: "gk50", question: "What is the most abundant element in Earth's crust?", options: ["Iron", "Silicon", "Aluminum", "Oxygen"], correctAnswer: 3, category: "Chemistry" }
+                ]
+            },
+            'logical-reasoning': {
+                id: 'logical-reasoning',
+                title: 'Logical Reasoning & Aptitude',
+                description: 'Challenge your analytical thinking and problem-solving abilities',
+                icon: '🧠',
+                color: 'from-purple-500 to-purple-600',
+                questions: [
+                    // First 10 original questions
+                    { id: "lr1", question: "If all roses are flowers, and some flowers are red, which statement is definitely true?", options: ["All roses are red", "Some roses are red", "No roses are red", "All flowers are roses"], correctAnswer: 1, category: "Logic" },
+                    { id: "lr2", question: "What comes next in the sequence: 2, 6, 18, 54, ?", options: ["108", "162", "216", "270"], correctAnswer: 1, category: "Number Series" },
+                    { id: "lr3", question: "If you're facing north and turn 90° clockwise, then 180°, which direction are you facing?", options: ["North", "South", "East", "West"], correctAnswer: 3, category: "Spatial Reasoning" },
+                    { id: "lr4", question: "In a certain code, 'BIRD' is written as 'CKSE'. How is 'FISH' written?", options: ["GJTI", "GKUJ", "HKTI", "GJUK"], correctAnswer: 0, category: "Coding" },
+                    { id: "lr5", question: "If today is Wednesday, what day will it be after 100 days?", options: ["Monday", "Tuesday", "Wednesday", "Thursday"], correctAnswer: 2, category: "Calendar" },
+                    { id: "lr6", question: "Which number doesn't belong: 8, 27, 64, 125, 200?", options: ["8", "27", "125", "200"], correctAnswer: 3, category: "Pattern Recognition" },
+                    { id: "lr7", question: "If A = 1, B = 2, C = 3... what is the sum of letters in 'QUIZ'?", options: ["64", "67", "70", "73"], correctAnswer: 1, category: "Alphanumeric" },
+                    { id: "lr8", question: "A clock shows 3:15. What is the angle between hour and minute hands?", options: ["0°", "7.5°", "15°", "22.5°"], correctAnswer: 1, category: "Time & Angles" },
+                    { id: "lr9", question: "If 5 machines make 5 widgets in 5 minutes, how many machines are needed to make 100 widgets in 100 minutes?", options: ["5", "20", "25", "100"], correctAnswer: 0, category: "Problem Solving" },
+                    { id: "lr10", question: "What is the missing number: 1, 4, 9, 16, ?, 36", options: ["20", "23", "25", "30"], correctAnswer: 2, category: "Number Series" },
+                    
+                    // Additional 40 questions
+                    { id: "lr11", question: "If all cats are animals, and some animals are pets, which is true?", options: ["All cats are pets", "Some cats might be pets", "No cats are pets", "All pets are cats"], correctAnswer: 1, category: "Logic" },
+                    { id: "lr12", question: "What comes next: 3, 6, 12, 24, ?", options: ["36", "48", "60", "72"], correctAnswer: 1, category: "Number Series" },
+                    { id: "lr13", question: "If MONDAY is coded as 123456, then DOMAIN is coded as:", options: ["412683", "412863", "421863", "412836"], correctAnswer: 0, category: "Coding" },
+                    { id: "lr14", question: "In a race, if you overtake the person in 2nd place, what position are you in?", options: ["1st", "2nd", "3rd", "4th"], correctAnswer: 1, category: "Logic" },
+                    { id: "lr15", question: "What is 25% of 80?", options: ["15", "20", "25", "30"], correctAnswer: 1, category: "Mathematics" },
+                    { id: "lr16", question: "If it takes 6 men 6 days to dig 6 holes, how long does it take 1 man to dig 1 hole?", options: ["1 day", "3 days", "6 days", "36 days"], correctAnswer: 2, category: "Problem Solving" },
+                    { id: "lr17", question: "Which shape comes next in the pattern: Circle, Square, Triangle, Circle, Square, ?", options: ["Circle", "Square", "Triangle", "Diamond"], correctAnswer: 2, category: "Pattern Recognition" },
+                    { id: "lr18", question: "If BAT = 123 and CAT = 423, then RAT = ?", options: ["823", "923", "723", "623"], correctAnswer: 1, category: "Coding" },
+                    { id: "lr19", question: "What is the next number: 1, 1, 2, 3, 5, 8, ?", options: ["11", "13", "15", "17"], correctAnswer: 1, category: "Number Series" },
+                    { id: "lr20", question: "If you rearrange LISTEN, you get:", options: ["ENLIST", "SILENT", "TINSEL", "All of the above"], correctAnswer: 3, category: "Anagrams" },
+                    { id: "lr21", question: "A train 100m long crosses a pole in 10 seconds. What is its speed?", options: ["10 m/s", "36 km/h", "Both A and B", "None"], correctAnswer: 2, category: "Speed Distance Time" },
+                    { id: "lr22", question: "Which number is the odd one out: 2, 3, 6, 7, 8, 14, 15, 30?", options: ["2", "8", "14", "30"], correctAnswer: 1, category: "Pattern Recognition" },
+                    { id: "lr23", question: "If FLOWER is 123456, then LOWER is:", options: ["12345", "23456", "12346", "23465"], correctAnswer: 1, category: "Coding" },
+                    { id: "lr24", question: "What comes next: Z, Y, X, W, V, ?", options: ["U", "T", "S", "R"], correctAnswer: 0, category: "Letter Series" },
+                    { id: "lr25", question: "If today is Friday, what day was it 10 days ago?", options: ["Monday", "Tuesday", "Wednesday", "Thursday"], correctAnswer: 1, category: "Calendar" },
+                    { id: "lr26", question: "Which number completes the series: 2, 8, 18, 32, ?", options: ["48", "50", "52", "54"], correctAnswer: 1, category: "Number Series" },
+                    { id: "lr27", question: "If A is 1, B is 4, C is 9, then D is:", options: ["12", "15", "16", "18"], correctAnswer: 2, category: "Pattern Recognition" },
+                    { id: "lr28", question: "What is the opposite of ADVANCE?", options: ["RETREAT", "PROCEED", "FORWARD", "PROGRESS"], correctAnswer: 0, category: "Vocabulary" },
+                    { id: "lr29", question: "If 3 + 3 = 8, 5 + 4 = 14, then 7 + 6 = ?", options: ["20", "22", "24", "26"], correctAnswer: 1, category: "Pattern Recognition" },
+                    { id: "lr30", question: "Which comes next: 1, 4, 13, 40, ?", options: ["121", "122", "123", "124"], correctAnswer: 0, category: "Number Series" },
+                    { id: "lr31", question: "If TEAM = 2516, then MEAT = ?", options: ["5162", "5126", "5216", "6251"], correctAnswer: 0, category: "Coding" },
+                    { id: "lr32", question: "What is the next letter: A, D, G, J, ?", options: ["K", "L", "M", "N"], correctAnswer: 2, category: "Letter Series" },
+                    { id: "lr33", question: "If you have 12 balls and 11 are equal weight, how many weighings minimum to find the different one?", options: ["1", "2", "3", "4"], correctAnswer: 2, category: "Logic" },
+                    { id: "lr34", question: "What comes next: 5, 10, 20, 40, ?", options: ["60", "70", "80", "90"], correctAnswer: 2, category: "Number Series" },
+                    { id: "lr35", question: "If GOOD is coded as 5449, then CODE is:", options: ["1490", "1940", "1049", "1904"], correctAnswer: 2, category: "Coding" },
+                    { id: "lr36", question: "Which number is missing: 2, 6, 12, 20, 30, ?", options: ["40", "42", "44", "46"], correctAnswer: 1, category: "Number Series" },
+                    { id: "lr37", question: "If North is to South as East is to:", options: ["North", "West", "Northeast", "Southeast"], correctAnswer: 1, category: "Analogy" },
+                    { id: "lr38", question: "What is the next number: 11, 13, 17, 19, 23, ?", options: ["27", "29", "31", "33"], correctAnswer: 1, category: "Prime Numbers" },
+                    { id: "lr39", question: "If PENCIL = 738241, then NICE = ?", options: ["8423", "8243", "4283", "2834"], correctAnswer: 1, category: "Coding" },
+                    { id: "lr40", question: "What comes next: O, T, T, F, F, S, S, ?", options: ["E", "N", "I", "T"], correctAnswer: 0, category: "Pattern Recognition" },
+                    { id: "lr41", question: "If 1=3, 2=3, 3=5, 4=4, 5=4, then 6=?", options: ["3", "4", "5", "6"], correctAnswer: 0, category: "Logic" },
+                    { id: "lr42", question: "Which is the odd one: 8, 27, 64, 125, 216?", options: ["8", "27", "64", "All are same"], correctAnswer: 3, category: "Pattern Recognition" },
+                    { id: "lr43", question: "If WATER is 12345, then TEAR is:", options: ["3124", "3142", "4123", "4321"], correctAnswer: 1, category: "Coding" },
+                    { id: "lr44", question: "What comes next: 1, 8, 27, 64, ?", options: ["100", "125", "144", "169"], correctAnswer: 1, category: "Number Series" },
+                    { id: "lr45", question: "If CAR = 31118, then ARC = ?", options: ["11831", "11183", "18113", "83111"], correctAnswer: 0, category: "Coding" },
+                    { id: "lr46", question: "Which number doesn't fit: 2, 5, 10, 17, 26, 37, 50?", options: ["2", "5", "10", "All fit"], correctAnswer: 3, category: "Pattern Recognition" },
+                    { id: "lr47", question: "If ROSE = 6821, then SORE = ?", options: ["2186", "2168", "1826", "8216"], correctAnswer: 1, category: "Coding" },
+                    { id: "lr48", question: "What is the next term: 3, 7, 15, 31, ?", options: ["47", "55", "63", "71"], correctAnswer: 2, category: "Number Series" },
+                    { id: "lr49", question: "If you face East and turn 270° clockwise, which direction do you face?", options: ["North", "South", "East", "West"], correctAnswer: 0, category: "Spatial Reasoning" },
+                    { id: "lr50", question: "What comes next: AZ, BY, CX, DW, ?", options: ["EV", "FU", "EW", "FV"], correctAnswer: 0, category: "Letter Series" }
+                ]
+            },
+            'language-communication': {
+                id: 'language-communication',
+                title: 'Language & Communication',
+                description: 'Enhance your vocabulary, grammar, and communication skills',
+                icon: '💬',
+                color: 'from-green-500 to-green-600',
+                questions: [
+                    // First 10 original questions
+                    { id: "lang1", question: "What is the synonym of 'ABUNDANT'?", options: ["Scarce", "Plentiful", "Limited", "Rare"], correctAnswer: 1, category: "Vocabulary" },
+                    { id: "lang2", question: "Identify the grammatically correct sentence:", options: ["Neither of the students were present", "Neither of the students was present", "Neither of the student were present", "Neither of the student was present"], correctAnswer: 1, category: "Grammar" },
+                    { id: "lang3", question: "What does the idiom 'Break the ice' mean?", options: ["To be very cold", "To start a conversation", "To break something", "To be angry"], correctAnswer: 1, category: "Idioms" },
+                    { id: "lang4", question: "Which word is spelled correctly?", options: ["Accomodate", "Accommodate", "Acommodate", "Acomodate"], correctAnswer: 1, category: "Spelling" },
+                    { id: "lang5", question: "What is the antonym of 'OPTIMISTIC'?", options: ["Hopeful", "Positive", "Pessimistic", "Confident"], correctAnswer: 2, category: "Vocabulary" },
+                    { id: "lang6", question: "Choose the correct punctuation: 'I cant believe its already over'", options: ["I can't believe it's already over.", "I cant believe its already over.", "I can't believe its already over.", "I cant believe it's already over."], correctAnswer: 0, category: "Punctuation" },
+                    { id: "lang7", question: "What type of word is 'quickly' in the sentence 'She ran quickly'?", options: ["Noun", "Verb", "Adjective", "Adverb"], correctAnswer: 3, category: "Parts of Speech" },
+                    { id: "lang8", question: "Which sentence uses the passive voice?", options: ["The teacher explained the lesson", "The lesson was explained by the teacher", "The teacher is explaining the lesson", "The teacher explains the lesson"], correctAnswer: 1, category: "Grammar" },
+                    { id: "lang9", question: "What does 'piece of cake' mean?", options: ["A dessert", "Something easy", "A celebration", "Food sharing"], correctAnswer: 1, category: "Idioms" },
+                    { id: "lang10", question: "Choose the word with the correct prefix: '___responsible'", options: ["un", "ir", "in", "dis"], correctAnswer: 1, category: "Word Formation" },
+                    
+                    // Additional 40 questions
+                    { id: "lang11", question: "What is the past tense of 'lie' (to recline)?", options: ["lied", "lay", "lain", "lying"], correctAnswer: 1, category: "Grammar" },
+                    { id: "lang12", question: "Which word means 'showing great attention to detail'?", options: ["Meticulous", "Careless", "Hasty", "Superficial"], correctAnswer: 0, category: "Vocabulary" },
+                    { id: "lang13", question: "What does the idiom 'spill the beans' mean?", options: ["Make a mess", "Reveal a secret", "Cook dinner", "Plant seeds"], correctAnswer: 1, category: "Idioms" },
+                    { id: "lang14", question: "Identify the correct sentence:", options: ["Between you and I", "Between you and me", "Among you and I", "Among you and me"], correctAnswer: 1, category: "Grammar" },
+                    { id: "lang15", question: "What is a synonym for 'ubiquitous'?", options: ["Rare", "Everywhere", "Hidden", "Mysterious"], correctAnswer: 1, category: "Vocabulary" },
+                    { id: "lang16", question: "Which sentence contains a dangling modifier?", options: ["Walking to school, the rain started", "While walking to school, I got wet", "The rain started when I walked to school", "I walked to school in the rain"], correctAnswer: 0, category: "Grammar" },
+                    { id: "lang17", question: "What does 'barking up the wrong tree' mean?", options: ["Training a dog", "Making a mistake", "Climbing trees", "Being loud"], correctAnswer: 1, category: "Idioms" },
+                    { id: "lang18", question: "Which word is spelled correctly?", options: ["Definately", "Definitely", "Definetly", "Definitley"], correctAnswer: 1, category: "Spelling" },
+                    { id: "lang19", question: "What is the collective noun for sheep?", options: ["Herd", "Flock", "Pack", "Group"], correctAnswer: 1, category: "Grammar" },
+                    { id: "lang20", question: "Which is the correct use of 'who' vs 'whom'?", options: ["Who did you call?", "Whom did you call?", "Both are correct", "Neither is correct"], correctAnswer: 1, category: "Grammar" },
+                    { id: "lang21", question: "What does 'burn the midnight oil' mean?", options: ["Stay up late working", "Waste energy", "Light a fire", "Cook at night"], correctAnswer: 0, category: "Idioms" },
+                    { id: "lang22", question: "Which word means 'existing in name only'?", options: ["Nominal", "Actual", "Real", "Genuine"], correctAnswer: 0, category: "Vocabulary" },
+                    { id: "lang23", question: "Identify the metaphor:", options: ["He runs like the wind", "Time is money", "She sings beautifully", "The car is red"], correctAnswer: 1, category: "Figures of Speech" },
+                    { id: "lang24", question: "What is the plural of 'criterion'?", options: ["Criterions", "Criteria", "Criterias", "Criterian"], correctAnswer: 1, category: "Grammar" },
+                    { id: "lang25", question: "Which word is an antonym of 'verbose'?", options: ["Talkative", "Wordy", "Concise", "Elaborate"], correctAnswer: 2, category: "Vocabulary" },
+                    { id: "lang26", question: "What does 'hit the nail on the head' mean?", options: ["Use a hammer", "Be exactly right", "Cause pain", "Build something"], correctAnswer: 1, category: "Idioms" },
+                    { id: "lang27", question: "Which sentence uses correct parallel structure?", options: ["I like reading, writing, and to paint", "I like reading, writing, and painting", "I like to read, writing, and painting", "I like reading, to write, and painting"], correctAnswer: 1, category: "Grammar" },
+                    { id: "lang28", question: "What is a synonym for 'ephemeral'?", options: ["Permanent", "Temporary", "Eternal", "Lasting"], correctAnswer: 1, category: "Vocabulary" },
+                    { id: "lang29", question: "Which word is spelled correctly?", options: ["Occurence", "Occurrence", "Occurrance", "Occurance"], correctAnswer: 1, category: "Spelling" },
+                    { id: "lang30", question: "What does 'don't count your chickens before they hatch' mean?", options: ["Don't assume success", "Count carefully", "Raise chickens", "Wait patiently"], correctAnswer: 0, category: "Idioms" },
+                    { id: "lang31", question: "Which is the correct comparative form?", options: ["More better", "Better", "Best", "Gooder"], correctAnswer: 1, category: "Grammar" },
+                    { id: "lang32", question: "What does 'serendipity' mean?", options: ["Bad luck", "Hard work", "Pleasant surprise", "Careful planning"], correctAnswer: 2, category: "Vocabulary" },
+                    { id: "lang33", question: "Identify the oxymoron:", options: ["Deafening silence", "Very quiet", "Extremely loud", "Pretty ugly"], correctAnswer: 0, category: "Figures of Speech" },
+                    { id: "lang34", question: "What is the past participle of 'swim'?", options: ["Swam", "Swum", "Swimmed", "Swimming"], correctAnswer: 1, category: "Grammar" },
+                    { id: "lang35", question: "Which word means 'to make less severe'?", options: ["Aggravate", "Mitigate", "Irritate", "Complicate"], correctAnswer: 1, category: "Vocabulary" },
+                    { id: "lang36", question: "What does 'the ball is in your court' mean?", options: ["Play sports", "It's your decision", "You're losing", "Game over"], correctAnswer: 1, category: "Idioms" },
+                    { id: "lang37", question: "Which sentence is punctuated correctly?", options: ["The book, which I read, was good", "The book which I read was good", "The book, which I read was good", "The book which I read, was good"], correctAnswer: 0, category: "Punctuation" },
+                    { id: "lang38", question: "What is an antonym for 'belligerent'?", options: ["Aggressive", "Hostile", "Peaceful", "Angry"], correctAnswer: 2, category: "Vocabulary" },
+                    { id: "lang39", question: "Which word is spelled correctly?", options: ["Embarass", "Embarrass", "Embarras", "Embarase"], correctAnswer: 1, category: "Spelling" },
+                    { id: "lang40", question: "What does 'bite off more than you can chew' mean?", options: ["Eat too much", "Take on too much", "Bite someone", "Chew loudly"], correctAnswer: 1, category: "Idioms" },
+                    { id: "lang41", question: "Which is the correct subjunctive form?", options: ["If I was you", "If I were you", "If I am you", "If I be you"], correctAnswer: 1, category: "Grammar" },
+                    { id: "lang42", question: "What does 'perspicacious' mean?", options: ["Sweaty", "Having keen insight", "Stubborn", "Talkative"], correctAnswer: 1, category: "Vocabulary" },
+                    { id: "lang43", question: "Identify the alliteration:", options: ["Peter Piper picked", "The cat ran fast", "She sings sweetly", "Time flies quickly"], correctAnswer: 0, category: "Figures of Speech" },
+                    { id: "lang44", question: "What is the correct possessive form?", options: ["The childrens' toys", "The children's toys", "The childrens toys", "The children toys"], correctAnswer: 1, category: "Grammar" },
+                    { id: "lang45", question: "Which word means 'showing great knowledge'?", options: ["Ignorant", "Erudite", "Simple", "Basic"], correctAnswer: 1, category: "Vocabulary" },
+                    { id: "lang46", question: "What does 'let the cat out of the bag' mean?", options: ["Free an animal", "Reveal a secret", "Make noise", "Cause trouble"], correctAnswer: 1, category: "Idioms" },
+                    { id: "lang47", question: "Which sentence has correct subject-verb agreement?", options: ["The list of items are", "The list of items is", "The items on the list is", "The item on the lists are"], correctAnswer: 1, category: "Grammar" },
+                    { id: "lang48", question: "What is a synonym for 'quixotic'?", options: ["Practical", "Realistic", "Idealistic", "Cynical"], correctAnswer: 2, category: "Vocabulary" },
+                    { id: "lang49", question: "Which word is spelled correctly?", options: ["Maintainance", "Maintenance", "Maintenence", "Maintainence"], correctAnswer: 1, category: "Spelling" },
+                    { id: "lang50", question: "What does 'when pigs fly' mean?", options: ["Soon", "Never", "Maybe", "Eventually"], correctAnswer: 1, category: "Idioms" }
+                ]
+            },
+            'career-skills': {
+                id: 'career-skills',
+                title: 'Career & Life Skills',
+                description: 'Learn about professional development, leadership, and life skills',
+                icon: '🚀',
+                color: 'from-orange-500 to-orange-600',
+                questions: [
+                    // First 10 original questions
+                    { id: "career1", question: "What should be the first section in a resume?", options: ["Work Experience", "Education", "Personal Information", "Skills"], correctAnswer: 2, category: "Resume Writing" },
+                    { id: "career2", question: "Which of these is a good leadership quality?", options: ["Being bossy", "Active listening", "Making all decisions alone", "Avoiding feedback"], correctAnswer: 1, category: "Leadership" },
+                    { id: "career3", question: "What does 'networking' mean in career context?", options: ["Internet connections", "Building professional relationships", "Computer networks", "Social media"], correctAnswer: 1, category: "Professional Skills" },
+                    { id: "career4", question: "Which field involves creating mobile apps?", options: ["Medicine", "Software Development", "Agriculture", "Teaching"], correctAnswer: 1, category: "Career Paths" },
+                    { id: "career5", question: "What is the purpose of a cover letter?", options: ["To replace your resume", "To introduce yourself and show interest", "To list your grades", "To ask for salary"], correctAnswer: 1, category: "Job Applications" },
+                    { id: "career6", question: "Which is an example of soft skills?", options: ["Programming", "Communication", "Mathematics", "Typing"], correctAnswer: 1, category: "Skills" },
+                    { id: "career7", question: "What does 'entrepreneur' mean?", options: ["An employee", "Someone who starts their own business", "A manager", "A teacher"], correctAnswer: 1, category: "Business" },
+                    { id: "career8", question: "Which is important for financial literacy?", options: ["Spending all your money", "Understanding budgets and savings", "Avoiding banks", "Only using cash"], correctAnswer: 1, category: "Financial Skills" },
+                    { id: "career9", question: "What is the best way to handle workplace conflict?", options: ["Ignore it", "Communicate openly and find solutions", "Complain to everyone", "Quit immediately"], correctAnswer: 1, category: "Professional Skills" },
+                    { id: "career10", question: "Which degree is typically required to become a doctor?", options: ["Engineering", "Business", "Medicine (MBBS)", "Arts"], correctAnswer: 2, category: "Career Paths" },
+                    
+                    // Additional 40 questions
+                    { id: "career11", question: "What is emotional intelligence?", options: ["Being emotional", "Understanding and managing emotions", "Crying easily", "Being sensitive"], correctAnswer: 1, category: "Personal Development" },
+                    { id: "career12", question: "Which is NOT a good interview practice?", options: ["Arriving on time", "Researching the company", "Using your phone during interview", "Asking questions"], correctAnswer: 2, category: "Job Interviews" },
+                    { id: "career13", question: "What does SMART goals stand for?", options: ["Simple, Measurable, Achievable, Relevant, Timely", "Specific, Measurable, Achievable, Relevant, Time-bound", "Special, Major, Accurate, Real, Timed", "Strong, Modern, Active, Ready, True"], correctAnswer: 1, category: "Goal Setting" },
+                    { id: "career14", question: "Which skill is most important for teamwork?", options: ["Being the loudest", "Collaboration", "Working alone", "Competing with others"], correctAnswer: 1, category: "Team Skills" },
+                    { id: "career15", question: "What is the primary purpose of LinkedIn?", options: ["Dating", "Professional networking", "Gaming", "Shopping"], correctAnswer: 1, category: "Professional Networks" },
+                    { id: "career16", question: "Which is a characteristic of good time management?", options: ["Procrastination", "Prioritizing tasks", "Multitasking everything", "Working without breaks"], correctAnswer: 1, category: "Time Management" },
+                    { id: "career17", question: "What does 'work-life balance' mean?", options: ["Working more than living", "Equal time for work and personal life", "Never working", "Working from home"], correctAnswer: 1, category: "Work-Life Balance" },
+                    { id: "career18", question: "Which is an example of constructive feedback?", options: ["You're terrible at this", "This could be improved by...", "You always mess up", "You're hopeless"], correctAnswer: 1, category: "Communication" },
+                    { id: "career19", question: "What is the best way to learn a new skill?", options: ["Just read about it", "Practice regularly", "Watch others only", "Hope for the best"], correctAnswer: 1, category: "Learning" },
+                    { id: "career20", question: "Which quality is important for customer service?", options: ["Impatience", "Empathy", "Rudeness", "Indifference"], correctAnswer: 1, category: "Customer Service" },
+                    { id: "career21", question: "What does 'personal branding' mean?", options: ["Buying expensive brands", "How you present yourself professionally", "Logo design", "Marketing products"], correctAnswer: 1, category: "Professional Development" },
+                    { id: "career22", question: "Which is NOT a good study habit?", options: ["Taking notes", "Cramming the night before", "Regular review", "Active participation"], correctAnswer: 1, category: "Study Skills" },
+                    { id: "career23", question: "What is the purpose of a performance review?", options: ["To fire employees", "To assess and improve performance", "To reduce salary", "To criticize work"], correctAnswer: 1, category: "Professional Development" },
+                    { id: "career24", question: "Which skill is crucial for leadership?", options: ["Micromanaging", "Delegation", "Doing everything yourself", "Avoiding responsibility"], correctAnswer: 1, category: "Leadership" },
+                    { id: "career25", question: "What does 'career advancement' mean?", options: ["Changing jobs frequently", "Moving up in position/responsibility", "Working longer hours", "Earning less money"], correctAnswer: 1, category: "Career Development" },
+                    { id: "career26", question: "Which is important for effective presentation?", options: ["Reading directly from slides", "Eye contact with audience", "Speaking very quietly", "Turning your back to audience"], correctAnswer: 1, category: "Presentation Skills" },
+                    { id: "career27", question: "What is the benefit of continuous learning?", options: ["It's expensive", "Staying relevant and competitive", "It takes too much time", "It's unnecessary"], correctAnswer: 1, category: "Professional Development" },
+                    { id: "career28", question: "Which approach is best for problem-solving?", options: ["Panic immediately", "Analyze the situation systematically", "Ignore the problem", "Blame others"], correctAnswer: 1, category: "Problem Solving" },
+                    { id: "career29", question: "What is important for building trust in workplace?", options: ["Gossiping", "Reliability and honesty", "Making promises you can't keep", "Taking credit for others' work"], correctAnswer: 1, category: "Professional Ethics" },
+                    { id: "career30", question: "Which is a sign of good work ethic?", options: ["Arriving late", "Taking initiative", "Doing minimum work", "Avoiding challenges"], correctAnswer: 1, category: "Work Ethic" },
+                    { id: "career31", question: "What does 'professional development' include?", options: ["Only formal education", "Continuous learning and skill improvement", "Just work experience", "Staying in the same role"], correctAnswer: 1, category: "Career Growth" },
+                    { id: "career32", question: "Which is important for effective communication?", options: ["Talking without listening", "Clear and concise messaging", "Using complex jargon", "Interrupting others"], correctAnswer: 1, category: "Communication" },
+                    { id: "career33", question: "What is the purpose of mentorship?", options: ["To boss someone around", "To guide and support professional growth", "To do someone's work", "To criticize constantly"], correctAnswer: 1, category: "Mentorship" },
+                    { id: "career34", question: "Which quality helps in adapting to change?", options: ["Rigidity", "Flexibility", "Stubbornness", "Resistance"], correctAnswer: 1, category: "Adaptability" },
+                    { id: "career35", question: "What is important for salary negotiation?", options: ["Demanding without research", "Knowing your market value", "Accepting any offer", "Threatening to quit"], correctAnswer: 1, category: "Negotiation" },
+                    { id: "career36", question: "Which is a benefit of volunteering?", options: ["It's a waste of time", "Gaining experience and networking", "It doesn't pay", "It's only for students"], correctAnswer: 1, category: "Volunteering" },
+                    { id: "career37", question: "What does 'digital literacy' include?", options: ["Only social media", "Understanding and using technology effectively", "Just typing skills", "Playing video games"], correctAnswer: 1, category: "Digital Skills" },
+                    { id: "career38", question: "Which is important for project management?", options: ["No planning", "Setting clear goals and timelines", "Working without deadlines", "Ignoring team input"], correctAnswer: 1, category: "Project Management" },
+                    { id: "career39", question: "What is the value of cultural awareness in workplace?", options: ["It's unnecessary", "Promotes inclusive environment", "Creates division", "Slows down work"], correctAnswer: 1, category: "Diversity & Inclusion" },
+                    { id: "career40", question: "Which habit contributes to career success?", options: ["Procrastination", "Continuous self-improvement", "Avoiding feedback", "Staying in comfort zone"], correctAnswer: 1, category: "Success Habits" },
+                    { id: "career41", question: "What is important for effective delegation?", options: ["Doing everything yourself", "Clear instructions and trust", "Micromanaging", "Avoiding responsibility"], correctAnswer: 1, category: "Management" },
+                    { id: "career42", question: "Which approach is best for handling criticism?", options: ["Getting defensive", "Listening and learning", "Ignoring it", "Attacking back"], correctAnswer: 1, category: "Personal Growth" },
+                    { id: "career43", question: "What does 'strategic thinking' involve?", options: ["Only short-term planning", "Long-term planning and big picture thinking", "Random decisions", "Following others blindly"], correctAnswer: 1, category: "Strategic Planning" },
+                    { id: "career44", question: "Which is important for innovation?", options: ["Fear of failure", "Creative thinking and risk-taking", "Doing things the same way", "Avoiding new ideas"], correctAnswer: 1, category: "Innovation" },
+                    { id: "career45", question: "What is the benefit of diverse teams?", options: ["More conflicts", "Different perspectives and solutions", "Slower decisions", "Communication problems"], correctAnswer: 1, category: "Team Diversity" },
+                    { id: "career46", question: "Which quality is essential for sales?", options: ["Being pushy", "Understanding customer needs", "Talking constantly", "Ignoring objections"], correctAnswer: 1, category: "Sales Skills" },
+                    { id: "career47", question: "What is important for stress management?", options: ["Ignoring stress", "Healthy coping strategies", "Working more hours", "Avoiding all challenges"], correctAnswer: 1, category: "Stress Management" },
+                    { id: "career48", question: "Which skill is valuable in the digital age?", options: ["Avoiding technology", "Data analysis", "Handwriting only", "Ignoring social media"], correctAnswer: 1, category: "Digital Age Skills" },
+                    { id: "career49", question: "What does 'personal accountability' mean?", options: ["Blaming others", "Taking responsibility for your actions", "Making excuses", "Avoiding consequences"], correctAnswer: 1, category: "Accountability" },
+                    { id: "career50", question: "Which is important for building a professional network?", options: ["Only contacting people when you need something", "Building genuine relationships", "Being fake", "Avoiding professional events"], correctAnswer: 1, category: "Networking" }
+                ]
+            }
+        };
+
+        // Application State
+        let currentUser = null;
+        let currentView = 'landing';
+        let selectedModule = null;
+        let currentQuestionIndex = 0;
+        let selectedAnswers = [];
+        let quizStarted = false;
+        let showResults = false;
+        let timeLeft = 1800; // 30 minutes
+        let timer = null;
+
+        // User Management
+        class UserManager {
+            static getUsers() {
+                return JSON.parse(localStorage.getItem('quizUsers') || '[]');
+            }
+
+            static saveUsers(users) {
+                localStorage.setItem('quizUsers', JSON.stringify(users));
+            }
+
+            static getCurrentUser() {
+                const saved = localStorage.getItem('quizUser');
+                return saved ? JSON.parse(saved) : null;
+            }
+
+            static saveCurrentUser(user) {
+                localStorage.setItem('quizUser', JSON.stringify(user));
+            }
+
+            static login(email, password) {
+                const users = this.getUsers();
+                const user = users.find(u => u.email === email && u.password === password);
+                if (user) {
+                    const userCopy = { ...user };
+                    delete userCopy.password;
+                    currentUser = userCopy;
+                    this.saveCurrentUser(userCopy);
+                    return true;
+                }
+                return false;
+            }
+
+            static signup(name, email, password, age) {
+                const users = this.getUsers();
+                if (users.find(u => u.email === email)) {
+                    return false; // User exists
+                }
+
+                const newUser = {
+                    id: Date.now().toString(),
+                    name,
+                    email,
+                    password,
+                    age,
+                    quizResults: {}
+                };
+
+                users.push(newUser);
+                this.saveUsers(users);
+
+                const userCopy = { ...newUser };
+                delete userCopy.password;
+                currentUser = userCopy;
+                this.saveCurrentUser(userCopy);
+                return true;
+            }
+
+            static logout() {
+                currentUser = null;
+                localStorage.removeItem('quizUser');
+            }
+
+            static updateQuizResult(moduleId, score, totalQuestions) {
+                if (!currentUser) return;
+
+                const users = this.getUsers();
+                const userIndex = users.findIndex(u => u.id === currentUser.id);
+                
+                if (userIndex !== -1) {
+                    users[userIndex].quizResults = {
+                        ...users[userIndex].quizResults,
+                        [moduleId]: {
+                            score,
+                            totalQuestions,
+                            completed: true,
+                            completedAt: new Date().toISOString()
+                        }
+                    };
+                    this.saveUsers(users);
+
+                    currentUser.quizResults = users[userIndex].quizResults;
+                    this.saveCurrentUser(currentUser);
+                }
+            }
+
+            static getTotalScore() {
+                if (!currentUser) return 0;
+                return Object.values(currentUser.quizResults || {}).reduce((total, result) => total + result.score, 0);
+            }
+
+            static getOverallRank() {
+                if (!currentUser) return 0;
+                const users = this.getUsers();
+                const userScores = users.map(u => ({
+                    id: u.id,
+                    totalScore: Object.values(u.quizResults || {}).reduce((total, result) => total + result.score, 0),
+                    completedModules: Object.keys(u.quizResults || {}).length
+                }));
+
+                userScores.sort((a, b) => {
+                    if (a.completedModules !== b.completedModules) {
+                        return b.completedModules - a.completedModules;
+                    }
+                    return b.totalScore - a.totalScore;
+                });
+
+                return userScores.findIndex(u => u.id === currentUser.id) + 1;
+            }
+        }
+
+        // View Rendering Functions
+        function renderLandingPage() {
+            return `
+                <div class="min-h-screen">
+                    <header class="header">
+                        <div class="container">
+                            <div class="header-content">
+                                <div class="logo">QuizMaster Pro</div>
+                                <div>
+                                    <button class="btn btn-outline" onclick="showSignInModal()">Sign In</button>
+                                    <button class="btn btn-primary" onclick="showSignUpModal()">Get Started</button>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="hero-section">
+                        <div class="container">
+                            <h1 class="hero-title">Master Your <span style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Learning Journey</span></h1>
+                            <p class="hero-subtitle">A comprehensive quiz platform designed for students aged 15+. Build critical thinking, enhance knowledge, and develop essential life skills.</p>
+                            
+                            <div class="grid grid-4 mb-8">
+                                ${Object.values(quizData).map(module => `
+                                    <div class="card text-center">
+                                        <div style="font-size: 3rem; margin-bottom: 1rem;">${module.icon}</div>
+                                        <h3 style="font-weight: 600; margin-bottom: 0.5rem;">${module.title}</h3>
+                                        <p style="color: #6b7280; font-size: 0.875rem;">${module.description}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+
+                            <button class="btn btn-primary" onclick="showSignUpModal()" style="padding: 1rem 2rem; font-size: 1.125rem;">Start Learning Today</button>
+                            <p style="color: #6b7280; margin-top: 1rem; font-size: 0.875rem;">Join thousands of students already improving their skills</p>
+                        </div>
+                    </div>
+
+                    <footer style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); border-top: 1px solid rgba(255, 255, 255, 0.2); padding: 2rem 0; text-align: center;">
+                        <div class="container">
+                            <p style="color: #6b7280;">© 2024 QuizMaster Pro. Empowering the next generation of learners.</p>
+                        </div>
+                    </footer>
+                </div>
+            `;
+        }
+
+        function renderHomePage() {
+            const completedModules = Object.keys(currentUser.quizResults || {}).filter(key => currentUser.quizResults[key].completed).length;
+            const totalScore = UserManager.getTotalScore();
+            const totalPossibleScore = Object.values(quizData).reduce((total, module) => total + module.questions.length, 0);
+            const overallProgress = totalPossibleScore > 0 ? (totalScore / totalPossibleScore) * 100 : 0;
+            const rank = UserManager.getOverallRank();
+
+            return `
+                <div class="min-h-screen">
+                    <header class="header">
+                        <div class="container">
+                            <div class="header-content">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div class="logo">QuizMaster Pro</div>
+                                    <span style="background: #f3f4f6; color: #374151; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.875rem;">Age 15+ Learning Platform</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <span style="color: #6b7280; font-size: 0.875rem;">Welcome, <strong>${currentUser.name}</strong></span>
+                                    <button class="btn btn-outline" onclick="logout()">Logout</button>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="container" style="padding: 2rem 20px;">
+                        <!-- Dashboard Stats -->
+                        <div class="grid grid-4 mb-8">
+                            <div class="card stats-card">
+                                <h3 style="color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">Modules Completed</h3>
+                                <div style="font-size: 2rem; font-weight: bold;">${completedModules}/4</div>
+                            </div>
+                            <div class="card stats-card green">
+                                <h3 style="color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">Total Score</h3>
+                                <div style="font-size: 2rem; font-weight: bold;">${totalScore}/${totalPossibleScore}</div>
+                            </div>
+                            <div class="card stats-card purple">
+                                <h3 style="color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">Overall Rank</h3>
+                                <div style="font-size: 2rem; font-weight: bold;">#${rank}</div>
+                            </div>
+                            <div class="card stats-card orange">
+                                <h3 style="color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">Progress</h3>
+                                <div style="font-size: 2rem; font-weight: bold;">${Math.round(overallProgress)}%</div>
+                            </div>
+                        </div>
+
+                        <!-- Overall Progress -->
+                        <div class="card mb-8">
+                            <h2 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                                🏆 Your Learning Journey
+                            </h2>
+                            <div style="margin-bottom: 1rem; display: flex; justify-content: space-between; font-size: 0.875rem;">
+                                <span>Overall Progress</span>
+                                <span>${Math.round(overallProgress)}% Complete</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${overallProgress}%"></div>
+                            </div>
+                            ${completedModules === 4 ? `
+                                <div style="background: #ecfdf5; border: 1px solid #10b981; border-radius: 0.5rem; padding: 1rem; margin-top: 1rem;">
+                                    <div style="color: #047857; font-weight: 600;">🎉 Congratulations!</div>
+                                    <p style="color: #059669; margin-top: 0.5rem;">You've completed all quiz modules! Your overall rank is #${rank}.</p>
+                                </div>
+                            ` : ''}
+                        </div>
+
+                        <!-- Quiz Modules -->
+                        <div class="grid grid-2">
+                            ${Object.values(quizData).map(module => {
+                                const isCompleted = currentUser.quizResults && currentUser.quizResults[module.id] && currentUser.quizResults[module.id].completed;
+                                const userResult = currentUser.quizResults ? currentUser.quizResults[module.id] : null;
+                                
+                                return `
+                                    <div class="card">
+                                        <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem;">
+                                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                                <div style="font-size: 2.5rem;">${module.icon}</div>
+                                                <div>
+                                                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.25rem;">${module.title}</h3>
+                                                    <p style="color: #6b7280; font-size: 0.875rem;">${module.description}</p>
+                                                </div>
+                                            </div>
+                                            ${isCompleted ? '<div style="color: #10b981; font-size: 1.5rem;">✅</div>' : ''}
+                                        </div>
+                                        
+                                        <div style="margin-bottom: 1rem;">
+                                            <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #6b7280;">
+                                                <span>${module.questions.length} Questions</span>
+                                                <span>30 minutes</span>
+                                            </div>
+                                            
+                                            ${isCompleted && userResult ? `
+                                                <div style="background: rgba(243, 244, 246, 0.5); border-radius: 0.5rem; padding: 1rem; margin-top: 1rem;">
+                                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                        <span style="font-size: 0.875rem;">Your Score:</span>
+                                                        <span style="font-weight: bold; color: #10b981;">${userResult.score}/${userResult.totalQuestions}</span>
+                                                    </div>
+                                                    <div style="font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">
+                                                        ${Math.round((userResult.score / userResult.totalQuestions) * 100)}% Accuracy
+                                                    </div>
+                                                </div>
+                                            ` : ''}
+                                        </div>
+                                        
+                                        <button class="btn ${isCompleted ? 'btn-success' : 'btn-primary'}" onclick="startModule('${module.id}')" style="width: 100%;">
+                                            ${isCompleted ? 'View Results / Retake' : 'Start Quiz'}
+                                        </button>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+
+                        <!-- Additional Info -->
+                        <div class="card" style="margin-top: 2rem;">
+                            <h2 style="margin-bottom: 1rem;">About QuizMaster Pro</h2>
+                            <div class="grid grid-2">
+                                <div>
+                                    <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Designed for Age 15+</h4>
+                                    <p style="color: #6b7280; font-size: 0.875rem; margin-bottom: 1rem;">
+                                        Our comprehensive quiz platform is specially designed for teenagers and young adults, 
+                                        focusing on critical thinking, career awareness, and essential life skills.
+                                    </p>
+                                    <ul style="color: #6b7280; font-size: 0.875rem; list-style: none; padding: 0;">
+                                        <li>• Critical thinking development</li>
+                                        <li>• Career guidance and awareness</li>
+                                        <li>• General knowledge enhancement</li>
+                                        <li>• Leadership skill building</li>
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h4 style="font-weight: 600; margin-bottom: 0.5rem;">How It Works</h4>
+                                    <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem; color: #6b7280;">
+                                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                            <div style="width: 1.5rem; height: 1.5rem; background: #dbeafe; color: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem;">1</div>
+                                            <span>Choose a quiz module to start</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                            <div style="width: 1.5rem; height: 1.5rem; background: #dbeafe; color: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem;">2</div>
+                                            <span>Complete questions within time limit</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                            <div style="width: 1.5rem; height: 1.5rem; background: #dbeafe; color: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem;">3</div>
+                                            <span>Get instant results and feedback</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                            <div style="width: 1.5rem; height: 1.5rem; background: #dbeafe; color: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.75rem;">4</div>
+                                            <span>Track progress and compete with others</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderQuizModule() {
+            const module = quizData[selectedModule];
+            const isCompleted = currentUser.quizResults && currentUser.quizResults[selectedModule] && currentUser.quizResults[selectedModule].completed;
+            
+            if (isCompleted && !quizStarted) {
+                const result = currentUser.quizResults[selectedModule];
+                return `
+                    <div class="min-h-screen" style="padding: 2rem 0;">
+                        <div class="container">
+                            <div class="card" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                                <div style="font-size: 4rem; margin-bottom: 1rem;">🏆</div>
+                                <h1 style="font-size: 2rem; margin-bottom: 1rem;">${module.title} - Completed!</h1>
+                                <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">
+                                    Your Score: <span style="font-weight: bold; color: #10b981;">${result.score}/${result.totalQuestions}</span>
+                                </div>
+                                <div style="color: #6b7280; font-size: 0.875rem; margin-bottom: 2rem;">
+                                    Completed on: ${new Date(result.completedAt).toLocaleDateString()}
+                                </div>
+                                <button class="btn btn-outline" onclick="startQuiz()">Retake Quiz</button>
+                                <button class="btn btn-primary" onclick="goHome()" style="margin-left: 1rem;">Back to Home</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            if (!quizStarted) {
+                return `
+                    <div class="min-h-screen" style="padding: 2rem 0;">
+                        <div class="container">
+                            <div class="card" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                                <h1 style="font-size: 2rem; margin-bottom: 1rem;">${module.title}</h1>
+                                <p style="color: #6b7280; margin-bottom: 2rem;">${module.description}</p>
+                                
+                                <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                                    <div style="background: #eff6ff; padding: 1rem; border-radius: 0.5rem;">
+                                        <div style="font-size: 2rem; font-weight: bold; color: #3b82f6;">${module.questions.length}</div>
+                                        <div style="font-size: 0.875rem; color: #1d4ed8;">Questions</div>
+                                    </div>
+                                    <div style="background: #ecfdf5; padding: 1rem; border-radius: 0.5rem;">
+                                        <div style="font-size: 2rem; font-weight: bold; color: #10b981;">30</div>
+                                        <div style="font-size: 0.875rem; color: #047857;">Minutes</div>
+                                    </div>
+                                    <div style="background: #faf5ff; padding: 1rem; border-radius: 0.5rem;">
+                                        <div style="font-size: 2rem; font-weight: bold; color: #8b5cf6;">Mixed</div>
+                                        <div style="font-size: 0.875rem; color: #7c3aed;">Difficulty</div>
+                                    </div>
+                                </div>
+                                
+                                <button class="btn btn-primary" onclick="startQuiz()" style="padding: 1rem 2rem; font-size: 1.125rem;">Start Quiz</button>
+                                <button class="btn btn-outline" onclick="goHome()" style="margin-left: 1rem;">Back to Home</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            if (showResults) {
+                const score = selectedAnswers.reduce((total, answer, index) => {
+                    return total + (answer === module.questions[index].correctAnswer ? 1 : 0);
+                }, 0);
+                const percentage = Math.round((score / module.questions.length) * 100);
+
+                return `
+                    <div class="min-h-screen" style="padding: 2rem 0;">
+                        <div class="container">
+                            <div class="card" style="max-width: 800px; margin: 0 auto;">
+                                <div style="text-align: center; margin-bottom: 2rem;">
+                                    <div style="font-size: 4rem; margin-bottom: 1rem;">🏆</div>
+                                    <h1 style="font-size: 2rem; margin-bottom: 1rem;">Quiz Completed!</h1>
+                                    <div style="font-size: 3rem; font-weight: bold; margin-bottom: 0.5rem;">${score}/${module.questions.length}</div>
+                                    <div style="font-size: 1.25rem; color: #6b7280;">${percentage}% Correct</div>
+                                </div>
+                                
+                                <div style="max-height: 400px; overflow-y: auto; margin-bottom: 2rem;">
+                                    ${module.questions.map((question, index) => `
+                                        <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: rgba(243, 244, 246, 0.5); border-radius: 0.5rem; margin-bottom: 0.75rem;">
+                                            <div style="color: ${selectedAnswers[index] === question.correctAnswer ? '#10b981' : '#ef4444'}; font-size: 1.25rem;">
+                                                ${selectedAnswers[index] === question.correctAnswer ? '✅' : '❌'}
+                                            </div>
+                                            <div style="flex: 1;">
+                                                <div style="font-weight: 500; margin-bottom: 0.5rem;">${question.question}</div>
+                                                <div style="font-size: 0.875rem; color: #6b7280;">
+                                                    Correct: ${question.options[question.correctAnswer]}
+                                                    ${selectedAnswers[index] !== question.correctAnswer ? `<br>Your answer: ${question.options[selectedAnswers[index]]}` : ''}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+
+                                <div style="text-align: center;">
+                                    <button class="btn btn-primary" onclick="goHome()">Back to Home</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Quiz in progress
+            const currentQuestion = module.questions[currentQuestionIndex];
+            const progress = ((currentQuestionIndex + 1) / module.questions.length) * 100;
+
+            return `
+                <div class="min-h-screen" style="padding: 2rem 0;">
+                    <div class="container">
+                        <div class="card" style="max-width: 800px; margin: 0 auto;">
+                            <div style="display: flex; justify-between; align-items: center; margin-bottom: 1rem;">
+                                <h1 style="font-size: 1.25rem;">${module.title}</h1>
+                                <div class="timer">${formatTime(timeLeft)}</div>
+                            </div>
+                            
+                            <div class="progress-bar" style="margin-bottom: 0.5rem;">
+                                <div class="progress-fill" style="width: ${progress}%"></div>
+                            </div>
+                            <div style="font-size: 0.875rem; color: #6b7280; margin-bottom: 2rem;">
+                                Question ${currentQuestionIndex + 1} of ${module.questions.length}
+                            </div>
+                            
+                            <div style="font-size: 1.125rem; font-weight: 500; margin-bottom: 2rem;">
+                                ${currentQuestion.question}
+                            </div>
+                            
+                            <div style="margin-bottom: 2rem;">
+                                ${currentQuestion.options.map((option, index) => `
+                                    <button class="quiz-option ${selectedAnswers[currentQuestionIndex] === index ? 'selected' : ''}" 
+                                            onclick="selectAnswer(${index})">
+                                        <div style="display: flex; align-items: center; gap: 1rem;">
+                                            <div style="width: 1.5rem; height: 1.5rem; border-radius: 50%; border: 2px solid ${selectedAnswers[currentQuestionIndex] === index ? '#3b82f6' : '#d1d5db'}; background: ${selectedAnswers[currentQuestionIndex] === index ? '#3b82f6' : 'white'}; color: ${selectedAnswers[currentQuestionIndex] === index ? 'white' : '#6b7280'}; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.875rem;">
+                                                ${String.fromCharCode(65 + index)}
+                                            </div>
+                                            <div>${option}</div>
+                                        </div>
+                                    </button>
+                                `).join('')}
+                            </div>
+                            
+                            <div style="display: flex; justify-between; padding-top: 1rem;">
+                                <button class="btn btn-outline" onclick="previousQuestion()" ${currentQuestionIndex === 0 ? 'disabled' : ''}>
+                                    Previous
+                                </button>
+                                
+                                <button class="btn btn-primary" onclick="nextQuestion()" ${selectedAnswers[currentQuestionIndex] === undefined ? 'disabled' : ''}>
+                                    ${currentQuestionIndex === module.questions.length - 1 ? 'Finish Quiz' : 'Next'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderSignInModal() {
+            return `
+                <div class="modal active" id="signInModal">
+                    <div class="modal-content">
+                        <h2 style="text-align: center; margin-bottom: 1.5rem;">Sign In</h2>
+                        <form onsubmit="handleSignIn(event)">
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-input" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-input" name="password" required>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+                            </div>
+                        </form>
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <span style="color: #6b7280;">Don't have an account? </span>
+                            <button style="background: none; border: none; color: #3b82f6; cursor: pointer;" onclick="switchToSignUp()">Sign Up</button>
+                        </div>
+                        <button style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;" onclick="closeModal()">&times;</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderSignUpModal() {
+            return `
+                <div class="modal active" id="signUpModal">
+                    <div class="modal-content">
+                        <h2 style="text-align: center; margin-bottom: 1.5rem;">Sign Up</h2>
+                        <form onsubmit="handleSignUp(event)">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-input" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-input" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-input" name="password" required minlength="6">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Age</label>
+                                <input type="number" class="form-input" name="age" required min="15" max="100">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Up</button>
+                            </div>
+                        </form>
+                        <div style="text-align: center; margin-top: 1rem;">
+                            <span style="color: #6b7280;">Already have an account? </span>
+                            <button style="background: none; border: none; color: #3b82f6; cursor: pointer;" onclick="switchToSignIn()">Sign In</button>
+                        </div>
+                        <button style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;" onclick="closeModal()">&times;</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Utility Functions
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
+
+        function startTimer() {
+            if (timer) clearInterval(timer);
+            timer = setInterval(() => {
+                timeLeft--;
+                if (timeLeft <= 0) {
+                    finishQuiz();
+                }
+                render();
+            }, 1000);
+        }
+
+        function stopTimer() {
+            if (timer) {
+                clearInterval(timer);
+                timer = null;
+            }
+        }
+
+        // Event Handlers
+        function showSignInModal() {
+            document.getElementById('app').innerHTML += renderSignInModal();
+        }
+
+        function showSignUpModal() {
+            document.getElementById('app').innerHTML += renderSignUpModal();
+        }
+
+        function closeModal() {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => modal.remove());
+        }
+
+        function switchToSignUp() {
+            closeModal();
+            showSignUpModal();
+        }
+
+        function switchToSignIn() {
+            closeModal();
+            showSignInModal();
+        }
+
+        function handleSignIn(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const email = formData.get('email');
+            const password = formData.get('password');
+
+            if (UserManager.login(email, password)) {
+                closeModal();
+                currentView = 'home';
+                render();
+            } else {
+                alert('Invalid email or password');
+            }
+        }
+
+        function handleSignUp(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const password = formData.get('password');
+            const age = parseInt(formData.get('age'));
+
+            if (UserManager.signup(name, email, password, age)) {
+                closeModal();
+                currentView = 'home';
+                render();
+            } else {
+                alert('Email already exists');
+            }
+        }
+
+        function logout() {
+            UserManager.logout();
+            currentUser = null;
+            currentView = 'landing';
+            render();
+        }
+
+        function startModule(moduleId) {
+            selectedModule = moduleId;
+            currentView = 'quiz';
+            currentQuestionIndex = 0;
+            selectedAnswers = [];
+            quizStarted = false;
+            showResults = false;
+            timeLeft = 1800;
+            render();
+        }
+
+        function startQuiz() {
+            quizStarted = true;
+            currentQuestionIndex = 0;
+            selectedAnswers = [];
+            showResults = false;
+            timeLeft = 1800;
+            startTimer();
+            render();
+        }
+
+        function selectAnswer(answerIndex) {
+            selectedAnswers[currentQuestionIndex] = answerIndex;
+            render();
+        }
+
+        function nextQuestion() {
+            if (selectedAnswers[currentQuestionIndex] === undefined) return;
+            
+            if (currentQuestionIndex < quizData[selectedModule].questions.length - 1) {
+                currentQuestionIndex++;
+            } else {
+                finishQuiz();
+            }
+            render();
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                render();
+            }
+        }
+
+        function finishQuiz() {
+            stopTimer();
+            const score = selectedAnswers.reduce((total, answer, index) => {
+                return total + (answer === quizData[selectedModule].questions[index].correctAnswer ? 1 : 0);
+            }, 0);
+            
+            showResults = true;
+            UserManager.updateQuizResult(selectedModule, score, quizData[selectedModule].questions.length);
+            render();
+        }
+
+        function goHome() {
+            selectedModule = null;
+            currentView = 'home';
+            quizStarted = false;
+            showResults = false;
+            stopTimer();
+            render();
+        }
+
+        // Main Render Function
+        function render() {
+            const app = document.getElementById('app');
+            
+            if (currentView === 'landing' && !currentUser) {
+                app.innerHTML = renderLandingPage();
+            } else if (currentView === 'home' && currentUser) {
+                app.innerHTML = renderHomePage();
+            } else if (currentView === 'quiz' && currentUser && selectedModule) {
+                app.innerHTML = renderQuizModule();
+            }
+        }
+
+        // Initialize App
+        function initApp() {
+            currentUser = UserManager.getCurrentUser();
+            if (currentUser) {
+                currentView = 'home';
+            } else {
+                currentView = 'landing';
+            }
+            render();
+        }
+
+        // Start the application
+        initApp();
+    </script>
+</body>
+</html>
