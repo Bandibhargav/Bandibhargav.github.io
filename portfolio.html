@@ -685,9 +685,9 @@
         /* Certifications */
         .cert-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -706,7 +706,7 @@
 
         .cert-image {
             width: 100%;
-            height: 200px;
+            height: 150px;
             object-fit: cover;
             border-radius: 1rem 1rem 0 0;
             transition: var(--transition-smooth);
@@ -717,7 +717,7 @@
         }
 
         .cert-content {
-            padding: 1.5rem;
+            padding: 1.25rem;
         }
 
         .cert-header {
@@ -1402,15 +1402,15 @@
     <nav id="navbar">
         <div class="container">
             <div class="nav-container">
-                <div class="logo click-effect" onclick="scrollToSection('home')">Bhargav</div>
+                <div class="logo" onclick="scrollToSection('home')">Bhargav</div>
                 <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
                 <ul class="nav-links" id="navLinks">
-                    <li><a onclick="scrollToSection('home')" class="click-effect">Home</a></li>
-                    <li><a onclick="scrollToSection('skills')" class="click-effect">Skills</a></li>
-                    <li><a onclick="scrollToSection('experience')" class="click-effect">Experience</a></li>
-                    <li><a onclick="scrollToSection('certifications')" class="click-effect">Certifications</a></li>
-                    <li><a onclick="scrollToSection('projects')" class="click-effect">Projects</a></li>
-                    <li><a onclick="scrollToSection('contact')" class="click-effect">Contact</a></li>
+                    <li><a onclick="scrollToSection('home')">Home</a></li>
+                    <li><a onclick="scrollToSection('skills')">Skills</a></li>
+                    <li><a onclick="scrollToSection('experience')">Experience</a></li>
+                    <li><a onclick="scrollToSection('certifications')">Certifications</a></li>
+                    <li><a onclick="scrollToSection('projects')">Projects</a></li>
+                    <li><a onclick="scrollToSection('contact')">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -1662,9 +1662,6 @@
                 </a>
             </div>
         </div>
-    </div>
-</div>
-
                 
                 <div class="cert-card card-elegant scroll-reveal click-effect">
                     <img src="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop" alt="Java Programming" class="cert-image">
