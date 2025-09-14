@@ -19,11 +19,6 @@
             --accent: #1E40AF;
             --secondary: #60A5FA;
             
-            /* Red theme for experience */
-            --red-primary: #DC2626;
-            --red-light: #EF4444;
-            --red-dark: #B91C1C;
-            
             --background: #FFFFFF;
             --foreground: #1E293B;
             --card: #FFFFFF;
@@ -36,12 +31,10 @@
             --gradient-hover: linear-gradient(135deg, #1D4ED8, #2563EB);
             --gradient-subtle: linear-gradient(180deg, #FFFFFF, #F8FAFC);
             --gradient-blue: linear-gradient(135deg, #EFF6FF, #DBEAFE);
-            --gradient-red: linear-gradient(135deg, #DC2626, #EF4444);
             
             /* Shadows */
             --shadow-elegant: 0 10px 30px -10px rgba(37, 99, 235, 0.3);
             --shadow-glow: 0 0 40px rgba(37, 99, 235, 0.4);
-            --shadow-red-glow: 0 0 40px rgba(220, 38, 38, 0.4);
             --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             
             /* Animations */
@@ -70,13 +63,6 @@
         /* Utility Classes */
         .text-gradient {
             background: var(--gradient-primary);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .text-red-gradient {
-            background: var(--gradient-red);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -212,7 +198,7 @@
             transform: translateY(0) scale(0.95);
         }
 
-        /* Hero Section with Animated Background */
+        /* Hero Section with Minimalistic Background */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -224,7 +210,7 @@
             overflow: hidden;
         }
 
-        /* Animated Background Elements */
+        /* Minimalistic Background Elements */
         .hero-bg {
             position: absolute;
             top: 0;
@@ -235,55 +221,40 @@
             z-index: 0;
         }
 
-        /* Animated Lines */
-        .animated-line {
+        /* Floating Dots */
+        .floating-dot {
             position: absolute;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            animation: moveLine 8s linear infinite;
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: floatDot 8s ease-in-out infinite;
+        }
+
+        /* Subtle Lines */
+        .subtle-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.2), transparent);
+            animation: moveLine 12s linear infinite;
         }
 
         .line-horizontal {
-            height: 2px;
+            height: 1px;
             width: 100%;
             left: -100%;
         }
 
         .line-vertical {
-            width: 2px;
+            width: 1px;
             height: 100%;
             top: -100%;
         }
 
-        .line-diagonal {
-            height: 2px;
-            width: 141%;
-            transform: rotate(45deg);
-            left: -50%;
-        }
-
-        /* Floating Symbols */
-        .floating-symbol {
+        /* Geometric Shapes - Minimalistic */
+        .minimal-shape {
             position: absolute;
-            font-size: 2rem;
-            color: var(--primary);
-            opacity: 0.3;
-            animation: float 6s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        .floating-symbol:nth-child(odd) {
-            animation-delay: -2s;
-        }
-
-        .floating-symbol:nth-child(even) {
-            animation-delay: -4s;
-        }
-
-        /* Geometric Shapes */
-        .geometric-shape {
-            position: absolute;
-            border: 2px solid var(--primary);
-            opacity: 0.2;
+            border: 1px solid rgba(37, 99, 235, 0.2);
             animation: rotate 20s linear infinite;
         }
 
@@ -292,27 +263,7 @@
         }
 
         .shape-square {
-            border-radius: 10px;
-        }
-
-        .shape-triangle {
-            width: 0;
-            height: 0;
-            border-left: 25px solid transparent;
-            border-right: 25px solid transparent;
-            border-bottom: 50px solid var(--primary);
-            border-radius: 0;
-            opacity: 0.1;
-        }
-
-        /* Code-like Elements */
-        .code-element {
-            position: absolute;
-            font-family: 'Courier New', monospace;
-            color: var(--primary);
-            opacity: 0.2;
-            font-size: 1.2rem;
-            animation: typewriter 4s steps(20) infinite;
+            border-radius: 4px;
         }
 
         .hero-content {
@@ -377,6 +328,109 @@
 
         .social-link:active {
             transform: translateY(-2px) scale(1.05);
+        }
+
+        /* About Me Section */
+        #about {
+            padding: 5rem 0;
+            background: var(--gradient-subtle);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563EB, #3B82F6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #2563EB, #3B82F6, #60A5FA, #2563EB);
+            border-radius: 50%;
+            z-index: -1;
+            animation: rotate 3s linear infinite;
+        }
+
+        .profile-name {
+            color: white;
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--foreground);
+        }
+
+        .about-description {
+            font-size: 1.1rem;
+            color: var(--muted-foreground);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .expertise-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+        }
+
+        .expertise-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-elegant);
+        }
+
+        .expertise-icon {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+        }
+
+        .expertise-text {
+            font-weight: 600;
+            color: var(--foreground);
         }
 
         /* Sections */
@@ -450,10 +504,9 @@
             background: transparent;
         }
 
-        .tech-icon img {
+        .tech-icon svg {
             width: 64px;
             height: 64px;
-            object-fit: contain;
             transition: var(--transition-smooth);
         }
 
@@ -472,9 +525,9 @@
             color: var(--primary);
         }
 
-        /* Experience Section with Red Theme */
+        /* Experience Section with Blue Theme */
         #experience {
-            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
             position: relative;
             overflow: hidden;
         }
@@ -486,13 +539,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="redGrid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23DC2626" stroke-width="0.3" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23redGrid)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="blueGrid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%232563EB" stroke-width="0.3" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23blueGrid)"/></svg>');
             animation: float 15s ease-in-out infinite;
             opacity: 0.5;
-        }
-
-        #experience .section-title::after {
-            background: var(--gradient-red);
         }
 
         .experience-timeline {
@@ -509,9 +558,9 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background: var(--gradient-red);
+            background: var(--gradient-primary);
             transform: translateX(-50%);
-            box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
         }
 
         .experience-item {
@@ -542,18 +591,18 @@
             top: 30px;
             width: 24px;
             height: 24px;
-            background: var(--red-primary);
+            background: var(--primary);
             border-radius: 50%;
             border: 6px solid white;
-            box-shadow: 0 0 0 4px var(--red-primary), 0 0 20px rgba(220, 38, 38, 0.5);
+            box-shadow: 0 0 0 4px var(--primary), 0 0 20px rgba(37, 99, 235, 0.5);
             transition: var(--transition-smooth);
-            animation: pulse-red 2s ease-in-out infinite;
+            animation: pulse-blue 2s ease-in-out infinite;
         }
 
         .experience-item:hover::before {
             transform: scale(1.5);
-            box-shadow: 0 0 0 6px var(--red-primary), 0 0 30px rgba(220, 38, 38, 0.8);
-            animation: pulse-red-fast 0.5s ease-in-out infinite;
+            box-shadow: 0 0 0 6px var(--primary), 0 0 30px rgba(37, 99, 235, 0.8);
+            animation: pulse-blue-fast 0.5s ease-in-out infinite;
         }
 
         .experience-item:nth-child(odd)::before {
@@ -582,7 +631,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: var(--gradient-red);
+            background: var(--gradient-primary);
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
@@ -593,8 +642,8 @@
 
         .experience-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: var(--shadow-red-glow);
-            border-color: var(--red-primary);
+            box-shadow: var(--shadow-glow);
+            border-color: var(--primary);
         }
 
         .experience-image {
@@ -608,19 +657,19 @@
 
         .experience-card:hover .experience-image {
             transform: scale(1.05) rotate(1deg);
-            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
         }
 
         .experience-title {
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--red-primary);
+            color: var(--primary);
             margin-bottom: 0.5rem;
             transition: var(--transition-smooth);
         }
 
         .experience-card:hover .experience-title {
-            color: var(--red-dark);
+            color: var(--primary-dark);
             transform: translateX(5px);
         }
 
@@ -632,7 +681,7 @@
         }
 
         .experience-card:hover .experience-company {
-            color: var(--red-primary);
+            color: var(--primary);
         }
 
         .experience-date {
@@ -656,8 +705,8 @@
 
         .skill-tag {
             padding: 0.3rem 0.8rem;
-            background: rgba(220, 38, 38, 0.1);
-            color: var(--red-primary);
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
             border-radius: 1rem;
             font-size: 0.85rem;
             font-weight: 500;
@@ -666,20 +715,9 @@
         }
 
         .skill-tag:hover {
-            background: var(--red-primary);
+            background: var(--primary);
             color: white;
             transform: scale(1.1);
-        }
-
-        /* Floating Red Particles */
-        .red-particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--red-primary);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: floatParticle 8s linear infinite;
         }
 
         /* Certifications */
@@ -705,11 +743,13 @@
         }
 
         .cert-image {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
+            width: 50%;
+            height: 120px;
+            object-fit: contain;
             border-radius: 1rem 1rem 0 0;
             transition: var(--transition-smooth);
+            background: #f8fafc;
+            padding: 1rem;
         }
 
         .cert-card:hover .cert-image {
@@ -727,8 +767,7 @@
         }
 
         .cert-logo {
-            width: 48px;
-            height: 48px;
+            
             border-radius: 0.75rem;
             background: var(--gradient-primary);
             display: flex;
@@ -754,12 +793,6 @@
             color: var(--muted-foreground);
             font-size: 0.9rem;
             font-weight: 500;
-        }
-
-        .cert-desc {
-            color: var(--muted-foreground);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
         }
 
         .cert-button {
@@ -869,6 +902,19 @@
             font-weight: 500;
         }
 
+        .coming-soon-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 3;
+        }
+
         /* Contact */
         .contact-container {
             max-width: 1000px;
@@ -923,11 +969,10 @@
             transition: var(--transition-smooth);
         }
 
-        .contact-icon img {
+        .contact-icon svg {
             width: 32px;
             height: 32px;
-            object-fit: contain;
-            filter: brightness(0) invert(1);
+            fill: white;
         }
 
         .contact-item:hover .contact-icon {
@@ -1184,6 +1229,11 @@
             75% { transform: translateY(-10px) rotate(-1deg); }
         }
 
+        @keyframes floatDot {
+            0%, 100% { transform: translateY(0px); opacity: 0.3; }
+            50% { transform: translateY(-20px); opacity: 0.8; }
+        }
+
         @keyframes slideInUp {
             from {
                 opacity: 0;
@@ -1205,71 +1255,24 @@
             to { transform: rotate(360deg); }
         }
 
-        @keyframes typewriter {
-            0%, 50% { opacity: 0; }
-            51%, 100% { opacity: 1; }
-        }
-
-        @keyframes pulse-red {
+        @keyframes pulse-blue {
             0%, 100% {
-                box-shadow: 0 0 0 4px var(--red-primary), 0 0 20px rgba(220, 38, 38, 0.5);
+                box-shadow: 0 0 0 4px var(--primary), 0 0 20px rgba(37, 99, 235, 0.5);
             }
             50% {
-                box-shadow: 0 0 0 8px var(--red-primary), 0 0 30px rgba(220, 38, 38, 0.8);
+                box-shadow: 0 0 0 8px var(--primary), 0 0 30px rgba(37, 99, 235, 0.8);
             }
         }
 
-        @keyframes pulse-red-fast {
+        @keyframes pulse-blue-fast {
             0%, 100% {
-                box-shadow: 0 0 0 6px var(--red-primary), 0 0 30px rgba(220, 38, 38, 0.8);
+                box-shadow: 0 0 0 6px var(--primary), 0 0 30px rgba(37, 99, 235, 0.8);
             }
             50% {
-                box-shadow: 0 0 0 12px var(--red-primary), 0 0 40px rgba(220, 38, 38, 1);
+                box-shadow: 0 0 0 12px var(--primary), 0 0 40px rgba(37, 99, 235, 1);
             }
         }
 
-        @keyframes floatParticle {
-            0% {
-                transform: translateY(100vh) translateX(0px) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        .floating-animation {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .pulse-animation {
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        /* Click Effects */
         .click-effect {
             position: relative;
             overflow: hidden;
@@ -1293,10 +1296,47 @@
             height: 300px;
         }
 
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
             .nav-links {
-                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: var(--shadow-elegant);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links.active {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
             }
 
             .hero h1 {
@@ -1306,6 +1346,16 @@
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
             }
 
             .tech-grid,
@@ -1352,49 +1402,6 @@
                 flex-wrap: wrap;
             }
         }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary);
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 1rem 0;
-                box-shadow: var(--shadow-elegant);
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-            }
-
-            .nav-links.active {
-                display: flex;
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .nav-links li {
-                margin: 0.5rem 0;
-            }
-        }
     </style>
 </head>
 <body>
@@ -1406,6 +1413,7 @@
                 <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
                 <ul class="nav-links" id="navLinks">
                     <li><a onclick="scrollToSection('home')">Home</a></li>
+                    <li><a onclick="scrollToSection('about')">About</a></li>
                     <li><a onclick="scrollToSection('skills')">Skills</a></li>
                     <li><a onclick="scrollToSection('experience')">Experience</a></li>
                     <li><a onclick="scrollToSection('certifications')">Certifications</a></li>
@@ -1419,39 +1427,28 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-bg">
-            <!-- Animated Lines -->
-            <div class="animated-line line-horizontal" style="top: 20%;"></div>
-            <div class="animated-line line-horizontal" style="top: 60%; animation-delay: -2s;"></div>
-            <div class="animated-line line-horizontal" style="top: 80%; animation-delay: -4s;"></div>
+            <!-- Minimalistic Floating Dots -->
+            <div class="floating-dot" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
+            <div class="floating-dot" style="top: 25%; right: 15%; animation-delay: 2s;"></div>
+            <div class="floating-dot" style="top: 45%; left: 5%; animation-delay: 4s;"></div>
+            <div class="floating-dot" style="top: 65%; right: 10%; animation-delay: 1s;"></div>
+            <div class="floating-dot" style="top: 75%; left: 20%; animation-delay: 3s;"></div>
+            <div class="floating-dot" style="top: 35%; right: 25%; animation-delay: 5s;"></div>
+            <div class="floating-dot" style="top: 55%; left: 80%; animation-delay: 2.5s;"></div>
+            <div class="floating-dot" style="top: 85%; right: 30%; animation-delay: 4.5s;"></div>
+
+            <!-- Subtle Lines -->
+            <div class="subtle-line line-horizontal" style="top: 20%;"></div>
+            <div class="subtle-line line-horizontal" style="top: 60%; animation-delay: -4s;"></div>
+            <div class="subtle-line line-horizontal" style="top: 80%; animation-delay: -8s;"></div>
             
-            <div class="animated-line line-vertical" style="left: 15%;"></div>
-            <div class="animated-line line-vertical" style="left: 85%; animation-delay: -3s;"></div>
-            
-            <div class="animated-line line-diagonal" style="top: 10%; animation-delay: -1s;"></div>
-            <div class="animated-line line-diagonal" style="top: 70%; animation-delay: -5s;"></div>
+            <div class="subtle-line line-vertical" style="left: 15%;"></div>
+            <div class="subtle-line line-vertical" style="left: 85%; animation-delay: -6s;"></div>
 
-            <!-- Floating Symbols -->
-            <div class="floating-symbol" style="top: 15%; left: 10%;">&lt;/&gt;</div>
-            <div class="floating-symbol" style="top: 25%; right: 15%;">{}</div>
-            <div class="floating-symbol" style="top: 45%; left: 5%;">[]</div>
-            <div class="floating-symbol" style="top: 65%; right: 10%;">()</div>
-            <div class="floating-symbol" style="top: 75%; left: 20%;">;</div>
-            <div class="floating-symbol" style="top: 35%; right: 25%;">#</div>
-            <div class="floating-symbol" style="top: 55%; left: 80%;">*</div>
-            <div class="floating-symbol" style="top: 85%; right: 30%;">+</div>
-
-            <!-- Geometric Shapes -->
-            <div class="geometric-shape shape-circle" style="width: 100px; height: 100px; top: 20%; left: 70%;"></div>
-            <div class="geometric-shape shape-square" style="width: 80px; height: 80px; top: 60%; left: 15%;"></div>
-            <div class="geometric-shape shape-circle" style="width: 60px; height: 60px; top: 80%; right: 20%;"></div>
-            <div class="shape-triangle" style="top: 30%; left: 25%;"></div>
-            <div class="shape-triangle" style="top: 70%; right: 35%;"></div>
-
-            <!-- Code Elements -->
-            <div class="code-element" style="top: 25%; left: 30%;">function() {</div>
-            <div class="code-element" style="top: 45%; right: 40%;">return true;</div>
-            <div class="code-element" style="top: 65%; left: 40%;">console.log();</div>
-            <div class="code-element" style="top: 85%; right: 50%;">}</div>
+            <!-- Minimal Geometric Shapes -->
+            <div class="minimal-shape shape-circle" style="width: 60px; height: 60px; top: 20%; left: 70%;"></div>
+            <div class="minimal-shape shape-square" style="width: 40px; height: 40px; top: 60%; left: 15%;"></div>
+            <div class="minimal-shape shape-circle" style="width: 30px; height: 30px; top: 80%; right: 20%;"></div>
         </div>
 
         <div class="hero-content">
@@ -1489,6 +1486,52 @@
         </div>
     </section>
 
+    <!-- About Me Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-container">
+                <h2 class="section-title text-gradient scroll-reveal">About Me</h2>
+                <div class="about-grid">
+                    <div class="profile-section scroll-reveal">
+                        <div class="profile-image">
+                            <div class="profile-name">Bhargav<br>Chowdary</div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-content scroll-reveal">
+                        <h2>Passionate Developer & Tech Innovator</h2>
+                        <p class="about-description">
+                            I’m a passionate student and aspiring software developer with a keen interest in generative AI and problem solving. Skilled in full-stack development and always eager to learn, I enjoy tackling complex challenges and transforming ideas into impactful applications. My journey in technology is driven by curiosity, continuous learning, and the desire to create solutions that positively influence people’s lives.
+                        </p>
+                        
+                        <div class="expertise-grid">
+                            <div class="expertise-item scroll-reveal">
+                                <div class="expertise-icon">🎯</div>
+                                <div class="expertise-text">Strategic Thinker</div>
+                            </div>
+                            <div class="expertise-item scroll-reveal">
+                                <div class="expertise-icon">⚡</div>
+                                <div class="expertise-text">Quick Learner</div>
+                            </div>
+                            <div class="expertise-item scroll-reveal">
+                                <div class="expertise-icon">🔧</div>
+                                <div class="expertise-text">Technical Expert</div>
+                            </div>
+                            <div class="expertise-item scroll-reveal">
+                                <div class="expertise-icon">🌟</div>
+                                <div class="expertise-text">Creative Problem Solver</div>
+                            </div>
+                            <div class="expertise-item scroll-reveal">
+                                <div class="expertise-icon">🤖</div>
+                                <div class="expertise-text"> Generative AI expert</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Tech Stack Section -->
     <section id="skills">
         <div class="container">
@@ -1496,61 +1539,85 @@
             <div class="tech-grid">
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                        <svg viewBox="0 0 24 24" fill="#F7DF1E">
+                            <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+                        </svg>
                     </div>
                     <div class="tech-name">JavaScript</div>
                 </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                        <svg viewBox="0 0 24 24" fill="#3776AB">
+                            <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
+                        </svg>
                     </div>
                     <div class="tech-name">Python</div>
                 </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                        <svg viewBox="0 0 24 24" fill="#ED8B00">
+                            <path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308 0 0 .384.389.987.602-5.679 1.661-12.007.13-7.942-1.218M13.116 11.475c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688 0-.001-8.216 2.051-4.292 6.573M19.33 20.504s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.093.828-.093-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.7 14.977-1.82M9.292 13.21s-4.362 1.036-1.544 1.412c1.189.159 3.561.123 5.77-.062 1.806-.152 3.618-.477 3.618-.477s-.637.272-1.098.587c-4.429 1.165-12.986.623-10.522-.568 2.082-1.006 3.776-.892 3.776-.892M17.116 17.584c4.503-2.34 2.421-4.589.968-4.285-.355.074-.515.138-.515.138s.132-.207.385-.297c2.875-1.011 5.086 2.981-.928 4.562 0-.001.07-.062.09-.118M14.401 0s2.494 2.494-2.365 6.33c-3.896 3.077-.888 4.832-.001 6.836-2.274-2.053-3.943-3.858-2.824-5.539 1.644-2.469 6.197-3.665 5.19-7.627M9.734 23.924c4.322.277 10.959-.153 11.116-2.198 0 0-.302.775-3.572 1.391-3.688.694-8.239.613-10.937.168 0-.001.553.457 3.393.639"/>
+                        </svg>
                     </div>
                     <div class="tech-name">Java</div>
                 </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
+                        <svg viewBox="0 0 24 24" fill="#A8B9CC">
+                            <path d="M16.5921 9.1962s-.354-3.298-3.627-3.39c-3.2741-.09-4.9552 2.474-4.9552 6.14 0 3.6651 1.858 6.5972 5.0451 6.5972 3.184 0 3.5380-3.0671 3.5380-3.0671l-1.7852.063s.063 1.3222-1.7852 1.3222c-1.8482 0-2.4362-2.2861-2.4362-4.9552 0-2.6691.5880-4.9552 2.4362-4.9552 1.8482 0 1.7852 1.3222 1.7852 1.3222l1.7852-.063zm4.0581 7.837c-.282.282-.282.282-.282.282s-1.5671-.063-2.5041-.063c-.937 0-2.5041.063-2.5041.063s0 0-.282-.282c-.282-.282-.282-.282-.282-.282s.063-1.5671.063-2.5041c0-.937-.063-2.5041-.063-2.5041s0 0 .282-.282c.282-.282.282-.282.282-.282s1.5671.063 2.5041.063c.937 0 2.5041-.063 2.5041-.063s0 0 .282.282c.282.282.282.282.282.282s-.063 1.5671-.063 2.5041c0 .937.063 2.5041.063 2.5041s0 0-.282.282z"/>
+                        </svg>
                     </div>
                     <div class="tech-name">C</div>
                 </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                        <svg viewBox="0 0 24 24" fill="#E34F26">
+                            <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
+                        </svg>
                     </div>
                     <div class="tech-name">HTML5</div>
                 </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                        <svg viewBox="0 0 24 24" fill="#1572B6">
+                            <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/>
+                        </svg>
                     </div>
                     <div class="tech-name">CSS3</div>
                 </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                        <svg viewBox="0 0 24 24" fill="#47A248">
+                            <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-3.032.284-6.017.51-8.955.417-5.4 4.299-7.595 4.537-7.953-.292-.234-.6-.463-.945-.537z"/>
+                        </svg>
                     </div>
                     <div class="tech-name">MongoDB</div>
                 </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL">
+                        <svg viewBox="0 0 24 24" fill="#4479A1">
+                            <path d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.151zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H.082c.055-5.923.121-6.609.121-6.609h1.568L3.17 16.73h.016l1.4-4.644h1.564s.066.686.121 6.609z"/>
+                        </svg>
                     </div>
                     <div class="tech-name">SQL</div>
                 </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                        <svg viewBox="0 0 24 24" fill="#61DAFB">
+                            <circle cx="12" cy="12" r="2"/>
+                            <path d="M12,1C18.5,1,24,6.5,24,12s-5.5,11-12,11S0,17.5,0,12S5.5,1,12,1z M12,3c-5,0-9,4-9,9s4,9,9,9s9-4,9-9S17,3,12,3z"/>
+                            <ellipse cx="12" cy="12" rx="11" ry="4.2"/>
+                            <ellipse cx="12" cy="12" rx="11" ry="4.2" transform="rotate(60)"/>
+                            <ellipse cx="12" cy="12" rx="11" ry="4.2" transform="rotate(120)"/>
+                        </svg>
                     </div>
                     <div class="tech-name">React</div>
                 </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                        <svg viewBox="0 0 24 24" fill="#339933">
+                            <path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.570,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z"/>
+                        </svg>
                     </div>
                     <div class="tech-name">Node.js</div>
                 </div>
@@ -1558,26 +1625,15 @@
         </div>
     </section>
 
-    <!-- Experience Section with Red Theme -->
+    <!-- Experience Section with Blue Theme -->
     <section id="experience">
         <div class="container">
-            <h2 class="section-title text-red-gradient scroll-reveal">Experience</h2>
-            
-            <!-- Floating Red Particles -->
-            <div class="red-particle" style="left: 10%; animation-delay: 0s;"></div>
-            <div class="red-particle" style="left: 20%; animation-delay: 2s;"></div>
-            <div class="red-particle" style="left: 30%; animation-delay: 4s;"></div>
-            <div class="red-particle" style="left: 40%; animation-delay: 1s;"></div>
-            <div class="red-particle" style="left: 50%; animation-delay: 3s;"></div>
-            <div class="red-particle" style="left: 60%; animation-delay: 5s;"></div>
-            <div class="red-particle" style="left: 70%; animation-delay: 2.5s;"></div>
-            <div class="red-particle" style="left: 80%; animation-delay: 4.5s;"></div>
-            <div class="red-particle" style="left: 90%; animation-delay: 1.5s;"></div>
+            <h2 class="section-title text-gradient scroll-reveal">Experience</h2>
             
             <div class="experience-timeline">
                 <div class="experience-item scroll-reveal">
                     <div class="experience-card click-effect">
-                        <img src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Web Development" class="experience-image">
+                        
                         <div class="experience-title">🌐 Web Development Intern</div>
                         <div class="experience-company">Skill Dzire</div>
                         <div class="experience-date">2024 - 2025</div>
@@ -1597,13 +1653,13 @@
                 
                 <div class="experience-item scroll-reveal">
                     <div class="experience-card click-effect">
-                        <img src="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Competitive Programming" class="experience-image">
+                        
                         <div class="experience-title">🏆 Competitive Programming</div>
-                        <div class="experience-company">CodeChef</div>
+                        <div class="experience-company">Multiple Platforms</div>
                         <div class="experience-date">2023 - Present</div>
                         <div class="experience-desc">
-                            solved 500+ difficulty rating problems. 
-                            Specialized in algorithms,problem solving , data structures, and optimization techniques. 
+                            Solved 1000+ problems on CodeChef and 50+ problems on Codeforces. 
+                            Specialized in algorithms, problem solving, data structures, and optimization techniques. 
                             Participated in various coding competitions and contests.
                         </div>
                         <div class="experience-skills">
@@ -1618,9 +1674,9 @@
                 
                 <div class="experience-item scroll-reveal">
                     <div class="experience-card click-effect">
-                        <img src="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Computer Science Student" class="experience-image">
+                       
                         <div class="experience-title">🎓 Computer Science Student</div>
-                        <div class="experience-company">SASI college</div>
+                        <div class="experience-company">SASI College</div>
                         <div class="experience-date">2023 - Present</div>
                         <div class="experience-desc">
                             Pursuing Bachelor's in Computer Science with focus on software development, 
@@ -1628,10 +1684,50 @@
                             academic performance while working on practical projects.
                         </div>
                         <div class="experience-skills">
-                            <span class="skill-tag"> Generative AI</span>
+                            <span class="skill-tag">Generative AI</span>
                             <span class="skill-tag">Software Engineering</span>
                             <span class="skill-tag">Database Systems</span>
                             <span class="skill-tag">Web Development</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item scroll-reveal">
+                    <div class="experience-card click-effect">
+                        
+                        <div class="experience-title">📚 Intermediate Education</div>
+                        <div class="experience-company">Narayana Jr College</div>
+                        <div class="experience-date">2021 - 2023</div>
+                        <div class="experience-desc">
+                            Completed intermediate education with 85% marks, focusing on Mathematics, 
+                            Physics, and Chemistry. Built strong analytical and problem-solving foundations 
+                            that support my current technical pursuits.
+                        </div>
+                        <div class="experience-skills">
+                            <span class="skill-tag">Mathematics</span>
+                            <span class="skill-tag">Physics</span>
+                            <span class="skill-tag">Chemistry</span>
+                            <span class="skill-tag">Analytical Thinking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item scroll-reveal">
+                    <div class="experience-card click-effect">
+                        
+                        <div class="experience-title">🏫 SSC Education</div>
+                        <div class="experience-company">SASI</div>
+                        <div class="experience-date">2020 - 2021</div>
+                        <div class="experience-desc">
+                            Completed SSC with outstanding 99% marks, demonstrating exceptional 
+                            academic excellence and dedication to learning. This achievement laid 
+                            the foundation for my future educational and professional success.
+                        </div>
+                        <div class="experience-skills">
+                            <span class="skill-tag">Academic Excellence</span>
+                            <span class="skill-tag">Discipline</span>
+                            <span class="skill-tag">Time Management</span>
+                            <span class="skill-tag">Leadership</span>
                         </div>
                     </div>
                 </div>
@@ -1642,162 +1738,231 @@
     <!-- Certifications Section -->
     <section id="certifications">
         <div class="container">
-    <h2 class="section-title text-gradient scroll-reveal">Certifications & Achievements</h2>
-    <div class="cert-grid">
-        <div class="cert-card card-elegant scroll-reveal click-effect">
-            <img src="https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop" alt="C Programming" class="cert-image">
-            <div class="cert-content">
-                <div class="cert-header">
-                    <div class="cert-logo">👨‍💻</div>
-                    <div>
-                        <div class="cert-title">C Programming Certification</div>
-                        <div class="cert-org">CodeChef</div>
-                    </div>
-                </div>
-                <p class="cert-desc">
-                    Advanced proficiency in C programming language and algorithmic problem solving with strong foundation in data structures.
-                </p>
-                <a href="https://www.codechef.com/certificates/public/800cfa3" target="_blank" rel="noopener noreferrer">
-                    <button class="cert-button">View Certificate Details</button>
-                </a>
-            </div>
-        </div>
-                
+            <h2 class="section-title text-gradient scroll-reveal">Certifications & Achievements</h2>
+            <div class="cert-grid">
                 <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop" alt="Java Programming" class="cert-image">
+                    <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef Logo" class="cert-image">
                     <div class="cert-content">
                         <div class="cert-header">
-                            <div class="cert-logo">☕</div>
+                            <div class="cert-logo"></div>
+                            <div>
+                                <div class="cert-title">C Programming Certification</div>
+                                <div class="cert-org">CodeChef</div>
+                            </div>
+                        </div>
+                        <a href="https://www.codechef.com/certificates/public/800cfa3" target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef Logo" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo"></div>
                             <div>
                                 <div class="cert-title">Java Certification</div>
                                 <div class="cert-org">CodeChef</div>
                             </div>
                         </div>
-                        <p class="cert-desc">Comprehensive understanding of Java programming, object-oriented principles, and enterprise application development.</p>
                         <a href="https://www.codechef.com/certificates/public/7946820" target="_blank" rel="noopener noreferrer">
-                    <button class="cert-button">View Certificate Details</button>
-                </a>
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef Logo" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo"></div>
+                            <div>
+                                <div class="cert-title">Python Certification</div>
+                                <div class="cert-org">CodeChef</div>
+                            </div>
+                        </div>
+                        <a href="https://www.codechef.com/certificates/preview/917b616" target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
                     </div>
                 </div>
                 
                 <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop" alt="Problem Solving" class="cert-image">
+                    <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef Logo" class="cert-image">
                     <div class="cert-content">
                         <div class="cert-header">
-                            <div class="cert-logo">🏆</div>
+                            <div class="cert-logo"></div>
                             <div>
                                 <div class="cert-title">500 Rating Problems Solved</div>
                                 <div class="cert-org">CodeChef</div>
                             </div>
                         </div>
-                        <p class="cert-desc">Achieved 500+ rating on CodeChef through consistent problem solving, demonstrating strong algorithmic thinking and coding skills.</p>
                         <a href="https://www.codechef.com/certificates/public/0a67c9c" target="_blank" rel="noopener noreferrer">
-                    <button class="cert-button">View Certificate Details</button>
-                </a>
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
                     </div>
                 </div>
                 
                 <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop" alt="Artificial Intelligence" class="cert-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/800px-LinkedIn_logo_initials.png" alt="LinkedIn Logo" class="cert-image">
                     <div class="cert-content">
                         <div class="cert-header">
-                            <div class="cert-logo">🤖</div>
+                            <div class="cert-logo"></div>
                             <div>
                                 <div class="cert-title">AI Certification</div>
                                 <div class="cert-org">LinkedIn Learning</div>
                             </div>
                         </div>
-                        <p class="cert-desc">Certified expertise in Artificial Intelligence technologies, machine learning algorithms, and modern AI applications.</p>
-                       <a href="https://www.linkedin.com/learning/certificates/3ddcb52d3ba29d19544527dd8ffecd30035c06da4c6218c827e02aea0d2e39f1?trk=share_certificate" target="_blank" rel="noopener noreferrer">
-                    <button class="cert-button">View Certificate Details</button>
-                    </a>
+                        <a href="https://www.linkedin.com/learning/certificates/3ddcb52d3ba29d19544527dd8ffecd30035c06da4c6218c827e02aea0d2e39f1?trk=share_certificate" target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
                     </div>
                 </div>
                 
                 <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://images.pexels.com/photos/8438918/pexels-photo-8438918.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop" alt="Generative AI" class="cert-image">
+                    <img src="data:image/png;base64,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" alt="HP Life Logo" class="cert-image">
                     <div class="cert-content">
                         <div class="cert-header">
-                            <div class="cert-logo">🧠</div>
+                            <div class="cert-logo"></div>
                             <div>
                                 <div class="cert-title">Gen AI Certification</div>
                                 <div class="cert-org">HP Life</div>
                             </div>
                         </div>
-                        <p class="cert-desc">Advanced training in Generative AI technologies, including GPT models, neural networks, and AI-powered applications.</p>
                         <a href="https://www.life-global.org/certificate/6878337d-0a52-43ea-852c-bbf04e01bf04" target="_blank" rel="noopener noreferrer">
-                    <button class="cert-button">View Certificate Details</button>
-                    </a>
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
                     </div>
                 </div>
                 
                 <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop" alt="Python Programming" class="cert-image">
+                    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZpZXdCb3g9IjAgMCAxMTU1IDE2NCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjIiPjxwYXRoIGQ9Ik0xNTkuNzUgODEuNTRjMC00NC40OSAzNi42My04MC40NyA4Mi40My04MC40NyA0Ni4xMiAwIDgyLjc2IDM2IDgyLjc2IDgwLjQ3IDAgNDQuMTYtMzYuNjQgODAuOC04Mi43NiA4MC44LTQ1LjggMC04Mi40My0zNi42OC04Mi40My04MC44em0xMjUuNjEgMGMwLTIyLjI0LTE5LjMtNDEuODctNDMuMTgtNDEuODctMjMuNTUgMC00Mi44NSAxOS42My00Mi44NSA0MS44NyAwIDIyLjU3IDE5LjMgNDIuMiA0Mi44NSA0Mi4yIDIzLjkyIDAgNDMuMTgtMTkuNjMgNDMuMTgtNDIuMnptNzA1LjYzIDEuMzFjMC00OC43NCAzOS41OC04MS43OCA3NS41Ny04MS43OCAyNC41MyAwIDM4LjYgNy41MiA0OC4wOCAyMS45MmwzLjc3LTE5aDM2Ljc5djE1NS40aC0zNi43OWwtNC43NS0xNmMtMTAuNzkgMTEuNzgtMjQuMjEgMTktNDcuMSAxOS0zNS4zMy0uMDUtNzUuNTctMzEuMTMtNzUuNTctNzkuNTR6bTEyNS42MS0uMzNjLS4wOS0yMy41MjctMTkuNDctNDIuODM1LTQzLTQyLjgzNS0yMy41OSAwLTQzIDE5LjQxMS00MyA0M3YuMTY1YzAgMjEuNTkgMTkuMyA0MC44OSA0Mi44NiA0MC44OSAyMy44NSAwIDQzLjE0LTE5LjMgNDMuMTQtNDEuMjJ6TTk0NS43OCAyMlY0aC00MC4yM3YxNTUuMzloNDAuMjNWNzUuNjZjMC0yNS4xOSAxMi40NC0zOC4yNyAzNC0zOC4yNyAxLjQzIDAgMi43OS4xIDQuMTIuMjNMOTkxLjM2LjExYy0yMC45Ny4xMS0zNi4xNyA3LjMtNDUuNTggMjEuODl6bS00MDQuMjcuMDF2LTE4bC00MC4yMy4wOS4zNCAxNTUuMzcgNDAuMjMtLjA5LS4yMi04My43MmMtLjA2LTI1LjE4IDEyLjM1LTM4LjI5IDMzLjkzLTM4LjM0IDEuMzc2LjAwNCAyLjc1Mi4wODEgNC4xMi4yM0w1ODcuMSAwYy0yMSAuMTctMzYuMjIgNy4zOS00NS41OSAyMi4wMXpNMzM4Ljg4IDk5LjJWNC4wMWg0MC4yMlY5NC4zYzAgMTkuOTUgMTEuMTIgMzEuNzMgMzAuNDIgMzEuNzMgMjEuNTkgMCAzNC0xMy4wOSAzNC0zOC4yOFY0LjAxaDQwLjI0djE1NS4zOGgtNDAuMjF2LTE4Yy05LjQ4IDE0LjcyLTI0Ljg2IDIxLjkyLTQ2LjEyIDIxLjkyLTM1Ljk4LjAxLTU4LjU1LTI2LjE2LTU4LjU1LTY0LjExem0zOTEuNzQtMTcuNDhjLjA5LTQzLjUxIDMxLjIzLTgwLjc0IDgwLjYyLTgwLjY1IDQ1LjguMDkgNzguMTEgMzYuNzggNzggODAgLjAxIDQuMjczLS4zMyA4LjU0LTEgMTIuNzZsLTExOC40MS0uMjJjNC41NCAxOC42NSAxOS44OSAzMi4wOSA0My4xMiAzMi4xNCAxNC4wNiAwIDI5LjEyLTUuMTggMzguMy0xNi45NGwyNy40NCAyMmMtMTQuMTEgMTkuOTMtMzkgMzEuNjYtNjUuNDggMzEuNjEtNDYuNzUtLjE2LTgyLjY3LTM1LjIzLTgyLjU5LTgwLjd6bTExOC4xMi0xNi4xNGMtMi4yNi0xNS43LTE4LjU5LTI3Ljg0LTM3Ljg5LTI3Ljg3LTE4LjY1IDAtMzMuNzEgMTEuMDYtMzkuNjMgMjcuNzNsNzcuNTIuMTR6bS0yNjEuNCA1OS45NGwzNS43Ni0xOC43MmM1LjkxIDEyLjgxIDE3LjczIDIwLjM2IDM0LjQ4IDIwLjM2IDE1LjQzIDAgMjEuMzQtNC45MiAyMS4zNC0xMS44MiAwLTI1LTg0LjcxLTkuODUtODQuNzEtNjcgMC0zMS41MiAyNy41OC00OC4yNiA2MS43Mi00OC4yNiAyNS45NCAwIDQ4LjkyIDExLjQ5IDYxLjQgMzIuODNsLTM1LjQ0IDE4Ljc1Yy01LjI1LTEwLjUxLTE1LjEtMTYuNDItMjcuNTgtMTYuNDItMTIuMTQgMC0xOC4wNiA0LjI3LTE4LjA2IDExLjQ5IDAgMjQuMyA4NC43MSA4Ljg3IDg0LjcxIDY3IDAgMzAuMjEtMjQuNjIgNDguNTktNjQuMzUgNDguNTktMzMuODItLjAzLTU3LjQ2LTExLjE5LTY5LjI3LTM2Ljh6TTAgODEuNTRDMCAzNi43MyAzNi42My43NCA4Mi40My43NGMyNy45NDctLjE5NiA1NC4xODIgMTMuNzM3IDY5LjY3IDM3bC0zNC4zNCAxOS45MmE0Mi45NzIgNDIuOTcyIDAgMDAtMzUuMzMtMTguMzJjLTIzLjU1IDAtNDIuODUgMTkuNjMtNDIuODUgNDIuMiAwIDIyLjU3IDE5LjMgNDIuMiA0Mi44NSA0Mi4yYTQyLjUwMiA0Mi41MDIgMCAwMDM2LjMxLTIwbDM0IDIwLjI4Yy0xNS4zMDcgMjMuOTU1LTQxLjkwMiAzOC40MzEtNzAuMzMgMzguMjhDMzYuNjMgMTYyLjM0IDAgMTI1LjY2IDAgODEuNTR6IiBmaWxsPSIjMDA1NkQyIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4=" alt="Coursera Logo" class="cert-image">
                     <div class="cert-content">
                         <div class="cert-header">
-                            <div class="cert-logo">🐍</div>
+                            <div class="cert-logo"></div>
                             <div>
                                 <div class="cert-title">Python Certification</div>
                                 <div class="cert-org">Coursera</div>
                             </div>
                         </div>
-                        <p class="cert-desc">Expert-level proficiency in Python programming, data science applications, and web development frameworks.</p>
-                         <a href="https://coursera.org/share/4e367d6155bf4cf49ed04ea574fc883e" target="_blank" rel="noopener noreferrer">
-                    <button class="cert-button">View Certificate Details</button>
-                    </a>
+                        <a href="https://coursera.org/share/4e367d6155bf4cf49ed04ea574fc883e" target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
                     </div>
                 </div>
                 
                 <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop" alt="Web Development" class="cert-image">
+                    <img src="data:image/png;base64,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" alt="Skill Dzire Logo" class="cert-image">
                     <div class="cert-content">
                         <div class="cert-header">
-                            <div class="cert-logo">🌐</div>
+                            <div class="cert-logo"></div>
                             <div>
                                 <div class="cert-title">Web Development Internship</div>
                                 <div class="cert-org">Skill Dzire</div>
                             </div>
                         </div>
-                        <p class="cert-desc">Hands-on experience in full-stack web development through intensive internship program with real-world projects.</p>
-                         <a href="" target="_blank" rel="noopener noreferrer">
-                   <a href="https://drive.google.com/file/d/1ao31xukDRTjrHj_NKpeIKaDpRIl8FP3G/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                    <button class="cert-button">View Certificate Details</button>
-                    </a>
-                    </a>
+                        <a href="https://drive.google.com/file/d/1ao31xukDRTjrHj_NKpeIKaDpRIl8FP3G/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
                     </div>
                 </div>
                 
                 <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop" alt="Cyber Security" class="cert-image">
+                    <img src="data:image/png;base64,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" alt="HP Life Logo" class="cert-image">
                     <div class="cert-content">
                         <div class="cert-header">
-                            <div class="cert-logo">🔒</div>
+                            <div class="cert-logo"></div>
                             <div>
                                 <div class="cert-title">Cyber Security Certification</div>
                                 <div class="cert-org">HP Life</div>
                             </div>
                         </div>
-                        <p class="cert-desc">Comprehensive training in cybersecurity fundamentals, ethical hacking, and security best practices.</p>
                         <a href="https://www.life-global.org/certificate/227fb6e1-aa5f-43aa-89aa-5fa73a234187" target="_blank" rel="noopener noreferrer">
-                    <button class="cert-button">View Certificate Details</button>
-                    </a>
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
                     </div>
                 </div>
                 
                 <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://images.pexels.com/photos/8438918/pexels-photo-8438918.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop" alt="Oracle Gen AI" class="cert-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/2560px-Oracle_logo.svg.png" alt="Oracle Logo" class="cert-image">
                     <div class="cert-content">
                         <div class="cert-header">
-                            <div class="cert-logo">🚀</div>
+                            <div class="cert-logo"></div>
                             <div>
                                 <div class="cert-title">Gen AI Certification</div>
                                 <div class="cert-org">Oracle</div>
                             </div>
                         </div>
-                        <p class="cert-desc">Oracle-certified expertise in Generative AI, cloud computing, and enterprise AI solutions development.</p>
                         <a href="https://drive.google.com/file/d/12xRmxOd-IDwKfiv0cbGuKJI-QaGE4Puk/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                    <button class="cert-button">View Certificate Details</button>
-                    </a>
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="https://webassets.mongodb.com/_com_assets/cms/mongodb_logo1-76twgcu2dm.png" alt="MongoDB Logo" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo"></div>
+                            <div>
+                                <div class="cert-title">Introduction to MongoDB</div>
+                                <div class="cert-org">MongoDB Official</div>
+                            </div>
+                        </div>
+                        <a href="https://ti-user-certificates.s3.amazonaws.com/ae62dcd7-abdc-4e90-a570-83eccba49043/278a58b3-e718-4a86-8794-174bbd945480-bhargav-bandi-aa39fe62-16b7-444f-8b3b-d83da299655b-certificate.pdf" target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/2560px-Oracle_logo.svg.png" alt="Oracle Logo" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo"></div>
+                            <div>
+                                <div class="cert-title">AI Professional Certification</div>
+                                <div class="cert-org">Oracle</div>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1qOSgapoW9XaLYHOVagGFTfolr1J8r_0C/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png" alt="AWS Logo" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo"></div>
+                            <div>
+                                <div class="cert-title">Introduction to Generative
+ AI - Art of the Possible</div>
+                                <div class="cert-org">AWS</div>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1bQjbBXurydOh8n7MHh3iOxga9Z9iBZI3/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png" alt="AWS Logo" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo"></div>
+                            <div>
+                                <div class="cert-title">Chalk Talks: Generative AI
+ on AWS</div>
+                                <div class="cert-org">AWS</div>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1Zg8k4wCNQnv-xjpqZP_ajk0TiWEAGg_Q/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1809,23 +1974,6 @@
         <div class="container">
             <h2 class="section-title text-gradient scroll-reveal">Featured Projects</h2>
             <div class="projects-grid">
-                <div class="project-card card-elegant scroll-reveal click-effect">
-                    <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Smart Task Manager" class="project-image">
-                    <div class="project-content">
-                        <h3 class="project-title">Smart Task Manager</h3>
-                        <p class="project-desc">An intelligent task management application with AI-powered priority suggestions, deadline tracking, and team collaboration features. Built with modern React and Node.js.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">AI/ML</span>
-                        </div>
-                        <button class="btn-primary click-effect" onclick="window.open('#', '_blank')">
-                            <span style="position: relative; z-index: 10;">View Project</span>
-                        </button>
-                    </div>
-                </div>
-                
                 <div class="project-card card-elegant scroll-reveal click-effect">
                     <img src="https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Weather Forecast Pro" class="project-image">
                     <div class="project-content">
@@ -1844,35 +1992,55 @@
                 </div>
                 
                 <div class="project-card card-elegant scroll-reveal click-effect">
-                    <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Interactive Portfolio" class="project-image">
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <img src="https://images.pexels.com/photos/3299/postit-scrabble-to-do.jpg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Smart To-Do List" class="project-image">
                     <div class="project-content">
-                        <h3 class="project-title">Interactive Portfolio</h3>
-                        <p class="project-desc">Modern portfolio website with dynamic animations, interactive elements, and responsive design. Showcases projects, skills, and achievements with smooth user experience.</p>
+                        <h3 class="project-title">Smart To-Do List</h3>
+                        <p class="project-desc">Intelligent task management application with AI-powered priority suggestions, deadline tracking, and productivity analytics. Built with modern React and Node.js.</p>
                         <div class="tech-tags">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Animations</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">AI/ML</span>
                         </div>
-                        <button class="btn-primary click-effect" onclick="window.open('https://bandibhargav.github.io/portfolio', '_blank')">
-                            <span style="position: relative; z-index: 10;">View Project</span>
+                        <button class="btn-primary click-effect" style="background: linear-gradient(135deg, #10B981, #059669);" onclick="window.open('#', '_blank')">
+                            <span style="position: relative; z-index: 10;">Coming Soon</span>
                         </button>
                     </div>
                 </div>
                 
                 <div class="project-card card-elegant scroll-reveal click-effect">
-                    <img src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="AI Analytics Dashboard" class="project-image">
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="CookCraft" class="project-image">
                     <div class="project-content">
-                        <h3 class="project-title">AI Analytics Dashboard</h3>
-                        <p class="project-desc">Comprehensive analytics dashboard powered by AI for data visualization, predictive analytics, and business intelligence. Features real-time updates and interactive charts.</p>
+                        <h3 class="project-title">CookCraft</h3>
+                        <p class="project-desc">AI-powered cooking assistant that suggests recipes based on available ingredients, dietary preferences, and cooking skills. Features step-by-step guidance and nutritional information.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Machine Learning</span>
                             <span class="tech-tag">React</span>
-                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">API Integration</span>
                         </div>
-                        <button class="btn-primary click-effect" onclick="window.open('#', '_blank')">
-                            <span style="position: relative; z-index: 10;">View Project</span>
+                        <button class="btn-primary click-effect" style="background: linear-gradient(135deg, #F59E0B, #D97706);" onclick="window.open('#', '_blank')">
+                            <span style="position: relative; z-index: 10;">Coming Soon</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="project-card card-elegant scroll-reveal click-effect">
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Workout Assistant" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Workout Assistant</h3>
+                        <p class="project-desc">Personalized fitness companion with AI-driven workout plans, progress tracking, and form analysis. Includes video demonstrations and real-time feedback.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                        <button class="btn-primary click-effect" style="background: linear-gradient(135deg, #EF4444, #DC2626);" onclick="window.open('#', '_blank')">
+                            <span style="position: relative; z-index: 10;">Coming Soon</span>
                         </button>
                     </div>
                 </div>
@@ -1892,7 +2060,9 @@
                         
                         <div class="contact-item click-effect">
                             <div class="contact-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Email">
+                                <svg viewBox="0 0 24 24" fill="white">
+                                    <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.91L12 10.09l9.455-6.269h.909c.904 0 1.636.732 1.636 1.636z"/>
+                                </svg>
                             </div>
                             <div>
                                 <h4 style="font-weight: 600; margin-bottom: 0.25rem; color: var(--foreground);">Email</h4>
@@ -1902,7 +2072,9 @@
                         
                         <div class="contact-item click-effect">
                             <div class="contact-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="white">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
                             </div>
                             <div>
                                 <h4 style="font-weight: 600; margin-bottom: 0.25rem; color: var(--foreground);">LinkedIn</h4>
@@ -1912,7 +2084,9 @@
                         
                         <div class="contact-item click-effect">
                             <div class="contact-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+                                <svg viewBox="0 0 24 24" fill="white">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
                             </div>
                             <div>
                                 <h4 style="font-weight: 600; margin-bottom: 0.25rem; color: var(--foreground);">GitHub</h4>
@@ -1980,7 +2154,7 @@
                         <div class="footer-social-links">
                             <a href="https://github.com/Bandibhargav" class="footer-social-link click-effect" target="_blank" title="GitHub">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                 </svg>
                             </a>
                             <a href="https://linkedin.com/in/bhargav-chowdary-830875295" class="footer-social-link click-effect" target="_blank" title="LinkedIn">
@@ -2011,6 +2185,7 @@
                         <h4>Quick Links</h4>
                         <ul class="footer-links">
                             <li><a onclick="scrollToSection('home')" class="click-effect">Home</a></li>
+                            <li><a onclick="scrollToSection('about')" class="click-effect">About</a></li>
                             <li><a onclick="scrollToSection('skills')" class="click-effect">Skills</a></li>
                             <li><a onclick="scrollToSection('experience')" class="click-effect">Experience</a></li>
                             <li><a onclick="scrollToSection('certifications')" class="click-effect">Certifications</a></li>
@@ -2135,110 +2310,6 @@
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Parallax effect for hero section
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.hero');
-            if (parallax) {
-                const speed = scrolled * 0.1;
-                parallax.style.transform = `translateY(${speed}px)`;
-            }
-        });
-
-        // Mouse trail effect
-        let mouseTrail = [];
-        document.addEventListener('mousemove', function(e) {
-            mouseTrail.push({x: e.clientX, y: e.clientY, time: Date.now()});
-            
-            // Keep only recent trail points
-            mouseTrail = mouseTrail.filter(point => Date.now() - point.time < 1000);
-            
-            // Create trail dot
-            if (mouseTrail.length > 5) {
-                const dot = document.createElement('div');
-                dot.style.position = 'fixed';
-                dot.style.left = e.clientX + 'px';
-                dot.style.top = e.clientY + 'px';
-                dot.style.width = '4px';
-                dot.style.height = '4px';
-                dot.style.background = 'rgba(37, 99, 235, 0.6)';
-                dot.style.borderRadius = '50%';
-                dot.style.pointerEvents = 'none';
-                dot.style.zIndex = '9998';
-                dot.style.transition = 'opacity 0.5s ease';
-                
-                document.body.appendChild(dot);
-                
-                setTimeout(() => {
-                    dot.style.opacity = '0';
-                    setTimeout(() => {
-                        dot.remove();
-                    }, 500);
-                }, 100);
-            }
-        });
-
-        // Add floating animation to tech icons
-        document.querySelectorAll('.tech-icon').forEach((icon, index) => {
-            icon.style.animationDelay = `${index * 0.2}s`;
-            icon.classList.add('floating-animation');
-        });
-
-        // Add pulse animation to contact icons
-        document.querySelectorAll('.contact-icon').forEach(icon => {
-            icon.classList.add('pulse-animation');
-        });
-
-        // Smooth reveal animations on load
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '1';
-            
-            // Trigger scroll animations for elements in view
-            const elements = document.querySelectorAll('.scroll-reveal');
-            elements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight) {
-                    el.classList.add('visible');
-                }
-            });
-        });
-
-        // Enhanced button interactions
-        document.querySelectorAll('.btn-primary').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px) scale(1.05)';
-            });
-            
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Dynamic background color change on scroll
-        window.addEventListener('scroll', function() {
-            const scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
-            const hue = Math.floor(scrollPercent * 60 + 220); // Blue to purple range
-            document.documentElement.style.setProperty('--primary', `hsl(${hue}, 70%, 55%)`);
-        });
-
-        // Certificate button interactions
-        document.querySelectorAll('.cert-button').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const certTitle = this.closest('.cert-card').querySelector('.cert-title').textContent;
-                alert(`Opening certificate details for: ${certTitle}`);
-            });
-        });
-
-        // Experience card click interactions
-        document.querySelectorAll('.experience-card').forEach(card => {
-            card.addEventListener('click', function() {
-                this.style.transform = 'scale(1.05)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 200);
-            });
-        });
-
         // Close mobile menu when clicking on links
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', function() {
@@ -2268,6 +2339,18 @@
                 }
             });
         });
+
+        // Add CSS animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
