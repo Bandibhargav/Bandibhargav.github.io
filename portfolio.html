@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bhargav Chowdary - Software Developer Portfolio</title>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -18,25 +20,25 @@
             --primary-light: #3B82F6;
             --accent: #1E40AF;
             --secondary: #60A5FA;
-            
+
             --background: #FFFFFF;
             --foreground: #1E293B;
             --card: #FFFFFF;
             --muted-foreground: #64748B;
             --border: #E2E8F0;
             --light-blue: #EFF6FF;
-            
+
             /* Gradients */
             --gradient-primary: linear-gradient(135deg, #2563EB, #3B82F6);
             --gradient-hover: linear-gradient(135deg, #1D4ED8, #2563EB);
             --gradient-subtle: linear-gradient(180deg, #FFFFFF, #F8FAFC);
             --gradient-blue: linear-gradient(135deg, #EFF6FF, #DBEAFE);
-            
+
             /* Shadows */
             --shadow-elegant: 0 10px 30px -10px rgba(37, 99, 235, 0.3);
             --shadow-glow: 0 0 40px rgba(37, 99, 235, 0.4);
             --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            
+
             /* Animations */
             --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -767,7 +769,7 @@
         }
 
         .cert-logo {
-            
+
             border-radius: 0.75rem;
             background: var(--gradient-primary);
             display: flex;
@@ -1223,15 +1225,37 @@
 
         /* Animations */
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-10px) rotate(1deg); }
-            50% { transform: translateY(-20px) rotate(0deg); }
-            75% { transform: translateY(-10px) rotate(-1deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-10px) rotate(1deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(0deg);
+            }
+
+            75% {
+                transform: translateY(-10px) rotate(-1deg);
+            }
         }
 
         @keyframes floatDot {
-            0%, 100% { transform: translateY(0px); opacity: 0.3; }
-            50% { transform: translateY(-20px); opacity: 0.8; }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translateY(-20px);
+                opacity: 0.8;
+            }
         }
 
         @keyframes slideInUp {
@@ -1239,6 +1263,7 @@
                 opacity: 0;
                 transform: translateY(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1246,28 +1271,44 @@
         }
 
         @keyframes moveLine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes pulse-blue {
-            0%, 100% {
+
+            0%,
+            100% {
                 box-shadow: 0 0 0 4px var(--primary), 0 0 20px rgba(37, 99, 235, 0.5);
             }
+
             50% {
                 box-shadow: 0 0 0 8px var(--primary), 0 0 30px rgba(37, 99, 235, 0.8);
             }
         }
 
         @keyframes pulse-blue-fast {
-            0%, 100% {
+
+            0%,
+            100% {
                 box-shadow: 0 0 0 6px var(--primary), 0 0 30px rgba(37, 99, 235, 0.8);
             }
+
             50% {
                 box-shadow: 0 0 0 12px var(--primary), 0 0 40px rgba(37, 99, 235, 1);
             }
@@ -1404,6 +1445,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav id="navbar">
@@ -1417,6 +1459,7 @@
                     <li><a onclick="scrollToSection('skills')">Skills</a></li>
                     <li><a onclick="scrollToSection('experience')">Experience</a></li>
                     <li><a onclick="scrollToSection('certifications')">Certifications</a></li>
+                    <li><a onclick="scrollToSection('hackathons')">Hackathons</a></li>
                     <li><a onclick="scrollToSection('projects')">Projects</a></li>
                     <li><a onclick="scrollToSection('contact')">Contact</a></li>
                 </ul>
@@ -1441,7 +1484,7 @@
             <div class="subtle-line line-horizontal" style="top: 20%;"></div>
             <div class="subtle-line line-horizontal" style="top: 60%; animation-delay: -4s;"></div>
             <div class="subtle-line line-horizontal" style="top: 80%; animation-delay: -8s;"></div>
-            
+
             <div class="subtle-line line-vertical" style="left: 15%;"></div>
             <div class="subtle-line line-vertical" style="left: 85%; animation-delay: -6s;"></div>
 
@@ -1454,33 +1497,36 @@
         <div class="hero-content">
             <h1 class="text-gradient">Bhargav Chowdary</h1>
             <p>Passionate Software Developer | AI Enthusiast | Problem Solver<br>
-            Building innovative solutions with cutting-edge technology</p>
+                Building innovative solutions with cutting-edge technology</p>
             <div class="hero-buttons">
                 <button class="btn-primary click-effect" onclick="scrollToSection('projects')">
                     <span style="position: relative; z-index: 10;">View My Work</span>
                 </button>
-                <button class="btn-primary click-effect" onclick="scrollToSection('contact')" style="background: linear-gradient(135deg, #10B981, #059669);">
+                <button class="btn-primary click-effect" onclick="scrollToSection('contact')"
+                    style="background: linear-gradient(135deg, #10B981, #059669);">
                     <span style="position: relative; z-index: 10;">Get In Touch</span>
                 </button>
             </div>
             <div class="social-links">
-                <a href="https://github.com/Bandibhargav" class="social-link click-effect" target="_blank" title="GitHub">
+                <a href="https://github.com/Bandibhargav" class="social-link click-effect" target="_blank"
+                    title="GitHub">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                 </a>
-                <a href="https://linkedin.com/in/bhargav-chowdary-830875295" class="social-link click-effect" target="_blank" title="LinkedIn">
+                <a href="https://linkedin.com/in/bhargav-chowdary-830875295" class="social-link click-effect"
+                    target="_blank" title="LinkedIn">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                     </svg>
                 </a>
                 <a href="mailto:bhargavchowdary1221@gmail.com" class="social-link click-effect" title="Email">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.91L12 10.09l9.455-6.269h.909c.904 0 1.636.732 1.636 1.636z"/>
+                        <path
+                            d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.91L12 10.09l9.455-6.269h.909c.904 0 1.636.732 1.636 1.636z" />
                     </svg>
-                </a>
-                <a href="https://www.codechef.com/users/bhargavbandi" class="social-link click-effect" target="_blank" title="CodeChef">
-                    🏆
                 </a>
             </div>
         </div>
@@ -1497,13 +1543,17 @@
                             <div class="profile-name">Bhargav<br>Chowdary</div>
                         </div>
                     </div>
-                    
+
                     <div class="about-content scroll-reveal">
                         <h2>Passionate Developer & Tech Innovator</h2>
                         <p class="about-description">
-                            I’m a passionate student and aspiring software developer with a keen interest in generative AI and problem solving. Skilled in full-stack development and always eager to learn, I enjoy tackling complex challenges and transforming ideas into impactful applications. My journey in technology is driven by curiosity, continuous learning, and the desire to create solutions that positively influence people’s lives.
+                            I’m a passionate student and aspiring software developer with a keen interest in generative
+                            AI and problem solving. Skilled in full-stack development and always eager to learn, I enjoy
+                            tackling complex challenges and transforming ideas into impactful applications. My journey
+                            in technology is driven by curiosity, continuous learning, and the desire to create
+                            solutions that positively influence people’s lives.
                         </p>
-                        
+
                         <div class="expertise-grid">
                             <div class="expertise-item scroll-reveal">
                                 <div class="expertise-icon">🎯</div>
@@ -1539,219 +1589,122 @@
             <div class="tech-grid">
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" fill="#F7DF1E">
-                            <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
-                        </svg>
+                        <iconify-icon icon="logos:javascript" style="font-size: 64px;"></iconify-icon>
                     </div>
                     <div class="tech-name">JavaScript</div>
                 </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" fill="#3776AB">
-                            <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
-                        </svg>
+                        <iconify-icon icon="logos:python" style="font-size: 64px;"></iconify-icon>
                     </div>
                     <div class="tech-name">Python</div>
                 </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" fill="#ED8B00">
-                            <path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308 0 0 .384.389.987.602-5.679 1.661-12.007.13-7.942-1.218M13.116 11.475c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688 0-.001-8.216 2.051-4.292 6.573M19.33 20.504s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.093.828-.093-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.7 14.977-1.82M9.292 13.21s-4.362 1.036-1.544 1.412c1.189.159 3.561.123 5.77-.062 1.806-.152 3.618-.477 3.618-.477s-.637.272-1.098.587c-4.429 1.165-12.986.623-10.522-.568 2.082-1.006 3.776-.892 3.776-.892M17.116 17.584c4.503-2.34 2.421-4.589.968-4.285-.355.074-.515.138-.515.138s.132-.207.385-.297c2.875-1.011 5.086 2.981-.928 4.562 0-.001.07-.062.09-.118M14.401 0s2.494 2.494-2.365 6.33c-3.896 3.077-.888 4.832-.001 6.836-2.274-2.053-3.943-3.858-2.824-5.539 1.644-2.469 6.197-3.665 5.19-7.627M9.734 23.924c4.322.277 10.959-.153 11.116-2.198 0 0-.302.775-3.572 1.391-3.688.694-8.239.613-10.937.168 0-.001.553.457 3.393.639"/>
-                        </svg>
+                        <iconify-icon icon="logos:java" style="font-size: 64px;"></iconify-icon>
                     </div>
                     <div class="tech-name">Java</div>
                 </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
-  <div class="tech-icon">
-    <!-- C language logo (hexagon + letter C) -->
-    <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#A8B9CC"
-            d="M64 0L2 32v64l62 32 62-32V32L64 0zm0 12l50 26v52l-50 26-50-26V38l50-26z"/>
-      <text x="50%" y="55%" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
-            font-weight="bold" font-size="60" fill="#A8B9CC">C</text>
-    </svg>
-  </div>
-  <div class="tech-name">C</div>
-</div>
-
+                    <div class="tech-icon">
+                        <iconify-icon icon="logos:c" style="font-size: 64px;"></iconify-icon>
+                    </div>
+                    <div class="tech-name">C Lang</div>
+                </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" fill="#E34F26">
-                            <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
-                        </svg>
+                        <iconify-icon icon="logos:html-5" style="font-size: 64px;"></iconify-icon>
                     </div>
                     <div class="tech-name">HTML5</div>
                 </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" fill="#1572B6">
-                            <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/>
-                        </svg>
+                        <iconify-icon icon="logos:css-3" style="font-size: 64px;"></iconify-icon>
                     </div>
                     <div class="tech-name">CSS3</div>
                 </div>
+            </div>
+
+            <h2 class="section-title text-gradient scroll-reveal" style="margin-top: 4rem;">Autonomous AI & Global
+                Intelligence</h2>
+            <div class="tech-grid">
                 <div class="tech-item card-elegant scroll-reveal click-effect">
                     <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" fill="#47A248">
-                            <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-3.032.284-6.017.51-8.955.417-5.4 4.299-7.595 4.537-7.953-.292-.234-.6-.463-.945-.537z"/>
-                        </svg>
+                        <iconify-icon icon="hugeicons:ai-brain-05"
+                            style="font-size: 64px; color: #2563EB;"></iconify-icon>
                     </div>
-                    <div class="tech-name">MongoDB</div>
+                    <div class="tech-name">Gen AI</div>
                 </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
-  <div class="tech-icon">
-    <!-- Correct SQL/MySQL style logo -->
-    <svg viewBox="0 0 64 64" width="64" height="64" fill="#4479A1" xmlns="http://www.w3.org/2000/svg">
-      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-            font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="32">
-        SQL
-      </text>
-    </svg>
-  </div>
-  <div class="tech-name">SQL</div>
-</div>
-
+                    <div class="tech-icon">
+                        <iconify-icon icon="material-symbols:database-schema"
+                            style="font-size: 64px; color: #3B82F6;"></iconify-icon>
+                    </div>
+                    <div class="tech-name">RAG</div>
+                </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
-  <div class="tech-icon">
-    <!-- Proper React atom logo -->
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="1.8" fill="#61DAFB"/>
-      <g stroke="#61DAFB" stroke-width="1.5" fill="none">
-        <ellipse rx="10" ry="4.5" cx="12" cy="12"/>
-        <ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(60 12 12)"/>
-        <ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(120 12 12)"/>
-      </g>
-    </svg>
-  </div>
-  <div class="tech-name">React</div>
-</div>
-
+                    <div class="tech-icon">
+                        <iconify-icon icon="simple-icons:pinecone"
+                            style="font-size: 64px; color: #000000;"></iconify-icon>
+                    </div>
+                    <div class="tech-name">Pinecone</div>
+                </div>
                 <div class="tech-item card-elegant scroll-reveal click-effect">
-  <div class="tech-icon">
-    <!-- Node.js official hexagon logo -->
-    <svg viewBox="0 0 256 272" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#339933"
-            d="M128 .3L3 72.9v126.3l125 72.6 125-72.6V72.9L128 .3zM128 23.4l99.4 57.7v110.4l-99.4 57.7-99.4-57.7V81.1l99.4-57.7z"/>
-      <path fill="#339933"
-            d="M128 243.3l-74.3-43.1V105.8l74.3-43.1 74.3 43.1v94.4l-74.3 43.1z"/>
-      <path fill="#FFFFFF"
-            d="M170.5 114.6c-14.4-7.5-30.7-6.6-43.2 2.4-5.9 4.3-9.7 9.9-11.5 16.7-3.4 13 1.3 26.3 11.7 34.7
-               13.2 10.8 31.4 11 45.1 2.2l-6.4-11c-8.1 4.9-19.3 4.8-26.5-1.2-4.1-3.3-6.4-7.6-6.4-13 0-5.3 2.3-9.6 6.4-12.9
-               7.2-6 18.4-5.8 26.5-1.1l6.3-11z"/>
-      <path fill="#FFFFFF"
-            d="M128 155.7v13.3c10.1 0 18.4 2.3 25 6.9l6.4-11c-8.1-5.6-19.3-9.2-31.4-9.2z"/>
-    </svg>
-  </div>
-  <div class="tech-name">Node.js</div>
-</div>
-
+                    <div class="tech-icon">
+                        <iconify-icon icon="eos-icons:api" style="font-size: 64px; color: #2563EB;"></iconify-icon>
+                    </div>
+                    <div class="tech-name">APIs</div>
+                </div>
+                <div class="tech-item card-elegant scroll-reveal click-effect">
+                    <div class="tech-icon">
+                        <iconify-icon icon="hugeicons:artificial-intelligence-03"
+                            style="font-size: 64px; color: #3B82F6;"></iconify-icon>
+                    </div>
+                    <div class="tech-name">ML</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section with Blue Theme -->
+    <!-- Experience & Achievements Section -->
     <section id="experience">
         <div class="container">
-            <h2 class="section-title text-gradient scroll-reveal">Experience</h2>
-            
+            <h2 class="section-title text-gradient scroll-reveal">Experience & Achievements</h2>
+
             <div class="experience-timeline">
+                <!-- 1. SASI College -->
                 <div class="experience-item scroll-reveal">
                     <div class="experience-card click-effect">
-                        
-                        <div class="experience-title">🌐 Web Development Intern</div>
-                        <div class="experience-company">Skill Dzire</div>
-                        <div class="experience-date">2024 - 2025</div>
-                        <div class="experience-desc">
-                            Developed responsive web applications using modern technologies. 
-                            Collaborated with senior developers on client projects and gained 
-                            hands-on experience in full-stack development.
-                        </div>
-                        <div class="experience-skills">
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">CSS3</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="experience-item scroll-reveal">
-                    <div class="experience-card click-effect">
-                        
-                        <div class="experience-title">🏆 Competitive Programming</div>
-                        <div class="experience-company">Multiple Platforms</div>
-                        <div class="experience-date">2023 - Present</div>
-                        <div class="experience-desc">
-                            Solved 1000+ problems on CodeChef and 50+ problems on Codeforces. 
-                            Specialized in algorithms, problem solving, data structures, and optimization techniques. 
-                            Participated in various coding competitions and contests.
-                        </div>
-                        <div class="experience-skills">
-                            <span class="skill-tag">Algorithms</span>
-                            <span class="skill-tag">Data Structures</span>
-                            <span class="skill-tag">Problem Solving</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Java</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="experience-item scroll-reveal">
-                    <div class="experience-card click-effect">
-                       
                         <div class="experience-title">🎓 Computer Science Student</div>
                         <div class="experience-company">SASI College</div>
                         <div class="experience-date">2023 - Present</div>
                         <div class="experience-desc">
-                            Pursuing Bachelor's in Computer Science with focus on software development, 
-                            artificial intelligence, and modern web technologies. Maintaining excellent 
-                            academic performance while working on practical projects.
+                            Pursuing Bachelor's in Computer Science. Specialized in AI/ML architectures,
+                            full-stack systems, and advanced algorithm design. Consistently achieving
+                            top academic honors.
+                        </div>
+                        <div class="experience-skills">
+                            <span class="skill-tag">Software Engineering</span>
+                            <span class="skill-tag">AI/ML</span>
+                            <span class="skill-tag">Full-Stack</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Independent Researcher & Developer -->
+                <div class="experience-item scroll-reveal">
+                    <div class="experience-card click-effect">
+                        <div class="experience-title">🚀 Advanced AI Systems Research</div>
+                        <div class="experience-company">Open Source & Independent</div>
+                        <div class="experience-date">2024 - Present</div>
+                        <div class="experience-desc">
+                            Spearheading multiple independent projects in Generative AI, focusing on
+                            RAG optimization, Autonomous Agents, and high-scalability B2B SaaS architecture.
                         </div>
                         <div class="experience-skills">
                             <span class="skill-tag">Generative AI</span>
-                            <span class="skill-tag">Software Engineering</span>
-                            <span class="skill-tag">Database Systems</span>
-                            <span class="skill-tag">Web Development</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item scroll-reveal">
-                    <div class="experience-card click-effect">
-                        
-                        <div class="experience-title">📚 Intermediate Education</div>
-                        <div class="experience-company">Narayana Jr College</div>
-                        <div class="experience-date">2021 - 2023</div>
-                        <div class="experience-desc">
-                            Completed intermediate education with 85% marks, focusing on Mathematics, 
-                            Physics, and Chemistry. Built strong analytical and problem-solving foundations 
-                            that support my current technical pursuits.
-                        </div>
-                        <div class="experience-skills">
-                            <span class="skill-tag">Mathematics</span>
-                            <span class="skill-tag">Physics</span>
-                            <span class="skill-tag">Chemistry</span>
-                            <span class="skill-tag">Analytical Thinking</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item scroll-reveal">
-                    <div class="experience-card click-effect">
-                        
-                        <div class="experience-title">🏫 SSC Education</div>
-                        <div class="experience-company">SASI</div>
-                        <div class="experience-date">2020 - 2021</div>
-                        <div class="experience-desc">
-                            Completed SSC with outstanding 99% marks, demonstrating exceptional 
-                            academic excellence and dedication to learning. This achievement laid 
-                            the foundation for my future educational and professional success.
-                        </div>
-                        <div class="experience-skills">
-                            <span class="skill-tag">Academic Excellence</span>
-                            <span class="skill-tag">Discipline</span>
-                            <span class="skill-tag">Time Management</span>
-                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Vector DBs</span>
+                            <span class="skill-tag">System Design</span>
                         </div>
                     </div>
                 </div>
@@ -1765,183 +1718,24 @@
             <h2 class="section-title text-gradient scroll-reveal">Certifications & Achievements</h2>
             <div class="cert-grid">
                 <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef Logo" class="cert-image">
+                    <img src="data:image/png;base64,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" alt="CodeChef Logo" class="cert-image">
                     <div class="cert-content">
                         <div class="cert-header">
                             <div class="cert-logo"></div>
                             <div>
-                                <div class="cert-title">C Programming Certification</div>
-                                <div class="cert-org">CodeChef</div>
+                                <div class="cert-title">Google Analytics Certification</div>
+                                <div class="cert-org">Google</div>
                             </div>
                         </div>
-                        <a href="https://www.codechef.com/certificates/public/800cfa3" target="_blank" rel="noopener noreferrer">
+                        <a href="https://drive.google.com/file/d/1zBY2ikZYaM6SxDM3EC8PDRgNQ6KXlzz_/view?usp=sharing" target="_blank"
+                            rel="noopener noreferrer">
                             <button class="cert-button">View Certificate Details</button>
                         </a>
                     </div>
                 </div>
-                
                 <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef Logo" class="cert-image">
-                    <div class="cert-content">
-                        <div class="cert-header">
-                            <div class="cert-logo"></div>
-                            <div>
-                                <div class="cert-title">Java Certification</div>
-                                <div class="cert-org">CodeChef</div>
-                            </div>
-                        </div>
-                        <a href="https://www.codechef.com/certificates/public/7946820" target="_blank" rel="noopener noreferrer">
-                            <button class="cert-button">View Certificate Details</button>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef Logo" class="cert-image">
-                    <div class="cert-content">
-                        <div class="cert-header">
-                            <div class="cert-logo"></div>
-                            <div>
-                                <div class="cert-title">Python Certification</div>
-                                <div class="cert-org">CodeChef</div>
-                            </div>
-                        </div>
-                        <a href="https://www.codechef.com/certificates/preview/917b616" target="_blank" rel="noopener noreferrer">
-                            <button class="cert-button">View Certificate Details</button>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef Logo" class="cert-image">
-                    <div class="cert-content">
-                        <div class="cert-header">
-                            <div class="cert-logo"></div>
-                            <div>
-                                <div class="cert-title">500 Rating Problems Solved</div>
-                                <div class="cert-org">CodeChef</div>
-                            </div>
-                        </div>
-                        <a href="https://www.codechef.com/certificates/public/0a67c9c" target="_blank" rel="noopener noreferrer">
-                            <button class="cert-button">View Certificate Details</button>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/800px-LinkedIn_logo_initials.png" alt="LinkedIn Logo" class="cert-image">
-                    <div class="cert-content">
-                        <div class="cert-header">
-                            <div class="cert-logo"></div>
-                            <div>
-                                <div class="cert-title">AI Certification</div>
-                                <div class="cert-org">LinkedIn Learning</div>
-                            </div>
-                        </div>
-                        <a href="https://www.linkedin.com/learning/certificates/3ddcb52d3ba29d19544527dd8ffecd30035c06da4c6218c827e02aea0d2e39f1?trk=share_certificate" target="_blank" rel="noopener noreferrer">
-                            <button class="cert-button">View Certificate Details</button>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJoAAACUCAMAAABcK8BVAAAAY1BMVEUAltUAldYAAAAAltYAldUAm9wAneAAYYsASGgAMEUAi8YAT3AAgLYAkMwAZY8AUXQAXIMADRQAPloAOVIAV30Ac6QAFyIAITAAaZYAhb0Aea0AJjcAERkAbp0AHCgARGIACAvR8OGcAAAIMUlEQVR4nO2bbbuiLBCASUTNNCvLNOvY//+VjwyDgVBHjNp99nI+nC0tuZthXhhYQmgvK03o3yGEUI8wK59CiE89LWgL2gs0OgnN65gL2oK2oC1o/xM0mjZNk4Y0ilZefsr7aGwVihdhGfRyr9ZJ3eT95bfRehlzEFPCJ0IjekvSFbzMrsEgbXEKoz+JRml6PAdnKt7sAk3ORfPH0GiUJfeeIQalrehPMJYki96YdbPRKMs3YMEqo8KeBlkQ7Lt0PttcNEprnFoHClpjiQWt94pd+GU0lh/k4DUD1LS1ogXBOp3prPPQolM1DE2FPW9PyAD+e2jsdB/GPUTCwHZ7CtnOiiMz0GhUKMNeQGmr/AVZ76pz9DYDLdoqg7YpoLH6JVqwm8Hmjsa00FqAE6xW69dowcbdps5o0UkbUga16xOkQW7ObK5o9FKpA/6gE+yeEQ2yv3wYjYZnbcAY0FbkN3vyX5F/Fm0U8+8NFh2/k/Vh5qNoVJ9oQSduRK+C2kMcQ68TGs3b8WDisll02MTRpE5oUayPtc9FUHuRpDQpnLzUBY3mug/IJBVOs2dfPzkVlwracC00BfjYOERc8FfkQtLt4Kj3XJcsBptvbD/7lUxFI6OZds5HD2J5ibe6SB+BRdkZZsBn0IwpdWTGk6TJM2MQduHXd5FxwwdaVOpk9wtTvo6PEtNujdqhw5/+L89lrfFrvKClex1NDsNXxg2qiR3h1g5vZVl/p8FbPMPdMze2aWhG3YPGEfOrQrVtggcAa+BzBX1obYD2q7XNCE1og8Ic6pOp4AQfXUeKCiWn+NwhdHLSaWj5KIUfxCSKBHFKFc6aKZxodypMXaX+tUabkdLE+JRpnJ3gVPW5VTl5gecfbZTZf8T47KTqKYQ3iXisjXMg9YnGtjraAe2UCE7QBUa+m8p5CFVOXol7RxsXPhjUGkhAMvjDuhmThMZJifze+gNoesCtiDq+5KwenJR0pj45+AfQ9KoD4xODyX0WToA2b5AT4liCnEMfovI+1yjVliuYpGgK747C66JW5axNfXK5evdQSjS0NQYLCFZXEVQxvMTICZ9vkfNRg95D32hER5P5RgR/8ZqpnJik8HNR9Uk0ptX/uRr8taBaiiKEFaY+Qfb+0SI1T5XoBKIvg8ECObVkShROdANrgf8e2kFBw+BPoEzC4Ms2CifmjlgoTU2/nwgeyi8/a0nqhkVPoHKKAI1JX81xpX80tVzrcHxQZItBVYx/Qn1qnJ2CZlbtb6MRpXmAQU0kqQSTaaly1oo+CVHIgtMHKo/00adCZdRPORlyijfacqdxIZuI9sg1RzWo3cXcoSJJyWABcSzBYlf17bXbcm/i2mDwA7EyxiRVIKfYO2Mqp6ZPFMdF8kQ0WQyW4lsiSd0bwakFf5KUXNC42pr/9pFlS4jZRo4PybzMVU5ZXYtuAi5AVXvu3ZYGk5fIaFEZLGDvYItBFUqmgyUJDcoGOXxm9U6E0Vqc90eV8wKcsWktyrQS9ORmz+ntGAidp4hxEe2+UryRSUqYkD2Epmq4lTWKfzQI+PfjFkRYtxNvYuQUj7ttpcSF3q+sHZU2GY2y141utFb+dA+hdSqIXNAIe9npPtuCv439E2iEjvseqmywoi2ffaAkrk1JF7RXvW4Z/J/Z89o4K80BTZY+NsFVHIuffcASWnyiyd6eRY4YTZ/Z8+A+0QhSKUcLXqDRcS9rENGXNBpKUs7pvIm2+k3Uz9unm2y7FNa7wTWfOdEc0PoVppVNdhrs4NfL3InmgkZYXlnG1lYIxt0ZzjkHrY+85pkO7E1Rqz2rOTqbhdbrzfCFE7ZnzhayNp1FNgutd+tRDKlwBW+z52aGB8xH4xDafC+wPWQGtWvNnKPGe2i9UZVpJfeEzIMom9SxrvWA1n8xG3Qk27fjDZn1xan54gutJ4kuG7FvZU9SXV8Qzwd7C62Ho03Mgxyu+DJlg+26y8hbYG+iwSZsuisQVLrt+rBrWPSGKb2gcSLpgqw9t2URn7I0ZG8qzBPaQyIujD/QA5hfNM+yoC1oC9qCtqAtaP8CGuXtT/PLw1XKDBELU1M8o7HTLt6Zq8mLvMr6VyPZ8U59Pr7aX2+m1iXT0GA3NBmvQGADBjp+tlZHzOxtzMm7GhPRumBoOypovKwtOHBk6W1xNFsf0Dca33otxs+EvQPYTIv4bs91rUp7o4i21q9fPBu0mIBWRnTkBrBTeU0t7vFxtN0IzXi4QJtZj09EGyDsaNDBtaFVX0IbDw1o0POD40Tm3higVV9AMw7V0lhD6+xoP44bjX7QHlqrbXGPEI52/gKa0fiHjWy4Crs/lgN9vLfaup6udkSLf0E7PUdzPAngigYeaGwZjtAMN+nRfjgao6r4Rtta0fgM26poBkKPVm0KVSZn96lo9VO0+mHQJlOET35KzG2E6WcWPKLpUkqt/Wm0i4FwoKi1a3lQpJx+dt5hrhkHkUdau+8VCTo+p0LuBqK5heLQD3fwUDN46G5Q5KkiEDKEh06GmYM2Ka7pHkq+hWZPVL/FNfqNbGAvin5NVN/KoSbao/KorWhfqzzsVe6jKHqC9o167Tc0syj6K9BieynZfKEAH1acBtpjbWArwGHZMo9sKtoG5tLofMVosfcUbWU/mOEJjS+R22KjSE3Ndej44bBEvicbTSafknFoLOjS50hoLECgfYU2lsmnwB3aMSaa3o4x/0eNtR3jGY3VXaJLxw1665LuJhJV/8q0FE0TQ7rJ/21vGhph0ViACP9VX+lifM3+sXfQ/oQsaAvagragLWgL2oL2r6H9ByLxr/UP6if6AAAAAElFTkSuQmCC" alt="HP Life Logo" class="cert-image">
-                    <div class="cert-content">
-                        <div class="cert-header">
-                            <div class="cert-logo"></div>
-                            <div>
-                                <div class="cert-title">Gen AI Certification</div>
-                                <div class="cert-org">HP Life</div>
-                            </div>
-                        </div>
-                        <a href="https://www.life-global.org/certificate/6878337d-0a52-43ea-852c-bbf04e01bf04" target="_blank" rel="noopener noreferrer">
-                            <button class="cert-button">View Certificate Details</button>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZpZXdCb3g9IjAgMCAxMTU1IDE2NCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjIiPjxwYXRoIGQ9Ik0xNTkuNzUgODEuNTRjMC00NC40OSAzNi42My04MC40NyA4Mi40My04MC40NyA0Ni4xMiAwIDgyLjc2IDM2IDgyLjc2IDgwLjQ3IDAgNDQuMTYtMzYuNjQgODAuOC04Mi43NiA4MC44LTQ1LjggMC04Mi40My0zNi42OC04Mi40My04MC44em0xMjUuNjEgMGMwLTIyLjI0LTE5LjMtNDEuODctNDMuMTgtNDEuODctMjMuNTUgMC00Mi44NSAxOS42My00Mi44NSA0MS44NyAwIDIyLjU3IDE5LjMgNDIuMiA0Mi44NSA0Mi4yIDIzLjkyIDAgNDMuMTgtMTkuNjMgNDMuMTgtNDIuMnptNzA1LjYzIDEuMzFjMC00OC43NCAzOS41OC04MS43OCA3NS41Ny04MS43OCAyNC41MyAwIDM4LjYgNy41MiA0OC4wOCAyMS45MmwzLjc3LTE5aDM2Ljc5djE1NS40aC0zNi43OWwtNC43NS0xNmMtMTAuNzkgMTEuNzgtMjQuMjEgMTktNDcuMSAxOS0zNS4zMy0uMDUtNzUuNTctMzEuMTMtNzUuNTctNzkuNTR6bTEyNS42MS0uMzNjLS4wOS0yMy41MjctMTkuNDctNDIuODM1LTQzLTQyLjgzNS0yMy41OSAwLTQzIDE5LjQxMS00MyA0M3YuMTY1YzAgMjEuNTkgMTkuMyA0MC44OSA0Mi44NiA0MC44OSAyMy44NSAwIDQzLjE0LTE5LjMgNDMuMTQtNDEuMjJ6TTk0NS43OCAyMlY0aC00MC4yM3YxNTUuMzloNDAuMjNWNzUuNjZjMC0yNS4xOSAxMi40NC0zOC4yNyAzNC0zOC4yNyAxLjQzIDAgMi43OS4xIDQuMTIuMjNMOTkxLjM2LjExYy0yMC45Ny4xMS0zNi4xNyA3LjMtNDUuNTggMjEuODl6bS00MDQuMjcuMDF2LTE4bC00MC4yMy4wOS4zNCAxNTUuMzcgNDAuMjMtLjA5LS4yMi04My43MmMtLjA2LTI1LjE4IDEyLjM1LTM4LjI5IDMzLjkzLTM4LjM0IDEuMzc2LjAwNCAyLjc1Mi4wODEgNC4xMi4yM0w1ODcuMSAwYy0yMSAuMTctMzYuMjIgNy4zOS00NS41OSAyMi4wMXpNMzM4Ljg4IDk5LjJWNC4wMWg0MC4yMlY5NC4zYzAgMTkuOTUgMTEuMTIgMzEuNzMgMzAuNDIgMzEuNzMgMjEuNTkgMCAzNC0xMy4wOSAzNC0zOC4yOFY0LjAxaDQwLjI0djE1NS4zOGgtNDAuMjF2LTE4Yy05LjQ4IDE0LjcyLTI0Ljg2IDIxLjkyLTQ2LjEyIDIxLjkyLTM1Ljk4LjAxLTU4LjU1LTI2LjE2LTU4LjU1LTY0LjExem0zOTEuNzQtMTcuNDhjLjA5LTQzLjUxIDMxLjIzLTgwLjc0IDgwLjYyLTgwLjY1IDQ1LjguMDkgNzguMTEgMzYuNzggNzggODAgLjAxIDQuMjczLS4zMyA4LjU0LTEgMTIuNzZsLTExOC40MS0uMjJjNC41NCAxOC42NSAxOS44OSAzMi4wOSA0My4xMiAzMi4xNCAxNC4wNiAwIDI5LjEyLTUuMTggMzguMy0xNi45NGwyNy40NCAyMmMtMTQuMTEgMTkuOTMtMzkgMzEuNjYtNjUuNDggMzEuNjEtNDYuNzUtLjE2LTgyLjY3LTM1LjIzLTgyLjU5LTgwLjd6bTExOC4xMi0xNi4xNGMtMi4yNi0xNS43LTE4LjU5LTI3Ljg0LTM3Ljg5LTI3Ljg3LTE4LjY1IDAtMzMuNzEgMTEuMDYtMzkuNjMgMjcuNzNsNzcuNTIuMTR6bS0yNjEuNCA1OS45NGwzNS43Ni0xOC43MmM1LjkxIDEyLjgxIDE3LjczIDIwLjM2IDM0LjQ4IDIwLjM2IDE1LjQzIDAgMjEuMzQtNC45MiAyMS4zNC0xMS44MiAwLTI1LTg0LjcxLTkuODUtODQuNzEtNjcgMC0zMS41MiAyNy41OC00OC4yNiA2MS43Mi00OC4yNiAyNS45NCAwIDQ4LjkyIDExLjQ5IDYxLjQgMzIuODNsLTM1LjQ0IDE4Ljc1Yy01LjI1LTEwLjUxLTE1LjEtMTYuNDItMjcuNTgtMTYuNDItMTIuMTQgMC0xOC4wNiA0LjI3LTE4LjA2IDExLjQ5IDAgMjQuMyA4NC43MSA4Ljg3IDg0LjcxIDY3IDAgMzAuMjEtMjQuNjIgNDguNTktNjQuMzUgNDguNTktMzMuODItLjAzLTU3LjQ2LTExLjE5LTY5LjI3LTM2Ljh6TTAgODEuNTRDMCAzNi43MyAzNi42My43NCA4Mi40My43NGMyNy45NDctLjE5NiA1NC4xODIgMTMuNzM3IDY5LjY3IDM3bC0zNC4zNCAxOS45MmE0Mi45NzIgNDIuOTcyIDAgMDAtMzUuMzMtMTguMzJjLTIzLjU1IDAtNDIuODUgMTkuNjMtNDIuODUgNDIuMiAwIDIyLjU3IDE5LjMgNDIuMiA0Mi44NSA0Mi4yYTQyLjUwMiA0Mi41MDIgMCAwMDM2LjMxLTIwbDM0IDIwLjI4Yy0xNS4zMDcgMjMuOTU1LTQxLjkwMiAzOC40MzEtNzAuMzMgMzguMjhDMzYuNjMgMTYyLjM0IDAgMTI1LjY2IDAgODEuNTR6IiBmaWxsPSIjMDA1NkQyIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4=" alt="Coursera Logo" class="cert-image">
-                    <div class="cert-content">
-                        <div class="cert-header">
-                            <div class="cert-logo"></div>
-                            <div>
-                                <div class="cert-title">Python Certification</div>
-                                <div class="cert-org">Coursera</div>
-                            </div>
-                        </div>
-                        <a href="https://coursera.org/share/4e367d6155bf4cf49ed04ea574fc883e" target="_blank" rel="noopener noreferrer">
-                            <button class="cert-button">View Certificate Details</button>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="data:image/png;base64,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" alt="Skill Dzire Logo" class="cert-image">
-                    <div class="cert-content">
-                        <div class="cert-header">
-                            <div class="cert-logo"></div>
-                            <div>
-                                <div class="cert-title">Web Development Internship</div>
-                                <div class="cert-org">Skill Dzire</div>
-                            </div>
-                        </div>
-                        <a href="https://drive.google.com/file/d/1ao31xukDRTjrHj_NKpeIKaDpRIl8FP3G/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                            <button class="cert-button">View Certificate Details</button>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="data:image/png;base64,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" alt="HP Life Logo" class="cert-image">
-                    <div class="cert-content">
-                        <div class="cert-header">
-                            <div class="cert-logo"></div>
-                            <div>
-                                <div class="cert-title">Cyber Security Certification</div>
-                                <div class="cert-org">HP Life</div>
-                            </div>
-                        </div>
-                        <a href="https://www.life-global.org/certificate/227fb6e1-aa5f-43aa-89aa-5fa73a234187" target="_blank" rel="noopener noreferrer">
-                            <button class="cert-button">View Certificate Details</button>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/2560px-Oracle_logo.svg.png" alt="Oracle Logo" class="cert-image">
-                    <div class="cert-content">
-                        <div class="cert-header">
-                            <div class="cert-logo"></div>
-                            <div>
-                                <div class="cert-title">Gen AI Certification</div>
-                                <div class="cert-org">Oracle</div>
-                            </div>
-                        </div>
-                        <a href="https://drive.google.com/file/d/12xRmxOd-IDwKfiv0cbGuKJI-QaGE4Puk/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                            <button class="cert-button">View Certificate Details</button>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://webassets.mongodb.com/_com_assets/cms/mongodb_logo1-76twgcu2dm.png" alt="MongoDB Logo" class="cert-image">
-                    <div class="cert-content">
-                        <div class="cert-header">
-                            <div class="cert-logo"></div>
-                            <div>
-                                <div class="cert-title">Introduction to MongoDB</div>
-                                <div class="cert-org">MongoDB Official</div>
-                            </div>
-                        </div>
-                        <a href="https://ti-user-certificates.s3.amazonaws.com/ae62dcd7-abdc-4e90-a570-83eccba49043/278a58b3-e718-4a86-8794-174bbd945480-bhargav-bandi-aa39fe62-16b7-444f-8b3b-d83da299655b-certificate.pdf" target="_blank" rel="noopener noreferrer">
-                            <button class="cert-button">View Certificate Details</button>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/2560px-Oracle_logo.svg.png" alt="Oracle Logo" class="cert-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/2560px-Oracle_logo.svg.png"
+                        alt="Oracle Logo" class="cert-image">
                     <div class="cert-content">
                         <div class="cert-header">
                             <div class="cert-logo"></div>
@@ -1950,121 +1744,363 @@
                                 <div class="cert-org">Oracle</div>
                             </div>
                         </div>
-                        <a href="https://drive.google.com/file/d/1qOSgapoW9XaLYHOVagGFTfolr1J8r_0C/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                        <a href="https://drive.google.com/file/d/1qOSgapoW9XaLYHOVagGFTfolr1J8r_0C/view?usp=sharing"
+                            target="_blank" rel="noopener noreferrer">
                             <button class="cert-button">View Certificate Details</button>
                         </a>
                     </div>
                 </div>
-
                 <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png" alt="AWS Logo" class="cert-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png"
+                        alt="AWS Logo" class="cert-image">
                     <div class="cert-content">
                         <div class="cert-header">
                             <div class="cert-logo"></div>
                             <div>
                                 <div class="cert-title">Introduction to Generative
- AI - Art of the Possible</div>
+                                    AI - Art of the Possible</div>
                                 <div class="cert-org">AWS</div>
                             </div>
                         </div>
-                        <a href="https://drive.google.com/file/d/1bQjbBXurydOh8n7MHh3iOxga9Z9iBZI3/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                        <a href="https://drive.google.com/file/d/1bQjbBXurydOh8n7MHh3iOxga9Z9iBZI3/view?usp=sharing"
+                            target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/2560px-Oracle_logo.svg.png"
+                        alt="Oracle Logo" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo"></div>
+                            <div>
+                                <div class="cert-title">Gen AI Certification</div>
+                                <div class="cert-org">Oracle</div>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/12xRmxOd-IDwKfiv0cbGuKJI-QaGE4Puk/view?usp=sharing"
+                            target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png"
+                        alt="AWS Logo" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo"></div>
+                            <div>
+                                <div class="cert-title">Chalk Talks: Generative AI
+                                    on AWS</div>
+                                <div class="cert-org">AWS</div>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1Zg8k4wCNQnv-xjpqZP_ajk0TiWEAGg_Q/view?usp=sharing"
+                            target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="https://webassets.mongodb.com/_com_assets/cms/mongodb_logo1-76twgcu2dm.png"
+                        alt="MongoDB Logo" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo"></div>
+                            <div>
+                                <div class="cert-title">Introduction to MongoDB</div>
+                                <div class="cert-org">MongoDB Official</div>
+                            </div>
+                        </div>
+                        <a href="https://ti-user-certificates.s3.amazonaws.com/ae62dcd7-abdc-4e90-a570-83eccba49043/278a58b3-e718-4a86-8794-174bbd945480-bhargav-bandi-aa39fe62-16b7-444f-8b3b-d83da299655b-certificate.pdf"
+                            target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/2560px-IBM_logo.svg.png"
+                        alt="IBM Logo" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo">
+                                <iconify-icon icon="logos:ibm" style="font-size: 24px;"></iconify-icon>
+                            </div>
+                            <div>
+                                <div class="cert-title">Machine Learning Specialist</div>
+                                <div class="cert-org">IBM</div>
+                            </div>
+                        </div>
+                        <button class="cert-button">View Certificate</button>
+                    </div>
+                </div>
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/800px-LinkedIn_logo_initials.png"
+                        alt="LinkedIn Logo" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo"></div>
+                            <div>
+                                <div class="cert-title">AI Certification</div>
+                                <div class="cert-org">LinkedIn Learning</div>
+                            </div>
+                        </div>
+                        <a href="https://www.linkedin.com/learning/certificates/3ddcb52d3ba29d19544527dd8ffecd30035c06da4c6218c827e02aea0d2e39f1?trk=share_certificate"
+                            target="_blank" rel="noopener noreferrer">
                             <button class="cert-button">View Certificate Details</button>
                         </a>
                     </div>
                 </div>
 
                 <div class="cert-card card-elegant scroll-reveal click-effect">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png" alt="AWS Logo" class="cert-image">
+                    <img src="data:image/png;base64,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"
+                        alt="HP Life Logo" class="cert-image">
                     <div class="cert-content">
                         <div class="cert-header">
                             <div class="cert-logo"></div>
                             <div>
-                                <div class="cert-title">Chalk Talks: Generative AI
- on AWS</div>
-                                <div class="cert-org">AWS</div>
+                                <div class="cert-title">Gen AI Certification</div>
+                                <div class="cert-org">HP Life</div>
                             </div>
                         </div>
-                        <a href="https://drive.google.com/file/d/1Zg8k4wCNQnv-xjpqZP_ajk0TiWEAGg_Q/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.life-global.org/certificate/6878337d-0a52-43ea-852c-bbf04e01bf04"
+                            target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZpZXdCb3g9IjAgMCAxMTU1IDE2NCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjIiPjxwYXRoIGQ9Ik0xNTkuNzUgODEuNTRjMC00NC40OSAzNi42My04MC40NyA4Mi40My04MC40NyA0Ni4xMiAwIDgyLjc2IDM2IDgyLjc2IDgwLjQ3IDAgNDQuMTYtMzYuNjQgODAuOC04Mi43NiA4MC44LTQ1LjggMC04Mi40My0zNi42OC04Mi40My04MC44em0xMjUuNjEgMGMwLTIyLjI0LTE5LjMtNDEuODctNDMuMTgtNDEuODctMjMuNTUgMC00Mi44NSAxOS42My00Mi44NSA0MS44NyAwIDIyLjU3IDE5LjMgNDIuMiA0Mi44NSA0Mi4yIDIzLjkyIDAgNDMuMTgtMTkuNjMgNDMuMTgtNDIuMnptNzA1LjYzIDEuMzFjMC00OC43NCAzOS41OC04MS43OCA3NS41Ny04MS43OCAyNC41MyAwIDM4LjYgNy41MiA0OC4wOCAyMS45MmwzLjc3LTE5aDM2Ljc5djE1NS40aC0zNi43OWwtNC43NS0xNmMtMTAuNzkgMTEuNzgtMjQuMjEgMTktNDcuMSAxOS0zNS4zMy0uMDUtNzUuNTctMzEuMTMtNzUuNTctNzkuNTR6bTEyNS42MS0uMzNjLS4wOS0yMy41MjctMTkuNDctNDIuODM1LTQzLTQyLjgzNS0yMy41OSAwLTQzIDE5LjQxMS00MyA0M3YuMTY1YzAgMjEuNTkgMTkuMyA0MC44OSA0Mi44NiA0MC44OSAyMy44NSAwIDQzLjE0LTE5LjMgNDMuMTQtNDEuMjJ6TTk0NS43OCAyMlY0aC00MC4yM3YxNTUuMzloNDAuMjNWNzUuNjZjMC0yNS4xOSAxMi40NC0zOC4yNyAzNC0zOC4yNyAxLjQzIDAgMi43OS4xIDQuMTIuMjNMOTkxLjM2LjExYy0yMC45Ny4xMS0zNi4xNyA3LjMtNDUuNTggMjEuODl6bS00MDQuMjcuMDF2LTE4bC00MC4yMy4wOS4zNCAxNTUuMzcgNDAuMjMtLjA5LS4yMi04My43MmMtLjA2LTI1LjE4IDEyLjM1LTM4LjI5IDMzLjkzLTM4LjM0IDEuMzc2LjAwNCAyLjc1Mi4wODEgNC4xMi4yM0w1ODcuMSAwYy0yMSAuMTctMzYuMjIgNy4zOS00NS41OSAyMi4wMXpNMzM4Ljg4IDk5LjJWNC4wMWg0MC4yMlY5NC4zYzAgMTkuOTUgMTEuMTIgMzEuNzMgMzAuNDIgMzEuNzMgMjEuNTkgMCAzNC0xMy4wOSAzNC0zOC4yOFY0LjAxaDQwLjI0djE1NS4zOGgtNDAuMjF2LTE4Yy05LjQ4IDE0LjcyLTI0Ljg2IDIxLjkyLTQ2LjEyIDIxLjkyLTM1Ljk4LjAxLTU4LjU1LTI2LjE2LTU4LjU1LTY0LjExem0zOTEuNzQtMTcuNDhjLjA5LTQzLjUxIDMxLjIzLTgwLjc0IDgwLjYyLTgwLjY1IDQ1LjguMDkgNzguMTEgMzYuNzggNzggODAgLjAxIDQuMjczLS4zMyA4LjU0LTEgMTIuNzZsLTExOC40MS0uMjJjNC41NCAxOC42NSAxOS44OSAzMi4wOSA0My4xMiAzMi4xNCAxNC4wNiAwIDI5LjEyLTUuMTggMzguMy0xNi45NGwyNy40NCAyMmMtMTQuMTEgMTkuOTMtMzkgMzEuNjYtNjUuNDggMzEuNjEtNDYuNzUtLjE2LTgyLjY3LTM1LjIzLTgyLjU5LTgwLjd6bTExOC4xMi0xNi4xNGMtMi4yNi0xNS43LTE4LjU5LTI3Ljg0LTM3Ljg5LTI3Ljg3LTE4LjY1IDAtMzMuNzEgMTEuMDYtMzkuNjMgMjcuNzNsNzcuNTIuMTR6bS0yNjEuNCA1OS45NGwzNS43Ni0xOC43MmM1LjkxIDEyLjgxIDE3LjczIDIwLjM2IDM0LjQ4IDIwLjM2IDE1LjQzIDAgMjEuMzQtNC45MiAyMS4zNC0xMS44MiAwLTI1LTg0LjcxLTkuODUtODQuNzEtNjcgMC0zMS41MiAyNy41OC00OC4yNiA2MS43Mi00OC4yNiAyNS45NCAwIDQ4LjkyIDExLjQ5IDYxLjQgMzIuODNsLTM1LjQ0IDE4Ljc1Yy01LjI1LTEwLjUxLTE1LjEtMTYuNDItMjcuNTgtMTYuNDItMTIuMTQgMC0xOC4wNiA0LjI3LTE4LjA2IDExLjQ5IDAgMjQuMyA4NC43MSA4Ljg3IDg0LjcxIDY3IDAgMzAuMjEtMjQuNjIgNDguNTktNjQuMzUgNDguNTktMzMuODItLjAzLTU3LjQ2LTExLjE5LTY5LjI3LTM2Ljh6TTAgODEuNTRDMCAzNi43MyAzNi42My43NCA4Mi40My43NGMyNy45NDctLjE5NiA1NC4xODIgMTMuNzM3IDY5LjY3IDM3bC0zNC4zNCAxOS45MmE0Mi45NzIgNDIuOTcyIDAgMDAtMzUuMzMtMTguMzJjLTIzLjU1IDAtNDIuODUgMTkuNjMtNDIuODUgNDIuMiAwIDIyLjU3IDE5LjMgNDIuMiA0Mi44NSA0Mi4yYTQyLjUwMiA0Mi41MDIgMCAwMDM2LjMxLTIwbDM0IDIwLjI4Yy0xNS4zMDcgMjMuOTU1LTQxLjkwMiAzOC40MzEtNzAuMzMgMzguMjhDMzYuNjMgMTYyLjM0IDAgMTI1LjY2IDAgODEuNTR6IiBmaWxsPSIjMDA1NkQyIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4="
+                        alt="Coursera Logo" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo"></div>
+                            <div>
+                                <div class="cert-title">Python Certification</div>
+                                <div class="cert-org">Coursera</div>
+                            </div>
+                        </div>
+                        <a href="https://coursera.org/share/4e367d6155bf4cf49ed04ea574fc883e" target="_blank"
+                            rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
+                    </div>
+                </div>
+
+                
+
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="data:image/png;base64,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"
+                        alt="HP Life Logo" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo"></div>
+                            <div>
+                                <div class="cert-title">Cyber Security Certification</div>
+                                <div class="cert-org">HP Life</div>
+                            </div>
+                        </div>
+                        <a href="https://www.life-global.org/certificate/227fb6e1-aa5f-43aa-89aa-5fa73a234187"
+                            target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Certificate Details</button>
+                        </a>
+                    </div>
+                </div>
+
+                
+
+                
+
+                
+
+                
+
+                
+                <!-- 7. IBM Machine Learning Specialist -->
+                
+
+                
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Hackathons & Internships Section -->
+
+    <section id="hackathons">
+      <div class="container">
+            <h2 class="section-title text-gradient scroll-reveal">Hackathons & Internships</h2>
+            <div class="cert-grid">
+                <!-- Google Gen AI Hackathon -->
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Google_Cloud_logo.svg/2560px-Google_Cloud_logo.svg.png"
+                        alt="Google Cloud" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            
+                            <div>
+                                <div class="cert-title">Gen AI Exchange Hackathon</div>
+                                <div class="cert-org">Google (Ranked Top Developer)</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.9rem; color: var(--muted-foreground); margin-bottom: 1rem;">
+                            Won recognition for developing highly scalable RAG-based solutions using Vertex AI and
+                            LangChain.
+                        </p>
+                        <a href="https://drive.google.com/file/d/17FWR4LY7IV5Ww9mTNXi80iyojSkwtosF/view?usp=sharing"
+                            target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Achievement</button>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                <!-- Deloitte Virtual Internship -->
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="data:image/png;base64,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"
+                        alt="Deloitte" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo">
+                                <iconify-icon icon="simple-icons:deloitte"
+                                    style="font-size: 24px; color: #86BC25;"></iconify-icon>
+                            </div>
+                            <div>
+                                <div class="cert-title">Virtual Internship</div>
+                                <div class="cert-org">Deloitte</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.9rem; color: var(--muted-foreground); margin-bottom: 1rem;">
+                            Completed comprehensive virtual internship program in technology consulting and data
+                            analytics.
+                        </p>
+                        <a href="https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/udmxiyHeqYQLkTPvf_9PBTqmSxAf6zZTseP_6902e3ceec39cd63cb54f779_1761798650567_completion_certificate.pdf"
+                            target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Achievement</button>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tata Virtual Internship -->
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="data:image/png;base64,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"
+                        alt="Tata" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo">
+                               
+                            </div>
+                            <div>
+                                <div class="cert-title">Virtual Internship Experience</div>
+                                <div class="cert-org">Tata Group (Data Visualization)</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.9rem; color: var(--muted-foreground); margin-bottom: 1rem;">
+                            Collaborated on enterprise data projects, creating high-impact dashboards and predictive
+                            models.
+                        </p>
+                        <a href="https://www.theforage.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_6902e3ceec39cd63cb54f779_1769349410490_completion_certificate.pdf"
+                            target="_blank" rel="noopener noreferrer">
+                            <button class="cert-button">View Achievement</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="cert-card card-elegant scroll-reveal click-effect">
+                    <img src="data:image/png;base64,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"
+                        alt="Skill Dzire Logo" class="cert-image">
+                    <div class="cert-content">
+                        <div class="cert-header">
+                            <div class="cert-logo"></div>
+                            <div>
+                                <div class="cert-title">Web Development Internship</div>
+                                <div class="cert-org">Skill Dzire</div>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1ao31xukDRTjrHj_NKpeIKaDpRIl8FP3G/view?usp=sharing"
+                            target="_blank" rel="noopener noreferrer">
                             <button class="cert-button">View Certificate Details</button>
                         </a>
                     </div>
                 </div>
             </div>
+            </div>
         </div>
     </section>
+
 
     <!-- Projects Section -->
     <section id="projects" class="bg-subtle">
         <div class="container">
             <h2 class="section-title text-gradient scroll-reveal">Featured Projects</h2>
             <div class="projects-grid">
+                <!-- MindMitra -->
                 <div class="project-card card-elegant scroll-reveal click-effect">
-                    <img src="https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Weather Forecast Pro" class="project-image">
+                    <img src="https://images.pexels.com/photos/2821820/pexels-photo-2821820.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        alt="MindMitra" class="project-image">
                     <div class="project-content">
-                        <h3 class="project-title">Weather Forecast Pro</h3>
-                        <p class="project-desc">Advanced weather application with real-time data, 7-day forecasts, weather maps, and location-based alerts. Features beautiful animations and responsive design.</p>
+                        <h3 class="project-title">MindMitra</h3>
+                        <p class="project-desc">
+                            A premium Mental Wellness Platform leveraging Generative AI for accessible emotional
+                            support.
+                            Features high-performance Vector Search and real-time mood analysis with RAG technology.
+                        </p>
                         <div class="tech-tags">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">API Integration</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">PWA</span>
+                            <span class="tech-tag">Generative AI</span>
+                            <span class="tech-tag">Pinecone</span>
+                            <span class="tech-tag">RAG</span>
+                            <span class="tech-tag">Python</span>
                         </div>
                         <button class="btn-primary click-effect" onclick="window.open('#', '_blank')">
                             <span style="position: relative; z-index: 10;">View Project</span>
                         </button>
                     </div>
                 </div>
-                
+
+                <!-- SmartSupport -->
                 <div class="project-card card-elegant scroll-reveal click-effect">
-                    <div class="coming-soon-badge">Coming Soon</div>
-                    <img src="https://images.pexels.com/photos/3299/postit-scrabble-to-do.jpg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Smart To-Do List" class="project-image">
+                    <img src="https://images.pexels.com/photos/7129713/pexels-photo-7129713.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        alt="SmartSupport" class="project-image">
                     <div class="project-content">
-                        <h3 class="project-title">Smart To-Do List</h3>
-                        <p class="project-desc">Intelligent task management application with AI-powered priority suggestions, deadline tracking, and productivity analytics. Built with modern React and Node.js.</p>
+                        <h3 class="project-title">SmartSupport</h3>
+                        <p class="project-desc">
+                            Enterprise-grade B2B SaaS Customer Support Platform featuring Autonomous AI Agents.
+                            Optimizes ticket workflows through intelligent automation and sentiment-aware routing.
+                        </p>
                         <div class="tech-tags">
-                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Advanced APIs</span>
+                            <span class="tech-tag">AI Agents</span>
                             <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">AI/ML</span>
+                            <span class="tech-tag">SaaS</span>
                         </div>
-                        <button class="btn-primary click-effect" style="background: linear-gradient(135deg, #10B981, #059669);" onclick="window.open('#', '_blank')">
-                            <span style="position: relative; z-index: 10;">Coming Soon</span>
+                        <button class="btn-primary click-effect" onclick="window.open('#', '_blank')">
+                            <span style="position: relative; z-index: 10;">View Project</span>
                         </button>
                     </div>
                 </div>
-                
+
+                <!-- JanSaarthi -->
                 <div class="project-card card-elegant scroll-reveal click-effect">
-                    <div class="coming-soon-badge">Coming Soon</div>
-                    <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="CookCraft" class="project-image">
+                    <img src="https://github.com/bandibhargav12/jansaarthi/blob/main/logo.jpg?raw=true"
+                        alt="JanSaarthi" class="project-image">
                     <div class="project-content">
-                        <h3 class="project-title">CookCraft</h3>
-                        <p class="project-desc">AI-powered cooking assistant that suggests recipes based on available ingredients, dietary preferences, and cooking skills. Features step-by-step guidance and nutritional information.</p>
+                        <h3 class="project-title">JanSaarthi</h3>
+                        <p class="project-desc">
+                            AI-driven platform revolutionizing access to complex government schemes.
+                            Empowering millions through intuitive discovery and seamless guidance using NLP and ML.
+                        </p>
                         <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
                             <span class="tech-tag">Machine Learning</span>
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">API Integration</span>
+                            <span class="tech-tag">Cloud Services</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Social Impact</span>
                         </div>
-                        <button class="btn-primary click-effect" style="background: linear-gradient(135deg, #F59E0B, #D97706);" onclick="window.open('#', '_blank')">
-                            <span style="position: relative; z-index: 10;">Coming Soon</span>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="project-card card-elegant scroll-reveal click-effect">
-                    <div class="coming-soon-badge">Coming Soon</div>
-                    <img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Workout Assistant" class="project-image">
-                    <div class="project-content">
-                        <h3 class="project-title">Workout Assistant</h3>
-                        <p class="project-desc">Personalized fitness companion with AI-driven workout plans, progress tracking, and form analysis. Includes video demonstrations and real-time feedback.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">Computer Vision</span>
-                            <span class="tech-tag">Firebase</span>
-                        </div>
-                        <button class="btn-primary click-effect" style="background: linear-gradient(135deg, #EF4444, #DC2626);" onclick="window.open('#', '_blank')">
-                            <span style="position: relative; z-index: 10;">Coming Soon</span>
+                        <button class="btn-primary click-effect" onclick="window.open('#', '_blank')">
+                            <span style="position: relative; z-index: 10;">View Project</span>
                         </button>
                     </div>
                 </div>
@@ -2080,72 +2116,75 @@
                 <div class="contact-grid">
                     <div class="contact-info scroll-reveal">
                         <h3>Let's Build Something Amazing Together!</h3>
-                        <p>I'm always excited to discuss new opportunities, collaborate on interesting projects, or simply chat about technology and innovation. Drop me a message and let's connect!</p>
-                        
+                        <p>I'm always excited to discuss new opportunities, collaborate on interesting projects, or
+                            simply chat about technology and innovation. Drop me a message and let's connect!</p>
+
                         <div class="contact-item click-effect">
                             <div class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="white">
-                                    <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.91L12 10.09l9.455-6.269h.909c.904 0 1.636.732 1.636 1.636z"/>
+                                    <path
+                                        d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.91L12 10.09l9.455-6.269h.909c.904 0 1.636.732 1.636 1.636z" />
                                 </svg>
                             </div>
                             <div>
-                                <h4 style="font-weight: 600; margin-bottom: 0.25rem; color: var(--foreground);">Email</h4>
+                                <h4 style="font-weight: 600; margin-bottom: 0.25rem; color: var(--foreground);">Email
+                                </h4>
                                 <p style="color: var(--muted-foreground); margin: 0;">bhargavchowdary1221@gmail.com</p>
                             </div>
                         </div>
-                        
+
                         <div class="contact-item click-effect">
                             <div class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="white">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                                 </svg>
                             </div>
                             <div>
-                                <h4 style="font-weight: 600; margin-bottom: 0.25rem; color: var(--foreground);">LinkedIn</h4>
-                                <p style="color: var(--muted-foreground); margin: 0;">linkedin.com/in/bhargav-chowdary-830875295</p>
+                                <h4 style="font-weight: 600; margin-bottom: 0.25rem; color: var(--foreground);">LinkedIn
+                                </h4>
+                                <p style="color: var(--muted-foreground); margin: 0;">
+                                    linkedin.com/in/bhargav-chowdary-830875295</p>
                             </div>
                         </div>
-                        
+
                         <div class="contact-item click-effect">
                             <div class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="white">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                 </svg>
                             </div>
                             <div>
-                                <h4 style="font-weight: 600; margin-bottom: 0.25rem; color: var(--foreground);">GitHub</h4>
+                                <h4 style="font-weight: 600; margin-bottom: 0.25rem; color: var(--foreground);">GitHub
+                                </h4>
                                 <p style="color: var(--muted-foreground); margin: 0;">github.com/Bandibhargav</p>
                             </div>
                         </div>
 
-                        <!-- Company Logos -->
-                        <div class="company-logos">
-                            <div class="company-logo">
-                                <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150&h=80&fit=crop" alt="Skill Dzire">
-                            </div>
-                            <div class="company-logo">
-                                <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=150&h=80&fit=crop" alt="CodeChef">
-                            </div>
-                        </div>
                     </div>
-                    
+
                     <div class="scroll-reveal">
                         <form class="contact-form card-elegant" id="contactForm">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" id="name" name="name" required placeholder="Your full name" class="click-effect">
+                                <input type="text" id="name" name="name" required placeholder="Your full name"
+                                    class="click-effect">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required placeholder="your.email@example.com" class="click-effect">
+                                <input type="email" id="email" name="email" required
+                                    placeholder="your.email@example.com" class="click-effect">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea id="message" name="message" required rows="5" placeholder="Tell me about your project or just say hello!" class="click-effect"></textarea>
+                                <textarea id="message" name="message" required rows="5"
+                                    placeholder="Tell me about your project or just say hello!"
+                                    class="click-effect"></textarea>
                             </div>
-                            
+
                             <button type="submit" class="btn-primary submit-btn click-effect">
                                 <span id="submitText">Send Message</span>
                             </button>
@@ -2171,35 +2210,44 @@
                             </div>
                         </div>
                         <p class="footer-desc">
-                            Passionate about creating innovative solutions through code. Always learning, 
+                            Passionate about creating innovative solutions through code. Always learning,
                             always growing, and always ready for the next challenge in technology.
                         </p>
-                        
+
                         <div class="footer-social-links">
-                            <a href="https://github.com/Bandibhargav" class="footer-social-link click-effect" target="_blank" title="GitHub">
+                            <a href="https://github.com/Bandibhargav" class="footer-social-link click-effect"
+                                target="_blank" title="GitHub">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                 </svg>
                             </a>
-                            <a href="https://linkedin.com/in/bhargav-chowdary-830875295" class="footer-social-link click-effect" target="_blank" title="LinkedIn">
+                            <a href="https://linkedin.com/in/bhargav-chowdary-830875295"
+                                class="footer-social-link click-effect" target="_blank" title="LinkedIn">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                                 </svg>
                             </a>
-                            <a href="https://www.codechef.com/users/bhargavbandi" class="footer-social-link click-effect" target="_blank" title="CodeChef">🏆</a>
-                            <a href="mailto:bhargavchowdary1221@gmail.com" class="footer-social-link click-effect" title="Email">
+                            <a href="mailto:bhargavchowdary1221@gmail.com" class="footer-social-link click-effect"
+                                title="Email">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.91L12 10.09l9.455-6.269h.909c.904 0 1.636.732 1.636 1.636z"/>
+                                    <path
+                                        d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.91L12 10.09l9.455-6.269h.909c.904 0 1.636.732 1.636 1.636z" />
                                 </svg>
                             </a>
-                            <a href="https://www.instagram.com/_bhargav__chowdary__/" class="footer-social-link click-effect" title="Instagram">
+                            <a href="https://www.instagram.com/_bhargav__chowdary__/"
+                                class="footer-social-link click-effect" title="Instagram">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                                 </svg>
                             </a>
-                            <a href="https://x.com/Bhargav13062006" class="footer-social-link click-effect" title="X (Twitter)">
+                            <a href="https://x.com/Bhargav13062006" class="footer-social-link click-effect"
+                                title="X (Twitter)">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                    <path
+                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                                 </svg>
                             </a>
                         </div>
@@ -2212,7 +2260,9 @@
                             <li><a onclick="scrollToSection('about')" class="click-effect">About</a></li>
                             <li><a onclick="scrollToSection('skills')" class="click-effect">Skills</a></li>
                             <li><a onclick="scrollToSection('experience')" class="click-effect">Experience</a></li>
-                            <li><a onclick="scrollToSection('certifications')" class="click-effect">Certifications</a></li>
+                            <li><a onclick="scrollToSection('certifications')" class="click-effect">Certifications</a>
+                            </li>
+                            <li><a onclick="scrollToSection('hackathons')" class="click-effect">Hackathons</a></li>
                             <li><a onclick="scrollToSection('projects')" class="click-effect">Projects</a></li>
                             <li><a onclick="scrollToSection('contact')" class="click-effect">Contact</a></li>
                         </ul>
@@ -2230,8 +2280,9 @@
                 </div>
 
                 <div class="footer-bottom">
-                    <p>&copy; <span id="currentYear"></span> Bhargav Chowdary. All rights reserved. Built with ❤️ and passion for code.</p>
-                    
+                    <p>&copy; <span id="currentYear"></span> Bhargav Chowdary. All rights reserved. Built with ❤️ and
+                        passion for code.</p>
+
                     <button class="back-to-top click-effect" onclick="scrollToTop()">
                         <span>Back to Top</span>
                         <div class="back-to-top-icon">↑</div>
@@ -2266,7 +2317,7 @@
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver(function (entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
@@ -2279,7 +2330,7 @@
         });
 
         // Navbar Background on Scroll
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 100) {
                 navbar.classList.add('scrolled');
@@ -2289,15 +2340,15 @@
         });
 
         // Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const submitBtn = this.querySelector('.submit-btn');
             const submitText = document.getElementById('submitText');
             const originalText = submitText.textContent;
-            
+
             submitText.textContent = 'Sending...';
             submitBtn.style.background = 'linear-gradient(135deg, #10B981, #059669)';
-            
+
             setTimeout(() => {
                 submitText.textContent = 'Message Sent! 🎉';
                 setTimeout(() => {
@@ -2309,7 +2360,7 @@
         });
 
         // Enhanced Click Effects
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             // Ripple effect
             const ripple = document.createElement('div');
             ripple.style.position = 'fixed';
@@ -2336,14 +2387,14 @@
 
         // Close mobile menu when clicking on links
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 const navLinks = document.getElementById('navLinks');
                 navLinks.classList.remove('active');
             });
         });
 
         // Keyboard navigation support
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 const navLinks = document.getElementById('navLinks');
                 navLinks.classList.remove('active');
@@ -2377,4 +2428,5 @@
         document.head.appendChild(style);
     </script>
 </body>
+
 </html>
